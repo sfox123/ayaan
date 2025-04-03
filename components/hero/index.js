@@ -19,64 +19,83 @@ const Hero = (props) => {
     <section className={`hero ${props.heroClass}`}>
       <div className="hero-slider">
         <Slider {...settings}>
-          <div className="slide-inner">
-            <video autoPlay loop muted playsInline className="video-background">
-              <source src="/videos/wall.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div className="container">
-              <div className="row">
-                <div className="col col-lg-8 col-md-12 col-12 slide-caption">
-                  {/* <div className="btns">
-                    <Link href="/room" className="theme-btn">
-                      Book A Room
-                    </Link>
-                  </div> */}
+          <div className="slide">
+            <div
+              className="slide-inner"
+              style={{ backgroundImage: `url(${"/images/slider/1.jpg"})` }}
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col col-lg-8 col-md-12 col-12 slide-caption">
+                    <div className="slide-title">
+                      <h2>Ayaan Tours</h2>
+                    </div>
+                    <div className="slide-subtitle">
+                      <p>
+                        Make Your Life Better and Bright! You must trip with Us!
+                      </p>
+                    </div>
+                    <div className="btns">
+                      <Link href="/room" className="theme-btn">
+                        Book A Trip
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* <div className="slide">
-            <div className="slide-inner">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="video-background"
-              >
-                <source src="/videos/wall_sig.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="slide">
+            <div
+              className="slide-inner"
+              style={{ backgroundImage: `url(${"/images/slider/2.jpg"})` }}
+            >
               <div className="container">
                 <div className="row">
                   <div className="col col-lg-8 col-md-12 col-12 slide-caption">
-
+                    <div className="slide-title">
+                      <h2>Sri Lanka</h2>
+                    </div>
+                    <div className="slide-subtitle">
+                      <p>World's Top 20 Must visit Country</p>
+                    </div>
+                    <div className="btns">
+                      <Link href="/room" className="theme-btn">
+                        Book A Trip
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> */}
-          {/* <div className="slide">
-            <div className="slide-inner">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="video-background"
-              >
-                <source src="/videos/wall_sig.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          </div>
+          <div className="slide">
+            <div
+              className="slide-inner"
+              style={{ backgroundImage: `url(${"/images/slider/3.jpg"})` }}
+            >
               <div className="container">
                 <div className="row">
                   <div className="col col-lg-8 col-md-12 col-12 slide-caption">
+                    <div className="slide-title">
+                      <h2>Ayaan Tours</h2>
+                    </div>
+                    <div className="slide-subtitle">
+                      <p>
+                        Will Make everything easy for you! You just need to
+                        enjoy!
+                      </p>
+                    </div>
+                    <div className="btns">
+                      <Link href="/room" className="theme-btn">
+                        Book A Trip
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </Slider>
       </div>
     </section>
