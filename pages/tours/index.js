@@ -5,15 +5,15 @@ import Footer from "../../components/footer";
 import Scrollbar from "../../components/scrollbar";
 import Destination2 from "../../components/Destination2";
 
-const DestinationPage = () => {
+const ToursPage = () => {
   return (
     <Fragment>
       <Navbar hclass={"wpo-header-style-3"} />
-      <PageTitle pageTitle={"Destinations"} pagesub={"Ayaan Tours"} />
+      <PageTitle pageTitle={"Tours"} pagesub={"Ayaan Tours"} />
       <Destination2 />
       <Footer />
       <Scrollbar />
     </Fragment>
   );
 };
-export default DestinationPage;
+export default ToursPage;

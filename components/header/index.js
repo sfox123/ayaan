@@ -36,18 +36,14 @@ const Header = (props) => {
                 <nav>
                   <ul>
                     <li>
-                      <Link
-                        onClick={ClickHandler}
-                        href="/destinations"
-                        title=""
-                      >
+                      <Link onClick={ClickHandler} href="/destination" title="">
                         Destinations +
                       </Link>
                       <ul>
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/kandy"
+                            href="/destination/kandy"
                             title=""
                           >
                             Kandy City
@@ -56,7 +52,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/anuradhapura"
+                            href="/destination/anuradhapura"
                             title=""
                           >
                             Anuradhapura
@@ -65,7 +61,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Colombo City"
+                            href="/destination/Colombo"
                             title=""
                           >
                             Colombo City
@@ -74,7 +70,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Ella"
+                            href="/destination/Ella"
                             title=""
                           >
                             Ella
@@ -83,7 +79,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Galle"
+                            href="/destination/Galle"
                             title=""
                           >
                             Galle
@@ -92,7 +88,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Jaffna"
+                            href="/destination/Jaffna"
                             title=""
                           >
                             Jaffna
@@ -101,7 +97,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Pollanaruwa"
+                            href="/destination/Pollanaruwa"
                             title=""
                           >
                             Pollanaruwa
@@ -110,7 +106,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destinations/Sigiriya"
+                            href="/destination/Sigiriya"
                             title=""
                           >
                             Sigiriya

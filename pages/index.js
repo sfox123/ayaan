@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/hero";
-import SearchSection from "../components/SearchSection";
 import About from "../components/about";
 import Destination from "../components/Destination";
 import RoomSection from "../components/RoomSection";
@@ -16,7 +15,6 @@ const HomePage = () => {
     <Fragment>
       <Navbar />
       <Hero heroClass={"hero-style-1"} />
-      <SearchSection />
       <About />
       <Destination />
       <RoomSection />

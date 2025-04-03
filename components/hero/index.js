@@ -3,11 +3,12 @@ import Slider from "react-slick";
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
 
 const Hero = (props) => {
   var settings = {
     dots: true,
-    arrows: true,
+    arrows: false,
     speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -22,7 +23,9 @@ const Hero = (props) => {
           <div className="slide">
             <div
               className="slide-inner"
-              style={{ backgroundImage: `url(${"/images/slider/1.jpg"})` }}
+              style={{
+                "--bg-image": `url("/images/slider/1.jpg")`,
+              }}
             >
               <div className="container">
                 <div className="row">
@@ -48,7 +51,9 @@ const Hero = (props) => {
           <div className="slide">
             <div
               className="slide-inner"
-              style={{ backgroundImage: `url(${"/images/slider/2.jpg"})` }}
+              style={{
+                "--bg-image": `url("/images/slider/2.jpg")`,
+              }}
             >
               <div className="container">
                 <div className="row">
@@ -72,7 +77,9 @@ const Hero = (props) => {
           <div className="slide">
             <div
               className="slide-inner"
-              style={{ backgroundImage: `url(${"/images/slider/3.jpg"})` }}
+              style={{
+                "--bg-image": `url("/images/slider/3.jpg")`,
+              }}
             >
               <div className="container">
                 <div className="row">

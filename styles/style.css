@@ -2353,7 +2353,7 @@ header.fixed .header-content {
 }
 
 .hero .slide {
-  height: 100vh;
+  height: 50vh;
   position: relative;
   background-repeat: no-repeat;
   position: relative;
@@ -2366,25 +2366,40 @@ header.fixed .header-content {
 }
 
 .slide-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero-style-1 .slide-inner:before,
-.hero-style-2 .slide-inner:before {
+.slide-inner::before {
   content: "";
-  background-color: rgba(40, 58, 94, 0.34);
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
+
+  /* Pull in the custom CSS variable set in inline style */
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Start un-zoomed and slowly scale up */
+  transform: scale(1) !important;
+  transform-origin: center center; /* Ensures zoom is centered */
+  animation: zoomEffect 10s forwards ease-in-out !important;
+  z-index: -1; /* Keep it behind all the content */
+}
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 .hero-style-2 .slide-inner:before {
@@ -2521,11 +2536,13 @@ header.fixed .header-content {
 .hero .slide-caption > div.slide-title * {
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
+  font-family: "flood-std", sans-serif;
 }
 
 .hero .slide-caption > div.slide-subtitle * {
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
+  font-family: "flood-std", sans-serif;
 }
 
 .hero .slide-caption > div.btns * {
@@ -2572,7 +2589,7 @@ header.fixed .header-content {
 
 .hero-style-1,
 .hero-style-2 {
-  height: 900px;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -2609,7 +2626,7 @@ header.fixed .header-content {
 
 .hero-style-1 .slide,
 .hero-style-2 .slide {
-  height: 900px;
+  height: 100%;
 }
 
 @media (max-width: 1199px) {
