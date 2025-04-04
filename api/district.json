@@ -1,0 +1,17 @@
+[
+  {
+    "id": "colombo",
+    "title": "Colombo",
+    "description": "Colombo is the commercial capital of Sri Lanka."
+  },
+  {
+    "id": "kandy",
+    "title": "Kandy",
+    "description": "Kandy is a large city in central Sri Lanka, set on a plateau."
+  },
+  {
+    "id": "galle",
+    "title": "Galle",
+    "description": "Galle is a major city in Sri Lanka, on the southwestern tip."
+  }
+]
