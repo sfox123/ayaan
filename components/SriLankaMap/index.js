@@ -85,18 +85,20 @@ export default function SriLankaMap({ selectedDistrictName, onDistrictClick }) {
         source: "sri-lanka",
         filter: getEnabledFilter(),
         paint: {
-          "fill-color": "#000",
-          "fill-opacity": 0.05,
+          "fill-color": "#c8b79e", // a parchment-like fill
+          "fill-opacity": 0.3,
         },
       });
+
+      // Outline
       mapboxMap.addLayer({
         id: "sl-outline-enabled",
         type: "line",
         source: "sri-lanka",
         filter: getEnabledFilter(),
         paint: {
-          "line-color": "#000", // Black outline for enabled
-          "line-width": 1,
+          "line-color": "#5b3a29", // dark brown outline
+          "line-width": 2,
         },
       });
 
@@ -146,7 +148,12 @@ export default function SriLankaMap({ selectedDistrictName, onDistrictClick }) {
       mapboxMap.on("mouseleave", "sl-fill-enabled", () => {
         mapboxMap.setFilter("sl-hover-enabled", ["==", ["get", "name"], ""]);
       });
-
+      mapboxMap.on("mouseenter", "sl-fill-enabled", () => {
+        mapboxMap.getCanvas().style.cursor = "pointer";
+      });
+      mapboxMap.on("mouseleave", "sl-fill-enabled", () => {
+        mapboxMap.getCanvas().style.cursor = "";
+      });
       // CLICK only on enabled districts
       mapboxMap.on("click", "sl-fill-enabled", (e) => {
         if (!e.features?.length) return;

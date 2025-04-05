@@ -143,10 +143,6 @@ button:focus {
   outline: none;
 }
 
-.section-padding {
-  padding: 100px 0;
-}
-
 .ptb-100-70 {
   padding: 100px 0 70px;
 }
@@ -483,10 +479,6 @@ button:focus {
 
 .fi:before {
   margin: 0;
-}
-
-.section-padding {
-  padding: 110px 0;
 }
 
 @media (max-width: 991px) {
@@ -3436,6 +3428,7 @@ hero-style3
 
 .wpo-about-area-2,
 .wpo-about-area {
+  background-color: #fdea95;
 }
 
 .wpo-about-text .wpo-section-title,
@@ -9508,4 +9501,36 @@ wpo-blog sidebar
 .error-message .theme-btn-s4 {
   background-color: #08cc7f;
   color: #fff;
+}
+
+.heading-container {
+  padding: 20px; /* Add padding around the heading */
+  margin: 30px auto; /* Add margin and center the container */
+  text-align: center; /* Center the heading text */
+}
+
+.heading {
+  font-family: "flood-std", sans-serif; /* Apply the specified font */
+  line-height: 1.2; /* Adjust line height for better readability */
+}
+
+.heading.sm {
+  font-size: 1.5rem; /* Small size */
+}
+
+.heading.md {
+  font-size: 2rem; /* Medium size */
+}
+
+.heading.lg {
+  font-size: 3rem; /* Large size */
+}
+
+.heading.xl {
+  font-size: 4rem; /* Extra large size */
+}
+.font-about {
+  font-family: "pakenham", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

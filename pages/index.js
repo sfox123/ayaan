@@ -9,12 +9,14 @@ import Testimonial from "../components/Testimonial";
 import BlogSection from "../components/BlogSection";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
+import Heading from "../components/Heading";
 
 const HomePage = () => {
   return (
     <Fragment>
       <Navbar />
       <Hero heroClass={"hero-style-1"} />
+      <Heading text="destinations" size="lg" />
       <About />
       <Destination />
       <RoomSection />

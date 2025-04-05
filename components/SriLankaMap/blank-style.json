@@ -7,7 +7,7 @@
       "id": "background",
       "type": "background",
       "paint": {
-        "background-color": "#ffffff"
+        "background-color": "white"
       }
     }
   ]

@@ -1,40 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { motion, useInView } from "framer-motion";
+import Heading from "../Heading";
+import districtsData from "../../api/district.json";
 
 const SriLankaMap = dynamic(() => import("../../components/SriLankaMap"), {
   ssr: false,
 });
 
 export default function About() {
-  const [selectedDistrict, setSelectedDistrict] = useState("Ella");
+  const [selectedDistrict, setSelectedDistrict] = useState("Sigiriya");
+  const imgRef = useRef(null); // Create a ref for the image
+  const isInView = useInView(imgRef, { once: true }); // Trigger animation only once when visible
+  const ClickHandler = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
+  const handleName = (selectedDistrict) => {
+    let displayName = selectedDistrict; // default is the original name
+    let name = "";
+
+    switch (displayName.toLowerCase()) {
+      case "kandy":
+        name = "Kandy City";
+        break;
+      case "colombo":
+        name = "Colombo City";
+        break;
+      case "matale":
+        name = "Sigiriya";
+        break;
+      case "badulla":
+        name = "Ella";
+        break;
+      default:
+        return displayName;
+    }
+
+    return name;
+  };
 
   const handleDistrictClick = (districtName) => {
     let displayName = districtName; // default is the original name
-
-    switch (districtName.toLowerCase()) {
-      case "kandy":
-        displayName = "Kandy City";
-        break;
-      case "colombo":
-        displayName = "Colombo City";
-        break;
-      case "matale":
-        displayName = "Sigiriya";
-        break;
-      case "badulla":
-        displayName = "Ella";
-        break;
-      default:
-        break;
-    }
-
     setSelectedDistrict(displayName);
   };
 
-  const ClickHandler = () => {
-    window.scrollTo(10, 0);
-  };
+  // Find the image path for the selected district
+  const selectedDistrictData = districtsData.districts.find(
+    (district) => district.name.toLowerCase() === selectedDistrict.toLowerCase()
+  );
 
   return (
     <div className="wpo-about-area section-padding">
@@ -44,9 +58,8 @@ export default function About() {
             <div className="wpo-about-img">
               <SriLankaMap
                 selectedDistrictName={
-                  selectedDistrict == "Ella" ? "Badulla" : selectedDistrict
+                  selectedDistrict == "Sigiriya" ? "Matale" : selectedDistrict
                 }
-                // Pass the selected district name to the SriLankaMap component
                 onDistrictClick={handleDistrictClick}
               />
             </div>
@@ -54,20 +67,51 @@ export default function About() {
           <div className="col-lg-5 col-md-12 col-sm-12">
             <div className="wpo-about-text">
               <div className="wpo-section-title">
-                <span>About Us</span>
-                <h2>Welcome to {selectedDistrict}</h2>
+                <Heading text={handleName(selectedDistrict)} size="md" />
               </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <div className="btns">
+              <div>
+                <motion.img
+                  key={selectedDistrict}
+                  ref={imgRef}
+                  src={selectedDistrictData?.image || "svg/sigiriya.svg"} // Use the image path from JSON
+                  alt={selectedDistrict}
+                  className="sigiriya"
+                  initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, scale: 1, rotate: 0 }
+                      : { opacity: 0, scale: 0.8, rotate: -10 }
+                  }
+                  transition={{
+                    duration: 1,
+                    ease: "easeInOut",
+                    delay: 0.3,
+                  }}
+                />
+              </div>
+              <motion.p
+                key={selectedDistrict}
+                initial={{ opacity: 0, x: -20 }}
+                animate={
+                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                }
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                  delay: 0.3,
+                }}
+                className="font-about"
+              >
+                {selectedDistrictData?.content ||
+                  districtsData.districts[2].content}
+              </motion.p>
+              <div className="btns" style={{ marginBottom: "20px" }}>
                 <Link
                   onClick={ClickHandler}
                   href="/about"
                   className="theme-btn-s2"
                 >
-                  More About Us
+                  {`Explore ${handleName(selectedDistrict)}`}
                 </Link>
               </div>
             </div>

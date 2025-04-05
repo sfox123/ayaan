@@ -15,6 +15,10 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://use.typekit.net/jgh1rza.css"
           ></link>
+          <link
+            rel="stylesheet"
+            href="https://use.typekit.net/jgh1rza.css"
+          ></link>
         </Head>
         <body>
           <Main />
