@@ -9534,3 +9534,160 @@ wpo-blog sidebar
   font-weight: 400;
   font-style: normal;
 }
+
+/* 
+  General container styling.
+  Using flex-like row approach. Adjust as needed for your layout/library (Bootstrap, etc.).
+*/
+.taxi-booking-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-image: url("../public/images/taxi/bg.jpg");
+  background-size: cover;
+}
+
+/* Ensure row is a flex container if not using bootstrap row classes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Column styling if you want more control beyond default bootstrap classes */
+.col-lg-6 {
+  flex: 1;
+  max-width: 50%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.col-md-12 {
+  max-width: 100%;
+}
+
+/* Hide Lottie on mobile via media queries */
+@media (max-width: 767px) {
+  .taxi-animation {
+    display: none; /* Hide the Lottie container on small screens */
+  }
+  .col-lg-6 {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .taxi-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+}
+
+/* Lottie animation container can be smaller if you want */
+.lottie-animation {
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+  align-self: center;
+}
+
+/* Form container styling */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The form itself */
+.taxi-booking-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffd700; /* Taxi yellow color */
+  color: #000; /* White text */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form heading */
+.taxi-booking-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Each row of form inputs */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Generic form group styling */
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Inputs and selects */
+.form-group input,
+.form-group select {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+  /* A subtle box-shadow to give some depth */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Autocomplete container for icon positioning */
+.autocomplete-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.autocomplete-container input {
+  width: 100%;
+}
+
+/* Location icon inside the input - positioned to the right */
+.location-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Submit button */
+.taxi-booking-form button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #228b22; /* Another green shade for the button */
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.taxi-booking-form button:hover {
+  background-color: #1e7f1e; /* Slightly darker on hover */
+}
+
+.taxi-booking-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
