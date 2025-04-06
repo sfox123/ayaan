@@ -78,7 +78,7 @@ const page = () => {
 
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyBDnG1pfaElTUeDNKpHHFJ2DKnyQm39UgU"
+      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
       <div className="taxi-booking-container">
