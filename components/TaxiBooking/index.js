@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { GoogleMap, LoadScript, Autocomplete } from "@react-google-maps/api";
+import { LoadScript, Autocomplete } from "@react-google-maps/api";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Dynamically import Lottie (so it doesn’t render on server side)
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-
 import taxiAnimation from "../../public/taxi.json";
 
 const TaxiBooking = () => {
@@ -21,35 +19,36 @@ const TaxiBooking = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [formKey, setFormKey] = useState(0); // 👈 to reset form
   const [autocompleteFrom, setAutocompleteFrom] = useState(null);
   const [autocompleteTo, setAutocompleteTo] = useState(null);
 
-  // Basic onChange handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Autocomplete
   const handlePlaceSelectFrom = () => {
     if (autocompleteFrom) {
       const place = autocompleteFrom.getPlace();
-      setFormData({ ...formData, from: place?.formatted_address || "" });
+      setFormData((prev) => ({
+        ...prev,
+        from: place?.formatted_address || "",
+      }));
     }
   };
 
   const handlePlaceSelectTo = () => {
     if (autocompleteTo) {
       const place = autocompleteTo.getPlace();
-      setFormData({ ...formData, to: place?.formatted_address || "" });
+      setFormData((prev) => ({ ...prev, to: place?.formatted_address || "" }));
     }
   };
 
-  // Form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // You can add more robust validations here if needed
     if (
       !formData.passengerName.trim() ||
       !formData.email.trim() ||
@@ -63,17 +62,43 @@ const TaxiBooking = () => {
     }
 
     setLoading(true);
+    setSuccessMessage("");
 
-    // Example of capturing form data in a query parameter
-    const queryParams = new URLSearchParams(formData).toString();
-    const url = `https://example.com/submit?${queryParams}`;
-    console.log("Form submitted to:", url);
+    try {
+      const res = await fetch("/api/resend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Simulate an API call
-    setTimeout(() => {
+      const result = await res.json();
+      if (res.ok) {
+        setSuccessMessage("🎉 Your ride request was submitted successfully!");
+
+        // Reset form data
+        setFormData({
+          passengerName: "",
+          email: "",
+          contactNumber: "",
+          vehicleType: "Car",
+          from: "",
+          to: "",
+        });
+
+        if (autocompleteFrom) autocompleteFrom.set("place", null);
+        if (autocompleteTo) autocompleteTo.set("place", null);
+
+        // Force re-render to reset all input values
+        setFormKey((prev) => prev + 1);
+      } else {
+        alert(result.error || "Something went wrong.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Network error.");
+    } finally {
       setLoading(false);
-      alert("Form submitted successfully!");
-    }, 2000);
+    }
   };
 
   return (
@@ -83,7 +108,7 @@ const TaxiBooking = () => {
     >
       <div className="taxi-booking-container">
         <div className="row">
-          {/* Left Column: Lottie Animation */}
+          {/* Animation */}
           <div className="col-lg-6 col-md-12 taxi-animation">
             <Lottie
               animationData={taxiAnimation}
@@ -93,12 +118,31 @@ const TaxiBooking = () => {
             />
           </div>
 
-          {/* Right Column: Form */}
+          {/* Form */}
           <div className="col-lg-6 col-md-12 form-container">
-            <form onSubmit={handleSubmit} className="taxi-booking-form">
+            <form
+              key={formKey}
+              onSubmit={handleSubmit}
+              className="taxi-booking-form"
+            >
               <h2>Book Your Ride</h2>
 
-              {/* First row: Passenger Name & Email */}
+              {/* Success Message */}
+              <AnimatePresence>
+                {successMessage && (
+                  <motion.div
+                    className="success-message"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {successMessage}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Name & Email */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="passengerName">Passenger Name</label>
@@ -125,7 +169,7 @@ const TaxiBooking = () => {
                 </div>
               </div>
 
-              {/* Second row: Contact Number & Vehicle Type */}
+              {/* Contact & Vehicle */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="contactNumber">Contact Number</label>
@@ -155,12 +199,12 @@ const TaxiBooking = () => {
                 </div>
               </div>
 
-              {/* Third row: From & To */}
+              {/* From & To */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="from">From</label>
                   <Autocomplete
-                    onLoad={(autocomplete) => setAutocompleteFrom(autocomplete)}
+                    onLoad={setAutocompleteFrom}
                     onPlaceChanged={handlePlaceSelectFrom}
                   >
                     <div className="autocomplete-container">
@@ -186,7 +230,7 @@ const TaxiBooking = () => {
                 <div className="form-group">
                   <label htmlFor="to">To</label>
                   <Autocomplete
-                    onLoad={(autocomplete) => setAutocompleteTo(autocomplete)}
+                    onLoad={setAutocompleteTo}
                     onPlaceChanged={handlePlaceSelectTo}
                   >
                     <div className="autocomplete-container">
@@ -210,7 +254,7 @@ const TaxiBooking = () => {
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit */}
               <button type="submit" disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}
               </button>
