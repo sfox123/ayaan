@@ -10,7 +10,7 @@ const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 import taxiAnimation from "../../public/taxi.json";
 
-const page = () => {
+const TaxiBooking = () => {
   const [formData, setFormData] = useState({
     passengerName: "",
     email: "",
@@ -222,4 +222,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default TaxiBooking;

@@ -9,7 +9,7 @@ import BlogSection from "../components/BlogSection";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
 import Heading from "../components/Heading";
-import TaxiBooking from "../components/taxi";
+import TaxiBooking from "../components/TaxiBooking";
 
 const HomePage = () => {
   return (
