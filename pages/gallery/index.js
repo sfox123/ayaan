@@ -1,25 +1,19 @@
 import React, { Fragment } from "react";
-import PageTitle from "../../components/pagetitle";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/footer";
 import Scrollbar from "../../components/scrollbar";
-import Destination2 from "../../components/Destination2";
 import Breadcrumb from "../../components/breadcrumb";
-const ToursPage = () => {
+import MyGallery from "../../components/gallery";
+const GalleryPage = () => {
   return (
     <Fragment>
       <Navbar hclass={"wpo-header-style-3"} />
       <Breadcrumb />
-      <PageTitle
-        bgImage={"images/tours/bg.png"}
-        pageTitle={"Tours"}
-        pagesub={"Ayaan Tours"}
-      />
-      <Destination2 />
+      <MyGallery />
       <Footer />
       <Scrollbar />
     </Fragment>
   );
 };
 
-export default ToursPage;
+export default GalleryPage;

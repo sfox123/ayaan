@@ -1,98 +1,166 @@
-import dimg1 from '/public/images/destination/img-1.jpg'
-import dimg2 from '/public/images/destination/img-2.jpg'
-import dimg3 from '/public/images/destination/img-3.jpg'
-import dimg4 from '/public/images/destination/img-4.jpg'
-import dimg5 from '/public/images/destination/img-5.jpg'
-import dimg6 from '/public/images/destination/img-6.jpg'
+const data = [
+  {
+    title: "Polonnaruwa",
+    location: "Polonnaruwa",
+    description:
+      "Polonnaruwa, UNESCO World Heritage site, is one of Sri Lanka’s ancient capitals and a treasure trove of well-preserved ruins, providing a vivid snapshot of the island’s glorious past. This archaeological marvel offers a glimpse into the golden age of Sri Lankan civilization. With its ancient temples, royal palaces, and serene reservoirs, Polonnaruwa is a must-visit for history enthusiasts and those seeking to connect with Sri Lanka's deep cultural and religious roots.",
+    highlights: [
+      "Royal Palace Complex",
+      "Gal Vihara",
+      "Parakrama Samudra",
+      "Watadage",
+      "Rankoth Vehera Stupa",
+      "Lankatilaka Temple",
+      "Siva Devale",
+      "Cycling Tour",
+      "Local Cuisine",
+      "Sri Lanka's Ancient Rice Fields (optional)",
+    ],
+    duration: "Full-day tour",
+    idealFor: ["History buffs", "Culture seekers", "Religious travelers"],
+  },
+  {
+    title: "Sigiriya",
+    location: "Sigiriya",
+    description:
+      "Sigiriya, one of Sri Lanka’s most iconic landmarks, is a UNESCO World Heritage site known for its stunning ancient history, breathtaking landscapes, and cultural significance. Dominated by the towering Sigiriya Rock, this ancient royal citadel is often referred to as the Eighth Wonder of the World due to its impressive engineering and artistic achievements. Visitors to Sigiriya can explore the fascinating history of this remarkable site while enjoying panoramic views of the surrounding jungles and plains.",
+    highlights: [
+      "Sigiriya Rock Fortress",
+      "Frescoes of Sigiriya",
+      "Lion's Gate",
+      "Water Gardens",
+      "Pidurangala Rock (optional)",
+      "Cultural Dance Show (optional)",
+      "Sigiriya Village Tour (optional)",
+    ],
+    duration: "Half-day or full-day tour",
+    idealFor: [
+      "History lovers",
+      "Adventure seekers",
+      "Photography enthusiasts",
+    ],
+  },
+  {
+    title: "Galle",
+    location: "Galle",
+    description:
+      "Galle is a charming coastal city located on Sri Lanka’s southwestern tip, known for its rich history, stunning beaches, and vibrant atmosphere. The city is best known for its UNESCO-listed Galle Fort, a beautifully preserved colonial-era fortress surrounded by picturesque streets, boutique shops, and cozy cafes. With its mix of heritage, culture, and modern attractions, Galle is the perfect blend of the past and present, offering something for every type of traveler. Whether you're exploring historical sites, enjoying the sunset on the beach, or experiencing the lively nightlife, Galle is an unforgettable destination.",
+    highlights: [
+      "Galle Fort Exploration",
+      "Unawatuna Beach",
+      "Dutch Reformed Church & Clock Tower",
+      "Sea Turtle Hatchery Visit",
+      "Stilt Fishermen",
+      "Galle Harbour",
+      "Live Music & Bars",
+      "Beachfront Dining",
+      "Night Markets",
+      "Night Safari (optional)",
+    ],
+    duration: "Full-day tour with lively evening options",
+    idealFor: ["History buffs", "Beach lovers", "Adventure seekers"],
+  },
+  {
+    title: "Jaffna",
+    location: "Jaffna",
+    description:
+      "Jaffna, located in the northernmost part of Sri Lanka, is a vibrant city rich in history, culture, and traditions. Known for its unique Tamil heritage, Jaffna offers a mix of religious landmarks, ancient temples, picturesque landscapes, and a distinct atmosphere that sets it apart from the rest of the island. The region is home to beautiful beaches, bustling markets, and historical sites that tell the story of its past, making it a captivating destination for travelers seeking to experience the authentic cultural heart of Sri Lanka.",
+    highlights: [
+      "Jaffna Fort",
+      "Nallur Kandaswamy Kovil",
+      "Jaffna Public Library",
+      "Keerimalai Springs",
+      "Point Pedro",
+      "Casuarina Beach",
+      "Local Markets",
+      "Jaffna Cuisine",
+      "Cultural Performances (optional)",
+      "Island Tour (optional)",
+      "Ferry Ride to Jaffna Peninsula (optional)",
+    ],
+    duration: "Full-day tour",
+    idealFor: ["Culture seekers", "History buffs", "Nature lovers"],
+  },
+  {
+    title: "Ella",
+    location: "Ella",
+    description:
+      "Ella is a picturesque town nestled in the heart of Sri Lanka’s southern hill country, surrounded by lush greenery, misty mountains, and expansive tea plantations. It is renowned for its stunning natural beauty, making it one of Sri Lanka's top travel destinations. With a laid-back atmosphere and numerous hiking opportunities, Ella offers visitors the chance to experience the island's scenic landscapes and rich cultural heritage. While Ella is known for its tranquility and natural beauty, it has also recently become a lively hub for both adventure seekers and those seeking a peaceful retreat. The town’s growing nightlife offers a mix of live music, bars, and small venues, creating a unique blend of relaxation and entertainment.",
+    highlights: [
+      "Ella Rock Hike",
+      "Nine Arches Bridge",
+      "Ravana Falls",
+      "Little Adam’s Peak",
+      "Tea Plantation Visit",
+      "Flying Ravana Zipline (optional)",
+      "Live Music & Bands",
+      "Bars & Clubs",
+      "Stargazing or Night Safari (optional)",
+    ],
+    duration: "Full-day tour with vibrant evening options",
+    idealFor: ["Nature lovers", "Adventure seekers", "Nightlife explorers"],
+  },
+  {
+    title: "Colombo",
+    location: "Colombo",
+    description:
+      "Colombo, Sri Lanka's vibrant capital, blends modernity with tradition, offering visitors a dynamic mix of culture, history, and contemporary attractions. With its bustling streets, colorful markets, historic landmarks, and a lively beachfront, Colombo is a city that never sleeps. Whether you're discovering its colonial-era sites, enjoying local delicacies at street markets, or experiencing the vibrant nightlife, Colombo is an exciting destination that offers something for every traveler.",
+    highlights: [
+      "Galle Face Green",
+      "Colombo National Museum",
+      "Gangaramaya Temple",
+      "Pettah Market",
+      "Independence Square",
+      "Colombo Harbour",
+      "Live Music & Bars",
+      "Beachfront Dining",
+      "Nightlife Venues",
+      "Night Walk (optional)",
+    ],
+    duration: "Full-day tour with exciting evening options",
+    idealFor: ["Culture enthusiasts", "Foodies", "Urban explorers"],
+  },
+  {
+    title: "Anuradhapura",
+    location: "Anuradhapura",
+    description:
+      "Anuradhapura, one of Sri Lanka’s ancient capitals, is a UNESCO World Heritage site and a key historical destination. As the cradle of Sinhala civilization, it boasts an impressive array of ancient temples, stupas, and palaces. Surrounded by lush greenery and dotted with ancient ruins, Anuradhapura is a city steeped in rich cultural and religious significance. A visit here is a journey back in time, offering an opportunity to explore Sri Lanka’s deep-rooted Buddhist heritage and marvel at architectural wonders that have stood for centuries.",
+    highlights: [
+      "Sri Maha Bodhi Tree",
+      "Ruwanwelisaya Stupa",
+      "Jetavanarama Stupa",
+      "Abhayagiri Monastery",
+      "Thuparamaya",
+      "Isurumuniya Temple",
+      "Moonstone (Chandrasila)",
+      "Sacred City Walk",
+      "Local Cuisine",
+      "Mihintale (optional)",
+      "Wilpattu National Park (optional)",
+    ],
+    duration: "Full-day tour",
+    idealFor: ["History lovers", "Cultural enthusiasts", "Religious travelers"],
+  },
+  {
+    title: "Kandy",
+    location: "Kandy",
+    description:
+      "Experience the cultural heart of Sri Lanka with its sacred temples, vibrant markets, and lush landscapes.",
+    highlights: [
+      "Temple of the Tooth Relic",
+      "Kandy Lake",
+      "Royal Botanical Gardens",
+      "Kandy Cultural Show",
+      "Udawattekele Sanctuary",
+      "Local Markets",
+      "Kandy City Tour",
+      "Traditional Crafts",
+      "Tea Tasting",
+      "Ayurvedic Spa Experience (optional)",
+    ],
+    duration: "Full-day tour",
+    idealFor: ["Culture seekers", "Nature lovers", "History buffs"],
+  },
+];
 
-import dSimg1 from '/public/images/destination/img-1.jpg'
-import dSimg2 from '/public/images/destination/img-2.jpg'
-import dSimg3 from '/public/images/destination/img-3.jpg'
-import dSimg4 from '/public/images/destination/img-4.jpg'
-import dSimg5 from '/public/images/destination/img-5.jpg'
-import dSimg6 from '/public/images/destination/img-6.jpg'
-
-
-
-const Destinations = [
-    {
-        id: '1',
-        title:'Paris, France',
-        slug:'Paris,France',
-        subTitle:'Vietnam Sea Beach',
-        dimg1:dimg1,
-        dSimg:dSimg1,
-        price:'835',
-        date:'11 Jun 2023 - 22 Jun 2023'
-    },
-    {
-        id: '2',
-        title:'United Arab',
-        slug:'United-Arab',
-        subTitle:'Paris, France',
-        dimg1:dimg2,
-        dSimg:dSimg2,
-        price:'750',
-        date:'15 Jun 2023 - 18 Jun 2023'
-    },
-    {
-        id: '3',
-        title:'San Francisco',
-        slug:'San-Francisco',
-        subTitle:'Vaadhoo, Maldives',
-        dimg1:dimg3,
-        dSimg:dSimg3,
-        price:'650',
-        date:'18 Jun 2023 - 30 Jun 2023'
-    },
-    {
-        id: '4',
-        title:'Singapore',
-        slug:'Singapore',
-        subTitle:'Vietnam Sea Beach',
-        dimg1:dimg4,
-        dSimg:dSimg4,
-        price:'530',
-        date:'14 Jun 2023 - 16 Jun 2023'
-    },
-    {
-        id: '5',
-        title:'Sea View Resort',
-        slug:'Sea-View-Resort',
-        subTitle:'Paris, France',
-        dimg1:dimg5,
-        dSimg:dSimg5,
-        price:'900',
-    },
-    {
-        id: '7',
-        title:'5 star Hotel and Resort',
-        slug:'5-star-Hotel-and-Resort',
-        subTitle:'Vaadhoo, Maldives',
-        dimg1:dimg6,
-        dSimg:dSimg6,
-        price:'690',
-        date:'16 Jun 2023 - 28 Jun 2023'
-    },
-    {
-        id: '8',
-        title:'5 star Hotel and Resort',
-        slug:'5-star-Hotel-and-Resort',
-        subTitle:'Vaadhoo, Maldives',
-        dimg1:dimg6,
-        dSimg:dSimg6,
-        price:'350',
-        date:'12 Jun 2023 - 29 Jun 2023'
-    },
-    {
-        id: '9',
-        title:'5 star Hotel and Resort',
-        slug:'5-star-Hotel-and-Resort',
-        subTitle:'Vaadhoo, Maldives',
-        dimg1:dimg6,
-        dSimg:dSimg6,
-        price:'255',
-        date:'10 Jun 2023 - 25 Jun 2023'
-    },
-]
-export default Destinations;
+export default data;

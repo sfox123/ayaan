@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/hero";
 import About from "../components/about";
-import Destination from "../components/Destination";
 import VideoSection from "../components/videoSection";
 import Testimonial from "../components/Testimonial";
 import BlogSection from "../components/BlogSection";
@@ -18,7 +17,6 @@ const HomePage = () => {
       <Hero heroClass={"hero-style-1"} />
       <Heading text="destinations" size="lg" />
       <About />
-      <Destination />
       <Heading text="taxi" size="lg" />
       <TaxiBooking />
       <VideoSection />
