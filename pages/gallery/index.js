@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import Scrollbar from "../../components/scrollbar";
 import Breadcrumb from "../../components/breadcrumb";
 import MyGallery from "../../components/gallery";
+
 const GalleryPage = () => {
   return (
     <Fragment>

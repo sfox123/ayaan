@@ -2,6 +2,7 @@ const data = [
   {
     title: "Polonnaruwa",
     location: "Polonnaruwa",
+    img: "/images/destination/polonnaruwa.png",
     description:
       "Polonnaruwa, UNESCO World Heritage site, is one of Sri Lanka’s ancient capitals and a treasure trove of well-preserved ruins, providing a vivid snapshot of the island’s glorious past. This archaeological marvel offers a glimpse into the golden age of Sri Lankan civilization. With its ancient temples, royal palaces, and serene reservoirs, Polonnaruwa is a must-visit for history enthusiasts and those seeking to connect with Sri Lanka's deep cultural and religious roots.",
     highlights: [
@@ -22,6 +23,7 @@ const data = [
   {
     title: "Sigiriya",
     location: "Sigiriya",
+    img: "/images/destination/Sigiriya.png",
     description:
       "Sigiriya, one of Sri Lanka’s most iconic landmarks, is a UNESCO World Heritage site known for its stunning ancient history, breathtaking landscapes, and cultural significance. Dominated by the towering Sigiriya Rock, this ancient royal citadel is often referred to as the Eighth Wonder of the World due to its impressive engineering and artistic achievements. Visitors to Sigiriya can explore the fascinating history of this remarkable site while enjoying panoramic views of the surrounding jungles and plains.",
     highlights: [
@@ -43,6 +45,7 @@ const data = [
   {
     title: "Galle",
     location: "Galle",
+    img: "/images/destination/galle.png",
     description:
       "Galle is a charming coastal city located on Sri Lanka’s southwestern tip, known for its rich history, stunning beaches, and vibrant atmosphere. The city is best known for its UNESCO-listed Galle Fort, a beautifully preserved colonial-era fortress surrounded by picturesque streets, boutique shops, and cozy cafes. With its mix of heritage, culture, and modern attractions, Galle is the perfect blend of the past and present, offering something for every type of traveler. Whether you're exploring historical sites, enjoying the sunset on the beach, or experiencing the lively nightlife, Galle is an unforgettable destination.",
     highlights: [
@@ -63,6 +66,7 @@ const data = [
   {
     title: "Jaffna",
     location: "Jaffna",
+    img: "/images/destination/jaffna.png",
     description:
       "Jaffna, located in the northernmost part of Sri Lanka, is a vibrant city rich in history, culture, and traditions. Known for its unique Tamil heritage, Jaffna offers a mix of religious landmarks, ancient temples, picturesque landscapes, and a distinct atmosphere that sets it apart from the rest of the island. The region is home to beautiful beaches, bustling markets, and historical sites that tell the story of its past, making it a captivating destination for travelers seeking to experience the authentic cultural heart of Sri Lanka.",
     highlights: [
@@ -84,6 +88,7 @@ const data = [
   {
     title: "Ella",
     location: "Ella",
+    img: "/images/destination/ella.png",
     description:
       "Ella is a picturesque town nestled in the heart of Sri Lanka’s southern hill country, surrounded by lush greenery, misty mountains, and expansive tea plantations. It is renowned for its stunning natural beauty, making it one of Sri Lanka's top travel destinations. With a laid-back atmosphere and numerous hiking opportunities, Ella offers visitors the chance to experience the island's scenic landscapes and rich cultural heritage. While Ella is known for its tranquility and natural beauty, it has also recently become a lively hub for both adventure seekers and those seeking a peaceful retreat. The town’s growing nightlife offers a mix of live music, bars, and small venues, creating a unique blend of relaxation and entertainment.",
     highlights: [
@@ -102,6 +107,7 @@ const data = [
   },
   {
     title: "Colombo",
+    img: "/images/destination/colombo.png",
     location: "Colombo",
     description:
       "Colombo, Sri Lanka's vibrant capital, blends modernity with tradition, offering visitors a dynamic mix of culture, history, and contemporary attractions. With its bustling streets, colorful markets, historic landmarks, and a lively beachfront, Colombo is a city that never sleeps. Whether you're discovering its colonial-era sites, enjoying local delicacies at street markets, or experiencing the vibrant nightlife, Colombo is an exciting destination that offers something for every traveler.",
@@ -123,6 +129,7 @@ const data = [
   {
     title: "Anuradhapura",
     location: "Anuradhapura",
+    img: "/images/destination/anuradhapura.png",
     description:
       "Anuradhapura, one of Sri Lanka’s ancient capitals, is a UNESCO World Heritage site and a key historical destination. As the cradle of Sinhala civilization, it boasts an impressive array of ancient temples, stupas, and palaces. Surrounded by lush greenery and dotted with ancient ruins, Anuradhapura is a city steeped in rich cultural and religious significance. A visit here is a journey back in time, offering an opportunity to explore Sri Lanka’s deep-rooted Buddhist heritage and marvel at architectural wonders that have stood for centuries.",
     highlights: [
@@ -144,6 +151,7 @@ const data = [
   {
     title: "Kandy",
     location: "Kandy",
+    img: "/images/destination/kandy.png",
     description:
       "Experience the cultural heart of Sri Lanka with its sacred temples, vibrant markets, and lush landscapes.",
     highlights: [

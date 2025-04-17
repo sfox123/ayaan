@@ -9,7 +9,11 @@ const DestinationPage = () => {
   return (
     <Fragment>
       <Navbar hclass={"wpo-header-style-3"} />
-      <PageTitle pageTitle={"Destinations"} pagesub={"Ayaan Tours"} />
+      <PageTitle
+        bgImage={"images/destination/bg.jpg"}
+        pageTitle={"Destinations"}
+        pagesub={"Ayaan Tours"}
+      />
       <Destination2 />
       <Footer />
       <Scrollbar />

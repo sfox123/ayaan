@@ -3,7 +3,7 @@ import PageTitle from "../../components/pagetitle";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/footer";
 import Scrollbar from "../../components/scrollbar";
-import Destination2 from "../../components/Destination2";
+import Destination3 from "../../components/Destination3";
 import Breadcrumb from "../../components/breadcrumb";
 const ToursPage = () => {
   return (
@@ -15,7 +15,7 @@ const ToursPage = () => {
         pageTitle={"Tours"}
         pagesub={"Ayaan Tours"}
       />
-      <Destination2 />
+      <Destination3 />
       <Footer />
       <Scrollbar />
     </Fragment>

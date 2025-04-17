@@ -5,6 +5,7 @@ import About from "../components/about";
 import VideoSection from "../components/videoSection";
 import Testimonial from "../components/Testimonial";
 import BlogSection from "../components/BlogSection";
+import Features from "../components/Features";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
 import Heading from "../components/Heading";
@@ -17,11 +18,13 @@ const HomePage = () => {
       <Hero heroClass={"hero-style-1"} />
       <Heading text="destinations" size="lg" />
       <About />
+      <Heading text="Tours" size="lg" />
+      <Features />
       <Heading text="taxi" size="lg" />
       <TaxiBooking />
-      <VideoSection />
+      {/* <VideoSection />
       <Testimonial />
-      <BlogSection />
+      <BlogSection /> */}
       <Footer />
       <Scrollbar />
     </Fragment>

@@ -27,7 +27,7 @@ const Header = (props) => {
             <div className="row align-items-center">
               <div className="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
                 <div className="logo">
-                  <Link onClick={ClickHandler} href="/home" title="">
+                  <Link onClick={ClickHandler} href="/" title="">
                     <Image src={Logo} alt="" />
                   </Link>
                 </div>
