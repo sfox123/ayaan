@@ -106,10 +106,13 @@ const TaxiBooking = () => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
-      <div className="taxi-booking-container">
-        <div className="row">
+      <div className="taxi-booking-container" style={{ zIndex: 1000 }}>
+        <div className="row" style={{ zIndex: 100 }}>
           {/* Animation */}
-          <div className="col-lg-6 col-md-12 taxi-animation">
+          <div
+            className="col-lg-6 col-md-12 taxi-animation"
+            style={{ zIndex: 10 }}
+          >
             <Lottie
               animationData={taxiAnimation}
               loop
@@ -119,7 +122,10 @@ const TaxiBooking = () => {
           </div>
 
           {/* Form */}
-          <div className="col-lg-6 col-md-12 form-container">
+          <div
+            className="col-lg-6 col-md-12 form-container"
+            style={{ zIndex: 1 }}
+          >
             <form
               key={formKey}
               onSubmit={handleSubmit}

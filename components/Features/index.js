@@ -36,7 +36,7 @@ const Features = (props) => {
                     <Link
                       onClick={ClickHandler}
                       href="/tours/[slug]"
-                      as={`/tours/${category.slug}`}
+                      as={`/tours/${category.title}`}
                     >
                       {category.title}
                     </Link>

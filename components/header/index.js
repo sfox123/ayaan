@@ -61,7 +61,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Colombo"
+                            href="/destination/colombo"
                             title=""
                           >
                             Colombo City
@@ -70,7 +70,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Ella"
+                            href="/destination/ella"
                             title=""
                           >
                             Ella
@@ -79,7 +79,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Galle"
+                            href="/destination/galle"
                             title=""
                           >
                             Galle
@@ -88,7 +88,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Jaffna"
+                            href="/destination/jaffna"
                             title=""
                           >
                             Jaffna
@@ -97,7 +97,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Pollanaruwa"
+                            href="/destination/pollanaruwa"
                             title=""
                           >
                             Pollanaruwa
@@ -106,7 +106,7 @@ const Header = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href="/destination/Sigiriya"
+                            href="/destination/sigiriya"
                             title=""
                           >
                             Sigiriya

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { motion, useInView } from "framer-motion";
 
-const Heading = ({ text, size }) => {
+const Heading = ({ text, size, color }) => {
   const ref = useRef(null); // Create a ref for the heading container
   const isInView = useInView(ref, { once: true }); // Trigger animation only once when visible
 
@@ -13,6 +13,7 @@ const Heading = ({ text, size }) => {
         animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate only when in view
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className={`heading ${size}`}
+        style={{ color: color || "#000" }} // Default color is black if not provided
       >
         {text}
       </motion.h1>

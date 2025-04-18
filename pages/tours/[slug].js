@@ -1,53 +1,123 @@
-import React, { Fragment } from 'react';
-import { useRouter } from 'next/router'
-import Navbar from '../../components/Navbar';
-import PageTitle from '../../components/pagetitle';
-import Scrollbar from '../../components/scrollbar'
-import Services from '../../api/service'
-import Footer from '../../components/footer';
-import Image from 'next/image';
-import WhyChoose from './singleComponet/whyChose';
-import Categorys from './singleComponet/categorys';
-import Sidebar from './singleComponet/sidebar';
+import React, { Fragment, useState } from "react";
+import { useRouter } from "next/router";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/footer";
+import Scrollbar from "../../components/scrollbar";
+import Tours from "../../api/tours.json";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
+const TourTimeline = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+  if (!slug) return null; // Wait for slug
 
-const DestinationSinglePage = (props) => {
+  // Map the route slug to the correct tours.json key
+  const slugMapping = {
+    five: "5-day",
+    seven: "7-day",
+    nine: "9-day",
+    fourteen: "14-day",
+  };
 
-    const router = useRouter()
+  const categoryKey = slugMapping[slug.toLowerCase()];
+  if (!categoryKey) {
+    return <p>Invalid tour category.</p>;
+  }
 
-    const serviceDetails = Services.find(item => item.slug === router.query.slug)
+  // Get tours for the mapped category key
+  const categoryTours = Tours[categoryKey];
+  if (!categoryTours || categoryTours.length === 0) {
+    return <p>No tour found for this category.</p>;
+  }
 
+  // Allow switching between multiple packages if available
+  const [selectedPackageIndex, setSelectedPackageIndex] = useState(0);
+  const selectedTour = categoryTours[selectedPackageIndex];
 
-    return (
-        <Fragment>
-            <Navbar hclass={'wpo-header-style-3'} />
-            <PageTitle pageTitle={serviceDetails?.title} pagesub={'destination'} />
-            <section className="service-single-section section-padding">
-                <div className="container">
-                    <div className="row">
-                        <div className="col col-lg-8 col-12 order-lg-2">
-                            <div className="service-single-content">
-                                <div className="service-single-des">
-                                    <div className="service-single-img">
-                                        <Image src={serviceDetails?.ssImg} alt="" />
-                                    </div>
-                                    <h2>{serviceDetails?.title}</h2>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
-                                    <p>It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour,sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined.</p>
-                                </div>
-                                <WhyChoose />
-                                <Categorys />
-                            </div>
-                        </div>
-                        <Sidebar />
-                    </div>
-                </div>
-            </section>
-            <Footer />
-            <Scrollbar />
-        </Fragment>
-    )
+  return (
+    <Fragment>
+      <Navbar hclass="wpo-header-style-3" />
+      <div style={{ padding: "20px" }}>
+        {/* If more than one package exists, display toggle buttons */}
+        {categoryTours.length > 1 && (
+          <div style={{ textAlign: "center", marginBottom: "20px" }}>
+            {categoryTours.map((tour, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedPackageIndex(idx)}
+                style={{
+                  margin: "5px",
+                  padding: "10px 20px",
+                  backgroundColor:
+                    idx === selectedPackageIndex ? "#f9c74f" : "#ddd",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                Option {idx + 1}
+              </button>
+            ))}
+          </div>
+        )}
+        <h1 style={{ textAlign: "center", marginBottom: "30px" }}>
+          {selectedTour.name}
+        </h1>
+        <VerticalTimeline>
+          {selectedTour.days.map((day, index) => (
+            <VerticalTimelineElement
+              key={index}
+              date={`Day ${day.day}: ${day.title}`}
+              icon={<FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />}
+              iconStyle={{
+                background: "#f9c74f",
+                color: "#fff",
+                boxShadow: "0 2px 5px rgba(0,0,0,0.3)",
+              }}
+              contentStyle={{
+                border: "1px solid #ddd",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+              }}
+            >
+              {day.activities && day.activities.length > 0 ? (
+                <ul style={{ paddingLeft: "20px" }}>
+                  {day.activities.map((act, idx) => (
+                    <li key={idx}>
+                      {act.text} {act.optional && <em>(Optional)</em>}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No activities listed.</p>
+              )}
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </div>
+      <Footer />
+      <Scrollbar />
+      <style jsx global>{`
+        .vertical-timeline-element-content {
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        }
+        .vertical-timeline-element-content:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+        .vertical-timeline::before {
+          background: #f9c74f;
+        }
+      `}</style>
+    </Fragment>
+  );
 };
 
-
-export default DestinationSinglePage;
+export default TourTimeline;
