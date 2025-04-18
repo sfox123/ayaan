@@ -38,7 +38,7 @@ const Hero = (props) => {
                       </p>
                     </div>
                     <div className="btns">
-                      <Link href="/room" className="theme-btn">
+                      <Link href="/contact" className="theme-btn">
                         Book A Trip
                       </Link>
                     </div>
@@ -64,7 +64,7 @@ const Hero = (props) => {
                       <p>World's Top 20 Must visit Country</p>
                     </div>
                     <div className="btns">
-                      <Link href="/room" className="theme-btn">
+                      <Link href="/contact" className="theme-btn">
                         Book A Trip
                       </Link>
                     </div>
@@ -93,7 +93,7 @@ const Hero = (props) => {
                       </p>
                     </div>
                     <div className="btns">
-                      <Link href="/room" className="theme-btn">
+                      <Link href="/contact" className="theme-btn">
                         Book A Trip
                       </Link>
                     </div>

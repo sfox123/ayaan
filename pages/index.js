@@ -15,11 +15,11 @@ import NavParallex from "../components/NavParallex";
 const HomePage = () => {
   return (
     <Fragment>
-      {/* <Navbar />
-      <Hero heroClass={"hero-style-1"} /> */}
-      <NavParallex />
-      {/* <Heading text="destinations" size="lg" />
-      <About /> */}
+      <Navbar />
+      <Hero heroClass={"hero-style-1"} />
+      {/* <NavParallex /> */}
+      <Heading text="destinations" size="lg" />
+      <About />
       <Heading text="Tours" size="lg" />
       <Features />
       <Heading text="taxi" size="lg" />
