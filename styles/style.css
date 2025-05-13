@@ -9873,3 +9873,103 @@ wpo-blog sidebar
   background: #fdea95;
   z-index: 1;
 }
+
+/* outer wrapper */
+.cider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px; /* optional */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* each “slide” stacks its images */
+.cider-slide {
+  position: relative; /* anchors absolute children */
+}
+
+/* 1) base image: normal flow → responsive */
+.cider-slide-image-base {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 2) overlays: absolutely stacked + fadeIn */
+.cider-slide-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: cider-fadeIn 1s forwards;
+}
+
+/* 3) title slides in */
+.cider-slide-title {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  transform: translateX(100%);
+  opacity: 0;
+  animation: cider-slideIn 0.8s forwards;
+  animation-delay: 2s;
+}
+
+/* arrows */
+.cider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 10;
+}
+.cider-nav-prev {
+  left: 10px;
+}
+.cider-nav-next {
+  right: 10px;
+}
+
+/* pagination dots */
+.cider-dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+.cider-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cider-dot-active {
+  background: #fff;
+}
+
+/* keyframes */
+@keyframes cider-fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cider-slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Collapse, CardBody, Card } from "reactstrap";
 import Link from "next/link";
+import cities from "../../api/city";
 
 const menus = [
   {
@@ -44,12 +45,17 @@ const menus = [
     title: "Contact",
     link: "/contact",
   },
+  {
+    id: 6,
+    title: "City Tours",
+    link: "/city-tours",
+  },
 ];
 
 export default class MobileMenu extends Component {
   state = {
     isMenuShow: false,
-    isOpen: 0,
+    openIds: [], // holds IDs of open items; can be numbers or strings (e.g., city title or "cityTitle-optionGroup")
   };
 
   menuHandler = () => {
@@ -58,62 +64,152 @@ export default class MobileMenu extends Component {
     });
   };
 
-  setIsOpen = (id) => () => {
-    this.setState({
-      isOpen: id === this.state.isOpen ? 0 : id,
+  toggleOpen = (id) => {
+    this.setState((prevState) => {
+      const { openIds } = prevState;
+      return {
+        openIds: openIds.includes(id)
+          ? openIds.filter((item) => item !== id)
+          : [...openIds, id],
+      };
     });
   };
 
   ClickHandler = () => {
     window.scrollTo(10, 0);
+    // Optionally, close the menu on navigation
+    this.setState({ isMenuShow: false });
+  };
+
+  // Render regular menu items recursively
+  renderMenu = (items) => {
+    const { openIds } = this.state;
+    return (
+      <ul>
+        {items.map((item) => {
+          if (item.title === "City Tours") {
+            // Render dynamic City Tours submenu
+            return (
+              <li key={item.id}>
+                <p onClick={() => this.toggleOpen(item.id)}>
+                  {item.title}{" "}
+                  <i className="fa fa-angle-right" aria-hidden="true"></i>
+                </p>
+                <Collapse isOpen={openIds.includes(item.id)}>
+                  <Card>
+                    <CardBody>{this.renderCityTours()}</CardBody>
+                  </Card>
+                </Collapse>
+              </li>
+            );
+          } else if (item.submenu) {
+            return (
+              <li key={item.id}>
+                <p onClick={() => this.toggleOpen(item.id)}>
+                  {item.title}{" "}
+                  <i className="fa fa-angle-right" aria-hidden="true"></i>
+                </p>
+                <Collapse isOpen={openIds.includes(item.id)}>
+                  <Card>
+                    <CardBody>{this.renderMenu(item.submenu)}</CardBody>
+                  </Card>
+                </Collapse>
+              </li>
+            );
+          } else {
+            return (
+              <li key={item.id}>
+                <Link onClick={this.ClickHandler} href={item.link}>
+                  {item.title}
+                </Link>
+              </li>
+            );
+          }
+        })}
+      </ul>
+    );
+  };
+
+  // Render City Tours dynamically using cities from the API
+  renderCityTours = () => {
+    const { openIds } = this.state;
+    return (
+      <ul>
+        {cities.map((city) => {
+          const isCityOpen = openIds.includes(city.title);
+          return (
+            <li key={city.title}>
+              <p onClick={() => this.toggleOpen(city.title)}>
+                {city.title} +
+                <i className="fa fa-angle-right" aria-hidden="true"></i>
+              </p>
+              <Collapse isOpen={isCityOpen}>
+                <Card>
+                  <CardBody>
+                    <ul>
+                      {city.optionName.map((optionGroup) => {
+                        // Determine filter type based on the optionGroup value
+                        const filterType = optionGroup
+                          .toLowerCase()
+                          .includes("city")
+                          ? "city"
+                          : "day";
+                        // Create a unique key for the group toggle (e.g., "Kandy City-Tour")
+                        const groupKey = `${city.title}-${optionGroup}`;
+                        const isGroupOpen = openIds.includes(groupKey);
+                        return (
+                          <li key={optionGroup}>
+                            <p onClick={() => this.toggleOpen(groupKey)}>
+                              {optionGroup} +
+                              <i
+                                className="fa fa-angle-right"
+                                aria-hidden="true"
+                              ></i>
+                            </p>
+                            <Collapse isOpen={isGroupOpen}>
+                              <Card>
+                                <CardBody>
+                                  <ul>
+                                    {city.options
+                                      .filter((opt) => opt.type === filterType)
+                                      .map((opt) => (
+                                        <li key={opt.id}>
+                                          <Link
+                                            onClick={this.ClickHandler}
+                                            href={`/city-tours/${city.title.toLowerCase()}/${opt.id}`}
+                                          >
+                                            {opt.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                  </ul>
+                                </CardBody>
+                              </Card>
+                            </Collapse>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </CardBody>
+                </Card>
+              </Collapse>
+            </li>
+          );
+        })}
+      </ul>
+    );
   };
 
   render() {
-    const { isMenuShow, isOpen } = this.state;
+    const { isMenuShow } = this.state;
     return (
       <div>
         <div className={`mobileMenu ${isMenuShow ? "show" : ""}`}>
           <div className="menu-close" onClick={this.menuHandler}>
             <i className="fi ti-close"></i>
           </div>
-          <ul className="responsivemenu">
-            {menus.map((item) => (
-              <li key={item.id}>
-                {item.submenu ? (
-                  <>
-                    <p onClick={this.setIsOpen(item.id)}>
-                      {item.title}{" "}
-                      <i className="fa fa-angle-right" aria-hidden="true"></i>
-                    </p>
-                    <Collapse isOpen={item.id === isOpen}>
-                      <Card>
-                        <CardBody>
-                          <ul>
-                            {item.submenu.map((submenu) => (
-                              <li key={submenu.id}>
-                                <Link
-                                  onClick={this.ClickHandler}
-                                  href={submenu.link}
-                                >
-                                  {submenu.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </CardBody>
-                      </Card>
-                    </Collapse>
-                  </>
-                ) : (
-                  <Link onClick={this.ClickHandler} href={item.link}>
-                    {item.title}
-                  </Link>
-                )}
-              </li>
-            ))}
-          </ul>
+          <div className="responsivemenu">{this.renderMenu(menus)}</div>
         </div>
-
         <div className="showmenu" onClick={this.menuHandler}>
           <i className="fa fa-bars" aria-hidden="true"></i>
         </div>

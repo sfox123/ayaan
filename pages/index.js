@@ -11,12 +11,14 @@ import Scrollbar from "../components/scrollbar";
 import Heading from "../components/Heading";
 import TaxiBooking from "../components/TaxiBooking";
 import NavParallex from "../components/NavParallex";
+import Cider from "../components/Cider";
 
 const HomePage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Hero heroClass={"hero-style-1"} />
+      {/* <Hero heroClass={"hero-style-1"} /> */}
+      <Cider />
       {/* <NavParallex /> */}
       <Heading text="destinations" size="lg" />
       <About />

@@ -7,6 +7,7 @@ import MobileMenu from "../../components/MobileMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
+import cities from "../../api/city"; // Import your cities array
 
 const Header = (props) => {
   const SubmitHandler = (e) => {
@@ -25,6 +26,7 @@ const Header = (props) => {
         <div className="container-fluid">
           <div className="header-content">
             <div className="row align-items-center">
+              {/* Logo */}
               <div className="col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
                 <div className="logo">
                   <Link onClick={ClickHandler} href="/" title="">
@@ -32,9 +34,11 @@ const Header = (props) => {
                   </Link>
                 </div>
               </div>
+              {/* Navigation */}
               <div className="col-xl-6 col-lg-8 d-lg-block d-none">
                 <nav>
                   <ul>
+                    {/* Destinations */}
                     <li>
                       <Link onClick={ClickHandler} href="/destination" title="">
                         Destinations +
@@ -114,6 +118,7 @@ const Header = (props) => {
                         </li>
                       </ul>
                     </li>
+                    {/* Tours */}
                     <li>
                       <Link onClick={ClickHandler} href="/tours" title="">
                         Tours +
@@ -157,24 +162,73 @@ const Header = (props) => {
                         </li>
                       </ul>
                     </li>
+                    {/* Taxi */}
                     <li>
                       <Link onClick={ClickHandler} href="/taxi" title="">
                         Taxi +
                       </Link>
                     </li>
+                    {/* Gallery */}
                     <li>
                       <Link onClick={ClickHandler} href="/gallery" title="">
                         Gallery +
                       </Link>
                     </li>
+                    {/* Contact */}
                     <li>
                       <Link onClick={ClickHandler} href="/contact" title="">
                         Contact +
                       </Link>
                     </li>
+                    {/* City Tours - Dynamic submenu */}
+                    <li>
+                      <Link onClick={ClickHandler} href="/city-tours" title="">
+                        City Tours +
+                      </Link>
+                      <ul>
+                        {cities.map((city) => (
+                          <li key={city.title}>
+                            <h6>{city.title} +</h6>
+                            <ul>
+                              {city.optionName.map((optionGroup) => {
+                                // Determine filter type based on the optionGroup value
+                                const filterType = optionGroup
+                                  .toLowerCase()
+                                  .includes("city")
+                                  ? "city"
+                                  : "day";
+                                return (
+                                  <li key={optionGroup}>
+                                    <h6>{optionGroup} +</h6>
+                                    <ul>
+                                      {city.options
+                                        .filter(
+                                          (opt) => opt.type === filterType
+                                        )
+                                        .map((opt) => (
+                                          <li key={opt.id}>
+                                            <Link
+                                              onClick={ClickHandler}
+                                              href={`/city-tours/${city.title.toLowerCase()}/${opt.id}`}
+                                              title=""
+                                            >
+                                              {opt.name}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                    </ul>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
                   </ul>
                 </nav>
               </div>
+              {/* WhatsApp and MobileMenu */}
               <div className="col-xl-3 get-q">
                 <div className="get-quote">
                   <Link
@@ -197,7 +251,6 @@ const Header = (props) => {
                 <MobileMenu />
               </div>
             </div>
-
             <div className="clearfix"></div>
           </div>
         </div>
@@ -211,4 +264,5 @@ const mapStateToProps = (state) => {
     carts: state.cartList.cart,
   };
 };
+
 export default connect(mapStateToProps, { removeFromCart })(Header);
