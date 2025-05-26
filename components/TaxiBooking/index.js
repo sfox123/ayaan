@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import taxiAnimation from "../../public/taxi.json";
 
-const TaxiBooking = () => {
+const TaxiBooking = (props) => {
+  const { handleVisible } = props || {};
+
   const [formData, setFormData] = useState({
     passengerName: "",
     email: "",
@@ -106,7 +109,11 @@ const TaxiBooking = () => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
-      <div className="taxi-booking-container" style={{ zIndex: 1000 }}>
+      <div
+        id="taxi"
+        className="taxi-booking-container"
+        style={{ zIndex: 1000 }}
+      >
         <div className="row" style={{ zIndex: 100 }}>
           {/* Animation */}
           <div
@@ -132,7 +139,14 @@ const TaxiBooking = () => {
               className="taxi-booking-form"
             >
               <h2>Book Your Ride</h2>
-
+              <span
+                className="custom-close-btn"
+                onClick={() => {
+                  handleVisible();
+                }}
+              >
+                <FontAwesomeIcon icon={faTimes} />
+              </span>
               {/* Success Message */}
               <AnimatePresence>
                 {successMessage && (
@@ -147,7 +161,6 @@ const TaxiBooking = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-
               {/* Name & Email */}
               <div className="form-row">
                 <div className="form-group">
@@ -174,8 +187,6 @@ const TaxiBooking = () => {
                   />
                 </div>
               </div>
-
-              {/* Contact & Vehicle */}
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="contactNumber">Contact Number</label>
@@ -197,6 +208,7 @@ const TaxiBooking = () => {
                     value={formData.vehicleType}
                     onChange={handleChange}
                     required
+                    style={{ paddingRight: "1rem" }}
                   >
                     <option value="Car">Car</option>
                     <option value="Van">Van</option>
@@ -204,7 +216,6 @@ const TaxiBooking = () => {
                   </select>
                 </div>
               </div>
-
               {/* From & To */}
               <div className="form-row">
                 <div className="form-group">
@@ -218,7 +229,7 @@ const TaxiBooking = () => {
                         type="text"
                         id="from"
                         name="from"
-                        placeholder="Enter pickup location"
+                        placeholder="Pickup location"
                         value={formData.from}
                         onChange={(e) =>
                           setFormData({ ...formData, from: e.target.value })
@@ -244,7 +255,7 @@ const TaxiBooking = () => {
                         type="text"
                         id="to"
                         name="to"
-                        placeholder="Enter drop-off location"
+                        placeholder="Drop-off location"
                         value={formData.to}
                         onChange={(e) =>
                           setFormData({ ...formData, to: e.target.value })
@@ -259,7 +270,6 @@ const TaxiBooking = () => {
                   </Autocomplete>
                 </div>
               </div>
-
               {/* Submit */}
               <button type="submit" disabled={loading}>
                 {loading ? "Submitting..." : "Submit"}

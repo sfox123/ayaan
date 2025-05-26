@@ -6,6 +6,7 @@ import {
   REMOVE_FROM_WISHLIST,
   REMOVE_FROM_COMPARE_LIST,
   ADD_TO_COMPARE,
+  HANDLE_VISIBLE,
 } from "./type";
 
 export const fetchProductsBegin = () => ({
@@ -77,3 +78,12 @@ export const removeFromCompareList = (product) => (dispatch) => {
     product,
   });
 };
+
+export const handleVisible = (visible) => (dispatch) => {
+  dispatch({
+    type: types.HANDLE_VISIBLE,
+    visible: !visible,
+  });
+};
+
+export const getVisibility = (state) => state.visibility.visible;

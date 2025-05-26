@@ -33,7 +33,7 @@ const menus = [
   {
     id: 3,
     title: "Taxi",
-    link: "/taxi",
+    link: "#taxi",
   },
   {
     id: 4,

@@ -10,11 +10,8 @@ import Image from "next/image";
 import cities from "../../api/city"; // Import your cities array
 
 const Header = (props) => {
-  const SubmitHandler = (e) => {
-    e.preventDefault();
-  };
-
-  const ClickHandler = () => {
+  const { handleVisible } = props;
+  const ClickHandler = (e) => {
     window.scrollTo(10, 0);
   };
 
@@ -164,7 +161,13 @@ const Header = (props) => {
                     </li>
                     {/* Taxi */}
                     <li>
-                      <Link onClick={ClickHandler} href="/taxi" title="">
+                      <Link
+                        onClick={() => {
+                          handleVisible();
+                        }}
+                        href=""
+                        title=""
+                      >
                         Taxi +
                       </Link>
                     </li>
