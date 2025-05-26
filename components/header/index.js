@@ -185,7 +185,7 @@ const Header = (props) => {
                     </li>
                     {/* City Tours - Dynamic submenu */}
                     <li>
-                      <Link onClick={ClickHandler} href="/city-tours" title="">
+                      <Link onClick={ClickHandler} href="#" title="">
                         City Tours +
                       </Link>
                       <ul>
@@ -227,6 +227,11 @@ const Header = (props) => {
                           </li>
                         ))}
                       </ul>
+                    </li>
+                    <li>
+                      <Link href="/about" title="aboutUs">
+                        About +
+                      </Link>
                     </li>
                   </ul>
                 </nav>

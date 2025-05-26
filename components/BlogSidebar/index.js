@@ -6,7 +6,6 @@ import cities from "../../api/city";
 const BlogSidebar = (props) => {
   const { title, name } = props || {};
   const [description, setDescription] = useState("");
-  const [img, setImg] = useState("");
 
   useEffect(() => {
     if (title) {
@@ -15,7 +14,6 @@ const BlogSidebar = (props) => {
       );
       if (filtered.length > 0) {
         setDescription(filtered[0].description);
-        setImg(filtered[0].blogImage);
       }
     }
   }, [title]);
@@ -42,7 +40,12 @@ const BlogSidebar = (props) => {
       <div className="wpo-blog-sidebar">
         <div className="widget profile-widget">
           <div className="profile-img">
-            <Image src={img} alt="" width={118} height={118} />
+            <Image
+              src={`/images/blog/${title}/wall.png`}
+              alt=""
+              width={118}
+              height={118}
+            />
             <h2>{capitalizeFirstLetter(title)}</h2>
             <p>{description}</p>
           </div>

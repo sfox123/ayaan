@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import dynamic from "next/dynamic";
+
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-import taxiAnimation from "../../public/taxi.json";
+// No Lottie import needed anymore
+
+const vehicleOptions = [
+  { name: "Mini Car", value: "mini-car", image: "/images/taxi/3.png" },
+  { name: "Mini Van", value: "mini-van", image: "/images/taxi/4.png" },
+  { name: "Van", value: "van", image: "/images/taxi/1.png" },
+  { name: "Mini Bus", value: "mini-bus", image: "/images/taxi/5.png" },
+];
 
 const TaxiBooking = (props) => {
   const { handleVisible } = props || {};
@@ -16,20 +23,32 @@ const TaxiBooking = (props) => {
     passengerName: "",
     email: "",
     contactNumber: "",
-    vehicleType: "Car",
+    vehicleType: "",
     from: "",
     to: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [formKey, setFormKey] = useState(0); // 👈 to reset form
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formErrors, setFormErrors] = useState({});
+  const [formKey, setFormKey] = useState(0);
   const [autocompleteFrom, setAutocompleteFrom] = useState(null);
   const [autocompleteTo, setAutocompleteTo] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    if (formErrors[name]) {
+      setFormErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handleVehicleSelection = (vehicleValue) => {
+    setFormData((prev) => ({ ...prev, vehicleType: vehicleValue }));
+    if (formErrors.vehicleType) {
+      setFormErrors((prev) => ({ ...prev, vehicleType: undefined }));
+    }
   };
 
   const handlePlaceSelectFrom = () => {
@@ -39,6 +58,9 @@ const TaxiBooking = (props) => {
         ...prev,
         from: place?.formatted_address || "",
       }));
+      if (formErrors.from) {
+        setFormErrors((prev) => ({ ...prev, from: undefined }));
+      }
     }
   };
 
@@ -46,26 +68,51 @@ const TaxiBooking = (props) => {
     if (autocompleteTo) {
       const place = autocompleteTo.getPlace();
       setFormData((prev) => ({ ...prev, to: place?.formatted_address || "" }));
+      if (formErrors.to) {
+        setFormErrors((prev) => ({ ...prev, to: undefined }));
+      }
     }
+  };
+
+  const validateForm = () => {
+    let errors = {};
+
+    if (!formData.passengerName?.trim()) {
+      errors.passengerName = "Passenger name is required.";
+    }
+    if (!formData.email?.trim()) {
+      errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Invalid email format.";
+    }
+    if (!formData.contactNumber?.trim()) {
+      errors.contactNumber = "Contact number is required.";
+    } else if (!/^\d{7,15}$/.test(formData.contactNumber)) {
+      errors.contactNumber = "Invalid contact number (7-15 digits).";
+    }
+    if (!formData.vehicleType) {
+      errors.vehicleType = "Please select a vehicle type.";
+    }
+    if (!formData.from?.trim()) {
+      errors.from = "Pickup location is required.";
+    }
+    if (!formData.to?.trim()) {
+      errors.to = "Drop-off location is required.";
+    }
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage("");
+    setSuccessMessage("");
 
-    if (
-      !formData.passengerName.trim() ||
-      !formData.email.trim() ||
-      !formData.contactNumber.trim() ||
-      !formData.vehicleType.trim() ||
-      !formData.from.trim() ||
-      !formData.to.trim()
-    ) {
-      alert("Please fill in all required fields.");
+    if (!validateForm()) {
       return;
     }
 
     setLoading(true);
-    setSuccessMessage("");
 
     try {
       const res = await fetch("/api/resend", {
@@ -78,27 +125,33 @@ const TaxiBooking = (props) => {
       if (res.ok) {
         setSuccessMessage("🎉 Your ride request was submitted successfully!");
 
-        // Reset form data
         setFormData({
           passengerName: "",
           email: "",
           contactNumber: "",
-          vehicleType: "Car",
+          vehicleType: "",
           from: "",
           to: "",
         });
 
-        if (autocompleteFrom) autocompleteFrom.set("place", null);
-        if (autocompleteTo) autocompleteTo.set("place", null);
+        if (autocompleteFrom) {
+          autocompleteFrom.set("place", null);
+        }
+        if (autocompleteTo) {
+          autocompleteTo.set("place", null);
+        }
 
-        // Force re-render to reset all input values
         setFormKey((prev) => prev + 1);
       } else {
-        alert(result.error || "Something went wrong.");
+        setErrorMessage(
+          result.error || "Something went wrong. Please try again."
+        );
       }
     } catch (err) {
-      console.error(err);
-      alert("Network error.");
+      console.error("Submission error:", err);
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -109,174 +162,221 @@ const TaxiBooking = (props) => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
+      {/* The main container for the form, acting as the 'popup' content */}
       <div
-        id="taxi"
-        className="taxi-booking-container"
-        style={{ zIndex: 1000 }}
+        id="taxi__booking-container"
+        className="taxi__booking-container"
+        style={{ zIndex: 1000 }} // Ensure it's above other content
       >
-        <div className="row" style={{ zIndex: 100 }}>
-          {/* Animation */}
-          <div
-            className="col-lg-6 col-md-12 taxi-animation"
-            style={{ zIndex: 10 }}
+        {/* Form itself */}
+        <form
+          key={formKey}
+          onSubmit={handleSubmit}
+          className="taxi__booking-form"
+        >
+          <h2>Book Your Ride</h2>
+          <span
+            className="taxi__custom-close-btn"
+            onClick={() => {
+              handleVisible?.();
+            }}
           >
-            <Lottie
-              animationData={taxiAnimation}
-              loop
-              autoplay
-              className="lottie-animation"
-            />
-          </div>
-
-          {/* Form */}
-          <div
-            className="col-lg-6 col-md-12 form-container"
-            style={{ zIndex: 1 }}
-          >
-            <form
-              key={formKey}
-              onSubmit={handleSubmit}
-              className="taxi-booking-form"
-            >
-              <h2>Book Your Ride</h2>
-              <span
-                className="custom-close-btn"
-                onClick={() => {
-                  handleVisible();
-                }}
+            <FontAwesomeIcon icon={faTimes} />
+          </span>
+          {/* Success and Error Messages */}
+          <AnimatePresence>
+            {successMessage && (
+              <motion.div
+                className="taxi__success-message"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                role="status"
+                aria-live="polite"
               >
-                <FontAwesomeIcon icon={faTimes} />
-              </span>
-              {/* Success Message */}
-              <AnimatePresence>
-                {successMessage && (
-                  <motion.div
-                    className="success-message"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    {successMessage}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              {/* Name & Email */}
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="passengerName">Passenger Name</label>
-                  <input
-                    type="text"
-                    id="passengerName"
-                    name="passengerName"
-                    value={formData.passengerName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+                {successMessage}
+              </motion.div>
+            )}
+            {errorMessage && (
+              <motion.div
+                className="taxi__error-message"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4 }}
+                role="alert"
+                aria-live="assertive"
+              >
+                {errorMessage}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="contactNumber">Contact Number</label>
-                  <input
-                    type="text"
-                    id="contactNumber"
-                    name="contactNumber"
-                    value={formData.contactNumber}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+          {/* Form Rows (Adjusted for full width and better flow) */}
+          <div className="taxi__form-row">
+            <div className="taxi__form-group">
+              <label htmlFor="taxi__passengerName">Passenger Name</label>
+              <input
+                type="text"
+                id="taxi__passengerName"
+                name="passengerName"
+                value={formData.passengerName}
+                onChange={handleChange}
+                required
+              />
+              {formErrors.passengerName && (
+                <span className="taxi__validation-error">
+                  {formErrors.passengerName}
+                </span>
+              )}
+            </div>
 
-                <div className="form-group">
-                  <label htmlFor="vehicleType">Vehicle Type</label>
-                  <select
-                    id="vehicleType"
-                    name="vehicleType"
-                    value={formData.vehicleType}
-                    onChange={handleChange}
-                    required
-                    style={{ paddingRight: "1rem" }}
-                  >
-                    <option value="Car">Car</option>
-                    <option value="Van">Van</option>
-                    <option value="Tuk Tuk">Tuk Tuk</option>
-                  </select>
-                </div>
-              </div>
-              {/* From & To */}
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="from">From</label>
-                  <Autocomplete
-                    onLoad={setAutocompleteFrom}
-                    onPlaceChanged={handlePlaceSelectFrom}
-                  >
-                    <div className="autocomplete-container">
-                      <input
-                        type="text"
-                        id="from"
-                        name="from"
-                        placeholder="Pickup location"
-                        value={formData.from}
-                        onChange={(e) =>
-                          setFormData({ ...formData, from: e.target.value })
-                        }
-                        required
-                      />
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="location-icon"
-                      />
-                    </div>
-                  </Autocomplete>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="to">To</label>
-                  <Autocomplete
-                    onLoad={setAutocompleteTo}
-                    onPlaceChanged={handlePlaceSelectTo}
-                  >
-                    <div className="autocomplete-container">
-                      <input
-                        type="text"
-                        id="to"
-                        name="to"
-                        placeholder="Drop-off location"
-                        value={formData.to}
-                        onChange={(e) =>
-                          setFormData({ ...formData, to: e.target.value })
-                        }
-                        required
-                      />
-                      <FontAwesomeIcon
-                        icon={faLocationDot}
-                        className="location-icon"
-                      />
-                    </div>
-                  </Autocomplete>
-                </div>
-              </div>
-              {/* Submit */}
-              <button type="submit" disabled={loading}>
-                {loading ? "Submitting..." : "Submit"}
-              </button>
-            </form>
+            <div className="taxi__form-group">
+              <label htmlFor="taxi__email">Email</label>
+              <input
+                type="email"
+                id="taxi__email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              {formErrors.email && (
+                <span className="taxi__validation-error">
+                  {formErrors.email}
+                </span>
+              )}
+            </div>
           </div>
-        </div>
+
+          <div className="taxi__form-row">
+            <div className="taxi__form-group">
+              <label htmlFor="taxi__contactNumber">Contact Number</label>
+              <input
+                type="text"
+                id="taxi__contactNumber"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                required
+              />
+              {formErrors.contactNumber && (
+                <span className="taxi__validation-error">
+                  {formErrors.contactNumber}
+                </span>
+              )}
+            </div>
+            {/* This form group now acts as a full-width container for vehicle buttons */}
+            <div className="taxi__form-group taxi__vehicle-selection-group taxi__full-width-group">
+              <label>Select Vehicle Type</label>
+              <div className="taxi__vehicle-options-container">
+                {vehicleOptions.map((vehicle) => (
+                  <button
+                    type="button"
+                    key={vehicle.value}
+                    className={`taxi__vehicle-option-button ${
+                      formData.vehicleType === vehicle.value
+                        ? "taxi__selected"
+                        : ""
+                    }`}
+                    onClick={() => handleVehicleSelection(vehicle.value)}
+                  >
+                    <Image
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      width={80}
+                      height={50}
+                      objectFit="contain"
+                    />
+                    <span>{vehicle.name}</span>
+                  </button>
+                ))}
+              </div>
+              {formErrors.vehicleType && (
+                <span className="taxi__validation-error">
+                  {formErrors.vehicleType}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="taxi__form-row">
+            <div className="taxi__form-group">
+              <label htmlFor="taxi__from">From</label>
+              <Autocomplete
+                onLoad={setAutocompleteFrom}
+                onPlaceChanged={handlePlaceSelectFrom}
+              >
+                <div className="taxi__autocomplete-container">
+                  <input
+                    type="text"
+                    id="taxi__from"
+                    name="from"
+                    placeholder="Pickup location"
+                    value={formData.from}
+                    onChange={(e) => {
+                      setFormData({ ...formData, from: e.target.value });
+                      if (formErrors.from) {
+                        setFormErrors((prev) => ({ ...prev, from: undefined }));
+                      }
+                    }}
+                    required
+                  />
+                  <FontAwesomeIcon
+                    icon={faLocationDot}
+                    className="taxi__location-icon"
+                  />
+                </div>
+              </Autocomplete>
+              {formErrors.from && (
+                <span className="taxi__validation-error">
+                  {formErrors.from}
+                </span>
+              )}
+            </div>
+
+            <div className="taxi__form-group">
+              <label htmlFor="taxi__to">To</label>
+              <Autocomplete
+                onLoad={setAutocompleteTo}
+                onPlaceChanged={handlePlaceSelectTo}
+              >
+                <div className="taxi__autocomplete-container">
+                  <input
+                    type="text"
+                    id="taxi__to"
+                    name="to"
+                    placeholder="Drop-off location"
+                    value={formData.to}
+                    onChange={(e) => {
+                      setFormData({ ...formData, to: e.target.value });
+                      if (formErrors.to) {
+                        setFormErrors((prev) => ({ ...prev, to: undefined }));
+                      }
+                    }}
+                    required
+                  />
+                  <FontAwesomeIcon
+                    icon={faLocationDot}
+                    className="taxi__location-icon"
+                  />
+                </div>
+              </Autocomplete>
+              {formErrors.to && (
+                <span className="taxi__validation-error">{formErrors.to}</span>
+              )}
+            </div>
+          </div>
+          {/* Submit */}
+          <button
+            type="submit"
+            className="taxi__submit-button"
+            disabled={loading}
+          >
+            {loading ? "Submitting..." : "Submit"}
+          </button>
+        </form>
       </div>
     </LoadScript>
   );

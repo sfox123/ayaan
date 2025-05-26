@@ -9564,8 +9564,10 @@ wpo-blog sidebar
   z-index: 9999;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* This centers the form horizontally and vertically */
   transition: opacity 0.3s ease;
+  padding: 20px; /* Add some padding so the form doesn't touch screen edges */
+  box-sizing: border-box; /* Include padding in height/width calculation */
 }
 
 .taxi-container.hidden {
@@ -10027,5 +10029,704 @@ wpo-blog sidebar
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+/* Taxi Booking Component Styles (Prefixed) */
+
+/* The main container for the form, acting as the 'popup' content */
+.taxi__booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Removed min-height: 100vh; to allow it to size to content */
+  padding: 20px;
+  background-color: #f0f2f5; /* Background for the area behind the form */
+  box-sizing: border-box;
+  /* If this is truly a floating popup, you might also want: */
+  /* position: fixed; */
+  /* top: 0; left: 0; right: 0; bottom: 0; */
+  /* background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
+}
+
+/* Form Container Styling */
+.taxi__booking-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Max width for the form */
+  position: relative;
+  /* Removed margin: auto; here as parent flex handles centering */
+  box-sizing: border-box;
+
+  /* --- IMPORTANT CHANGES FOR SCROLLING --- */
+  max-height: 95vh; /* Allow it to take almost full viewport height */
+  /* Adjust this value (e.g., 90vh, 85vh) based on desired spacing */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+}
+.taxi__booking-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.taxi__custom-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease-in-out;
+}
+
+.taxi__custom-close-btn:hover {
+  color: #333;
+}
+
+/* Form Row & Group Styling */
+.taxi__form-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: 20px; /* Space between form groups */
+  margin-bottom: 20px;
+}
+
+.taxi__form-group {
+  flex: 1; /* Distribute space evenly */
+  min-width: 250px; /* Minimum width for each group before wrapping */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Specific class for making a form group take full width */
+.taxi__full-width-group {
+  flex: 0 0 100%; /* Force this group to take full width */
+  max-width: 100%;
+  min-width: unset; /* Remove min-width for full-width items */
+}
+
+.taxi__form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+.taxi__form-group input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.taxi__form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Autocomplete Specifics */
+.taxi__autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+.taxi__autocomplete-container input {
+  padding-right: 40px;
+}
+
+.taxi__location-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Submit Button */
+.taxi__submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
+  margin-top: 20px;
+}
+
+.taxi__submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.taxi__submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Message Styles */
+.taxi__success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #c3e6cb;
+}
+
+.taxi__error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #f5c6cb;
+}
+
+.taxi__validation-error {
+  color: #dc3545;
+  font-size: 0.875em;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Vehicle Selection Buttons Styling */
+.taxi__vehicle-selection-group {
+  margin-bottom: 20px;
+}
+
+.taxi__vehicle-options-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  justify-content: space-between; /* Distribute space between buttons */
+  gap: 10px; /* Reduced gap slightly for tighter fit */
+  margin-top: 10px; /* Space below label */
+}
+
+.taxi__vehicle-option-button {
+  background-color: #f9f9f9;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 10px 8px; /* Slightly reduced padding */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Reduced gap between image and text */
+  flex: 1 1 auto; /* Allow buttons to grow/shrink based on content and available space */
+  min-width: 80px; /* Smaller min-width to allow more shrinking */
+  max-width: 100px; /* Keep a reasonable max-width if space allows */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.taxi__vehicle-option-button:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  transform: translateY(-3px);
+  background-color: #e6f2ff;
+}
+
+.taxi__vehicle-option-button.taxi__selected {
+  border-color: #28a745;
+  background-color: #e0ffe6;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+}
+
+.taxi__vehicle-option-button img {
+  object-fit: contain;
+  width: 70px; /* Adjust image size for smaller buttons */
+  height: 45px;
+}
+
+.taxi__vehicle-option-button span {
+  font-size: 0.85rem; /* Slightly smaller font size */
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .taxi__form-row {
+    flex-direction: column; /* Stack form groups on smaller screens */
+    gap: 15px;
+  }
+  .taxi__form-group {
+    min-width: unset; /* Remove min-width to allow full width */
+    width: 100%;
+  }
+  .taxi__vehicle-options-container {
+    justify-content: center; /* Center buttons if few on a small screen */
+  }
+  .taxi__vehicle-option-button {
+    flex: 1 1 calc(50% - 10px); /* 2 items per row on smaller screens, adjusting for gap */
+    max-width: unset; /* Allow to fill available space */
+  }
+}
+
+@media (max-width: 480px) {
+  .taxi__vehicle-option-button {
+    flex: 1 1 calc(50% - 10px); /* Keep 2 items on very small screens */
+  }
+}
+
+/* Base styles for the About Us component */
+.about__container {
+  font-family: "Inter", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about__section {
+  margin-bottom: 60px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.about__section:last-child {
+  margin-bottom: 0;
+}
+
+.about__main-heading {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.about__sub-heading {
+  font-size: 2rem;
+  color: #34495e;
+  margin-bottom: 25px;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.about__center-text {
+  text-align: center;
+}
+
+.about__text {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Mission & Vision Cards */
+.about__mission-vision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.about__mission-vision-card {
+  flex: 1;
+  min-width: 300px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d0e8f7;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about__mission-vision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.about__mission-vision-card .about__sub-heading {
+  color: #007bff;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* Why Choose Us Grid */
+.about__why-choose-us {
+  background-color: #f0f2f5;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.about__why-choose-us .about__sub-heading {
+  color: #28a745;
+  border-bottom-color: #c3e6cb;
+}
+
+.about__feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.about__feature-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.about__feature-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.about__feature-icon-wrapper {
+  background-color: #007bff;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
+}
+
+.about__feature-icon {
+  /* Inherits size and color from wrapper */
+}
+
+.about__feature-title {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.about__feature-description {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Conclusion & CTA */
+.about__conclusion {
+  background-color: #eaf7ed;
+  border: 1px solid #d4edda;
+  text-align: center;
+  padding: 30px;
+}
+
+.about__cta-section {
+  margin-top: 30px;
+}
+
+.about__cta-button {
+  background-color: #28a745;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex; /* Allows icon and text to be side-by-side */
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.about__cta-button:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+.about__cta-icon {
+  font-size: 1.4rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about__main-heading {
+    font-size: 2.2rem;
+  }
+  .about__sub-heading {
+    font-size: 1.6rem;
+  }
+  .about__text {
+    font-size: 1rem;
+  }
+  .about__mission-vision {
+    flex-direction: column;
+  }
+  .about__mission-vision-card {
+    min-width: unset;
+    width: 100%;
+  }
+  .about__feature-grid {
+    grid-template-columns: 1fr; /* Stack features on small screens */
+  }
+  .about__cta-button {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+  .about__feature-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__container {
+    padding: 20px 10px;
+  }
+  .about__section {
+    padding: 15px;
+  }
+  .about__main-heading {
+    font-size: 1.8rem;
+  }
+  .about__sub-heading {
+    font-size: 1.4rem;
+  }
+}
+/* Testimonial Section Styles */
+
+.testimonial__area {
+  padding: 80px 0; /* section-padding equivalent */
+  background-color: #f8f8f8;
+  overflow: hidden; /* To contain floated elements if any */
+}
+
+.testimonial__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.testimonial__title-col {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.testimonial__section-title span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff; /* Primary color */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.testimonial__section-title h2 {
+  font-size: 2.5rem;
+  color: #333;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Slider Wrapper */
+.testimonial__slider-wrapper {
+  position: relative;
+}
+
+/* Slick Slider Overrides (basic) */
+/* You might need more specific overrides depending on your global slick-carousel styles */
+.slick-slide > div {
+  margin: 0 15px; /* Spacing between cards */
+}
+/* Ensure the total width of the slides is contained */
+.slick-list {
+  padding: 0 20px !important; /* Adjust padding if cards are cut off at edges */
+}
+
+/* Individual Testimonial Grid Card */
+.testimonial__grid {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  height: auto; /* Allow height to adjust to content */
+  display: flex !important; /* Important for slick-slider items */
+  flex-direction: column;
+  justify-content: space-between; /* Pushes client info to bottom */
+  min-height: 280px; /* Minimum height for visual consistency */
+}
+
+.testimonial__grid:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Rating Stars */
+.testimonial__ratting ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  display: flex;
+  justify-content: center; /* Center the stars */
+}
+
+.testimonial__ratting li {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.testimonial__star-filled {
+  color: #ffc107; /* Golden star */
+}
+
+.testimonial__star-empty {
+  color: #e0e0e0; /* Grey star */
+}
+
+/* Quote */
+.testimonial__quote {
+  position: relative;
+  margin-bottom: 25px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.testimonial__quote p {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  margin: 0;
+}
+
+.testimonial__quote-icon {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  position: absolute;
+  top: -10px; /* Adjust as needed to position quote mark */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+  z-index: 0; /* Ensure text is above */
+}
+
+/* Client Info */
+.testimonial__client-info {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center client info horizontally */
+  margin-top: auto; /* Pushes client info to the bottom of the card */
+  padding-top: 15px; /* Space above client info */
+  border-top: 1px solid #eee;
+}
+
+.testimonial__client-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 3px solid #f0f0f0; /* Light border around image */
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.testimonial__client-avatar {
+  border-radius: 50%; /* Ensure image inside is circular */
+}
+
+.testimonial__client-avatar-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e0e0e0; /* Grey placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.testimonial__client-text h5 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.testimonial__client-text p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 5px 0 0;
+}
+
+/* Loading and Error States */
+.testimonial__loading,
+.testimonial__error,
+.testimonial__no-reviews {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  padding: 50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .testimonial__section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial__section-title h2 {
+    font-size: 1.8rem;
+  }
+  .testimonial__grid {
+    padding: 25px;
+    min-height: 250px;
+  }
+  .slick-slide > div {
+    margin: 0 10px;
   }
 }

@@ -37,6 +37,7 @@ const CityTours = () => {
       <Navbar hclass={"wpo-header-style-3"} />
       <BlogList
         data={data}
+        id={slug[1] ? parseInt(slug[1], 10) : null}
         title={slug[0]}
         blLeft={"order-lg-1"}
         blRight={"order-lg-2"}

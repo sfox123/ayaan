@@ -48,7 +48,12 @@ const menus = [
   {
     id: 6,
     title: "City Tours",
-    link: "/city-tours",
+    link: "#",
+  },
+  {
+    id: 7,
+    title: "About Us",
+    link: "/about",
   },
 ];
 

@@ -4,15 +4,8 @@ import BlogSidebar from "../BlogSidebar";
 import Image from "next/image";
 
 const BlogList = (props) => {
-  const { name, itenary, type, price } = props.data || {};
+  const { name, itenary, type, price, id } = props.data || {};
   const { title } = props || {};
-  const ClickHandler = () => {
-    window.scrollTo(10, 0);
-  };
-
-  const capitalizeFirstLetter = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
 
   return (
     <section className="wpo-blog-pg-section section-padding">
@@ -22,7 +15,7 @@ const BlogList = (props) => {
             <div className="wpo-blog-content">
               <div className="post">
                 <Image
-                  src={`/images/blog/${title}/wall.png`}
+                  src={`/images/blog/${title}/${id}.png`}
                   width={770}
                   height={500}
                   alt=""
