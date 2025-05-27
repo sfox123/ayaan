@@ -2,42 +2,50 @@
   "districts": [
     {
       "name": "Colombo",
-      "image": "svg/colombo.svg",
+      "image": "svg/colombo.png",
+      "image-alt": "Lotus Tower",
       "content": "Experience the vibrant pulse of Colombo, Sri Lanka’s bustling capital city. From colonial architecture to modern skyscrapers, lively markets to coastal promenades, Colombo offers a rich blend of culture, cuisine, and contemporary charm by the Indian Ocean."
     },
     {
       "name": "Kandy",
       "image": "svg/kandy.png",
+      "image-alt": "Temple of the Tooth Relic",
       "content": "Discover the cultural heart of Sri Lanka in Kandy, home to the sacred Temple of the Tooth Relic. Surrounded by misty hills and a scenic lake, Kandy offers a blend of history, spirituality, and vibrant local life—with colorful festivals, botanical gardens, and traditional dance shows."
     },
     {
       "name": "Matale",
-      "image": "svg/sigiriya.svg",
+      "image": "svg/sigiriya.png",
+      "image-alt": "Sigiriya Rock Fortress",
       "content": "Explore the ancient rock fortress of Sigiriya, a UNESCO World Heritage site known for its breathtaking views, 5th-century frescoes, and stunning water gardens. Climb the iconic Lion Rock and uncover the mysteries of a lost royal city nestled in lush jungle."
     },
     {
       "name": "Badulla",
-      "image": "svg/badulla.svg",
+      "image": "svg/ella.png",
+      "image-alt": "Nine Arches Bridge",
       "content": "Escape to the lush highlands of Ella, a serene mountain town surrounded by tea plantations, waterfalls, and misty peaks. Hike to Little Adam’s Peak, cross the famous Nine Arches Bridge, and soak in breathtaking views in this laid-back, nature-lover’s paradise."
     },
     {
       "name": "Galle",
-      "image": "svg/galle.svg",
+      "image": "svg/galle.png",
+      "image-alt": "Galle Fort",
       "content": "Step into the charm of Galle, a coastal gem known for its beautifully preserved Dutch Fort, cobblestone streets, and colonial architecture. Wander through art galleries, boutique cafes, and seaside ramparts—all wrapped in centuries of history and ocean breeze."
     },
     {
       "name": "Polonnaruwa",
-      "image": "svg/polonnaruwa.svg",
+      "image": "svg/polonnaruwa.png",
+      "image-alt": "Polonnaruwa Ancient City",
       "content": "Walk through the ancient city of Polonnaruwa, a UNESCO World Heritage site that echoes with the grandeur of Sri Lanka’s medieval past. Explore majestic ruins, sacred stupas, and intricate stone carvings that tell stories of kings, monks, and a once-thriving capital."
     },
     {
       "name": "Anuradhapura",
-      "image": "svg/anuradhapura.svg",
+      "image": "svg/anuradhapura.png",
+      "image-alt": "Isurumuniya Lovers",
       "content": "Step into the sacred city of Anuradhapura, one of the oldest continuously inhabited cities in the world. Home to towering stupas, ancient monasteries, and the revered Sri Maha Bodhi tree, it’s a spiritual and archaeological treasure at the heart of Sri Lanka’s history."
     },
     {
       "name": "Jaffna",
       "image": "svg/jaffna.png",
+      "image-alt": "Nallur Kandaswamy Kovil",
       "content": "Discover the rich Tamil culture and northern charm of Jaffna—a city of vibrant temples, colonial history, and unique cuisine. Explore the iconic Nallur Kandaswamy Kovil, ancient forts, quiet islands, and experience a side of Sri Lanka that's both resilient and deeply authentic."
     }
   ]

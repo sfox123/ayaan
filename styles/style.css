@@ -10730,3 +10730,57 @@ wpo-blog sidebar
     margin: 0 10px;
   }
 }
+
+/* Styles for the Polaroid-like image frame */
+.tours__polaroid-frame {
+  background-color: #fff;
+  padding: 15px 15px 50px 15px; /* Larger bottom padding for the caption */
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  transform: rotate(2deg);
+  max-width: 100%;
+  box-sizing: border-box;
+  display: inline-block; /* Allows transform to work correctly */
+  position: relative; /* Needed for absolute positioning of the caption */
+}
+
+/* Styles for the image inside the polaroid frame */
+.tours__polaroid-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.3) saturate(0.8) brightness(1.1) sepia(0.1); /* Polarized-like filters */
+  border-radius: 4px;
+}
+
+/* Styles for the caption at the bottom center of the polaroid */
+.tours__polaroid-caption {
+  position: absolute;
+  bottom: 15px; /* Adjust based on your padding */
+  left: 50%;
+  font-family: "Goldman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transform: translateX(-50%);
+  width: calc(100% - 30px); /* Account for left/right padding */
+  text-align: center;
+  font-family: "Inter", sans-serif; /* Or your preferred font */
+  font-size: 0.9rem;
+  color: #333;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflow if text is too long */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tours__polaroid-frame {
+    padding: 10px 10px 40px 10px;
+    margin-bottom: 20px;
+  }
+  .tours__polaroid-caption {
+    bottom: 10px;
+    font-size: 0.8rem;
+  }
+}

@@ -13,42 +13,38 @@ export default function About() {
   const [selectedDistrict, setSelectedDistrict] = useState("Sigiriya");
   const imgRef = useRef(null); // Create a ref for the image
   const isInView = useInView(imgRef, { once: true }); // Trigger animation only once when visible
+
   const ClickHandler = () => {
     window.scrollTo(0, 0); // Scroll to the top of the page
   };
-  const handleName = (selectedDistrict) => {
-    let displayName = selectedDistrict; // default is the original name
-    let name = "";
 
-    switch (displayName.toLowerCase()) {
+  // Function to handle displaying district names
+  const handleName = (district) => {
+    switch (district.toLowerCase()) {
       case "kandy":
-        name = "Kandy City";
-        break;
+        return "Kandy City";
       case "colombo":
-        name = "Colombo City";
-        break;
+        return "Colombo City";
       case "matale":
-        name = "Sigiriya";
-        break;
+        return "Sigiriya"; // Matale district is associated with Sigiriya
       case "badulla":
-        name = "Ella";
-        break;
+        return "Ella";
       default:
-        return displayName;
+        return district;
     }
-
-    return name;
   };
 
+  // Function to handle district click from the map
   const handleDistrictClick = (districtName) => {
-    let displayName = districtName; // default is the original name
-    setSelectedDistrict(displayName);
+    setSelectedDistrict(districtName);
   };
 
-  // Find the image path for the selected district
-  const selectedDistrictData = districtsData.districts.find(
-    (district) => district.name.toLowerCase() === selectedDistrict.toLowerCase()
-  );
+  // Find the data for the selected district, defaulting to Sigiriya if not found
+  const selectedDistrictData =
+    districtsData.districts.find(
+      (district) =>
+        district.name.toLowerCase() === selectedDistrict.toLowerCase()
+    ) || districtsData.districts.find((d) => d.name.toLowerCase() === "matale"); // Fallback to Matale/Sigiriya data
 
   return (
     <div className="wpo-about-area section-padding">
@@ -56,9 +52,10 @@ export default function About() {
         <div className="row align-items-center">
           <div className="col-lg-7 col-md-12 col-sm-12">
             <div className="wpo-about-img">
+              {/* Sri Lanka Map component */}
               <SriLankaMap
                 selectedDistrictName={
-                  selectedDistrict == "Sigiriya" ? "Matale" : selectedDistrict
+                  selectedDistrict === "Sigiriya" ? "Matale" : selectedDistrict // Pass "Matale" to map if "Sigiriya" is selected
                 }
                 onDistrictClick={handleDistrictClick}
               />
@@ -67,15 +64,20 @@ export default function About() {
           <div className="col-lg-5 col-md-12 col-sm-12">
             <div className="wpo-about-text">
               <div className="wpo-section-title">
+                {/* Heading for the selected district/location */}
                 <Heading text={handleName(selectedDistrict)} size="md" />
               </div>
-              <div>
+              {/* Polaroid-style image container */}
+              <div className="tours__polaroid-frame">
                 <motion.img
-                  key={selectedDistrict}
+                  key={selectedDistrict} // Key for re-animating on district change
                   ref={imgRef}
-                  src={selectedDistrictData?.image || "svg/sigiriya.svg"} // Use the image path from JSON
-                  alt={selectedDistrict}
-                  className="sigiriya"
+                  src={
+                    selectedDistrictData?.image ||
+                    "https://placehold.co/400x300/E0E0E0/333333?text=Image+Not+Found"
+                  } // Use image path from JSON, with a placeholder fallback
+                  alt={selectedDistrictData?.alt || selectedDistrict} // Use alt text from data or selectedDistrict
+                  className="tours__polaroid-image" // Existing class and new class for image styling
                   initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
                   animate={
                     isInView
@@ -88,9 +90,14 @@ export default function About() {
                     delay: 0.3,
                   }}
                 />
+                {/* Alt text for the polaroid photo */}
+                <div className="tours__polaroid-caption">
+                  {selectedDistrictData?.["image-alt"] || selectedDistrict}
+                </div>
               </div>
+              {/* Description paragraph */}
               <motion.p
-                key={selectedDistrict}
+                key={selectedDistrict} // Key for re-animating on district change
                 initial={{ opacity: 0, x: -20 }}
                 animate={
                   isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
@@ -102,13 +109,18 @@ export default function About() {
                 }}
                 className="font-about"
               >
+                {/* Display content, defaulting to Sigiriya's content if selectedDistrictData is not found */}
                 {selectedDistrictData?.content ||
-                  districtsData.districts[2].content}
+                  districtsData.districts.find(
+                    (d) => d.name.toLowerCase() === "matale"
+                  )?.content ||
+                  "No content available for this district."}
               </motion.p>
+              {/* Explore button */}
               <div className="btns" style={{ marginBottom: "20px" }}>
                 <Link
                   onClick={ClickHandler}
-                  href="/about"
+                  href={`/location/${selectedDistrictData?.name.toLowerCase().replace(" ", "-") || "sigiriya"}`} // Dynamic link based on selected district
                   className="theme-btn-s2"
                 >
                   {`Explore ${handleName(selectedDistrict)}`}
