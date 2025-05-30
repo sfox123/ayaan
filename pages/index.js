@@ -7,13 +7,16 @@ import Scrollbar from "../components/scrollbar";
 import Heading from "../components/Heading";
 import Cider from "../components/Cider";
 
+import TaxiBookingPage from "../components/TaxiBookingPage";
+import Slider from "../components/Slider";
+
 const HomePage = () => {
   return (
     <Fragment>
       <Navbar />
       {/* <Hero heroClass={"hero-style-1"} /> */}
-      <Cider />
-      {/* <NavParallex /> */}
+      <Slider />
+      <TaxiBookingPage />
       <Heading text="destinations" size="lg" />
       <About />
       <Heading text="Tours" size="lg" />

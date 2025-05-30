@@ -10784,3 +10784,283 @@ wpo-blog sidebar
     font-size: 0.8rem;
   }
 }
+
+.taxi-book__container {
+  width: 100%; /* Take up available width */
+  /* max-width: 800px; Remove if form has its own max-width that's sufficient */
+  margin: 40px auto; /* Center the container on the page and add top/bottom margin */
+  padding: 20px; /* Optional: if you want some padding around the form area */
+  /* display: flex; */ /* Remove flex if form is centered by its own margin */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+/* The form itself (styles from previous response, mostly unchanged) */
+.taxi-book__form {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+
+  width: 100%; /* Form takes full width of its container (.taxi-book__container or .taxi-book__form itself if it has max-width) */
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative; /* Still useful if you keep the close button for some reason */
+  margin: 0 auto; /* Centers the form if .taxi-book__container is full-width */
+}
+
+.taxi-book__form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/*
+  Close Button: If the form is always visible on index.js, you might not need this.
+  If you keep it, ensure its functionality makes sense in the new context.
+*/
+.taxi-book__custom-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+  transition: color 0.2s ease;
+  /* display: none; */ /* Uncomment if you want to hide it when not a popup */
+}
+
+.taxi-book__custom-close-btn:hover {
+  color: #333;
+}
+
+/* --- REST OF THE CSS STYLES --- */
+/* (Success/Error messages, Form Rows, Groups, Inputs, Vehicle Selection, Submit button, etc.) */
+/* Use the same styles as provided in the previous response for these elements. */
+
+/* Success and Error Messages */
+.taxi-book__success-message,
+.taxi-book__error-message {
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.taxi-book__success-message {
+  background-color: #e6f9f0;
+  color: #00864e;
+  border: 1px solid #b3e6d2;
+}
+
+.taxi-book__error-message {
+  background-color: #fdecea;
+  color: #a30000;
+  border: 1px solid #f8c0c0;
+}
+
+/* Form Rows for side-by-side fields */
+.taxi-book__form-row {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Form Groups: container for label and input */
+.taxi-book__form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 250px;
+  gap: 8px;
+}
+
+.taxi-book__form-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.taxi-book__form input[type="text"],
+.taxi-book__form input[type="email"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.taxi-book__form input[type="text"]:focus,
+.taxi-book__form input[type="email"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.taxi-book__autocomplete-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.taxi-book__autocomplete-container input {
+  padding-right: 35px;
+}
+
+.taxi-book__location-icon {
+  position: absolute;
+  right: 12px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.taxi-book__validation-error {
+  color: #d9534f;
+  font-size: 0.8rem;
+  margin-top: -2px;
+}
+.taxi-book__form-group.taxi-book__full-width-group {
+  flex-basis: 100%;
+}
+.taxi-book__vehicle-options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.taxi-book__vehicle-option-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  text-align: center;
+  min-width: 120px;
+  flex: 1;
+}
+
+.taxi-book__vehicle-option-button img {
+  margin-bottom: 8px;
+  max-width: 100%;
+}
+
+.taxi-book__vehicle-option-button span {
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.taxi-book__vehicle-option-button:hover {
+  border-color: #007bff;
+  background-color: #eef6ff;
+}
+
+.taxi-book__vehicle-option-button.taxi-book__selected {
+  border-color: #007bff;
+  background-color: #e2f0ff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+  transform: scale(1.03);
+}
+
+.taxi-book__submit-button {
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+  margin-top: 10px;
+  width: 50%;
+  align-self: center; /* Center the button in the form */
+}
+
+.taxi-book__submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.taxi-book__submit-button:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /*
+    Adjust .taxi-book__container padding for smaller screens if you added it.
+    e.g., .taxi-book__container { padding: 10px; margin: 20px auto; }
+  */
+  .taxi-book__form {
+    padding: 25px 20px;
+    /* max-width: 95%; */ /* Form is already centered by margin: 0 auto */
+  }
+
+  .taxi-book__form-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .taxi-book__form-group {
+    min-width: 100%;
+  }
+
+  .taxi-book__vehicle-options-container {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .taxi-book__vehicle-option-button {
+    min-width: 100px;
+    padding: 8px;
+  }
+
+  .taxi-book__form h2 {
+    font-size: 1.6rem;
+  }
+
+  .taxi-book__custom-close-btn {
+    /* Consider if this button is still needed and how it should look/behave */
+    top: 15px;
+    right: 15px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .taxi-book__vehicle-options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .taxi-book__vehicle-option-button {
+    min-width: auto;
+    width: 100%;
+  }
+}

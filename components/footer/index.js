@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Logo from "/public/images/logo-white.png";
+import Logo from "/public/images/logo-2.png";
 import Image from "next/image";
 import Destinations from "../../api/destination";
 import TaxiBooking from "../TaxiBooking";
@@ -30,7 +30,16 @@ const Footer = (props) => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6 col-12 custom-grid">
-                  <div className="logo widget-title">
+                  <div
+                    className="logo widget-title"
+                    style={{
+                      width: "100%",
+                      height: "70%",
+                      backgroundColor: "#fff",
+                      padding: "10px",
+                      borderRadius: "10px",
+                    }}
+                  >
                     <Image src={Logo} alt="logo" />
                   </div>
                 </div>
