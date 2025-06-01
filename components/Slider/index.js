@@ -56,8 +56,9 @@ const Slider = () => {
               src={src}
               alt={`Collage image ${index + 1}`}
               layout="fill"
-              objectFit="cover" // This will cover the area, cropping if necessary, adapting to the responsive panel size
-              priority={index < 2} // Prioritize loading for initial images
+              objectFit="cover"
+              priority={index < 2}
+              style={{ objectPosition: "center bottom" }} // Aligns the top of the image with the top of the panel
             />
           </motion.div>
         );

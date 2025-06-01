@@ -5,10 +5,11 @@ import Features from "../components/Features";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
 import Heading from "../components/Heading";
-import Cider from "../components/Cider";
 
 import TaxiBookingPage from "../components/TaxiBookingPage";
 import Slider from "../components/Slider";
+import ReviewList from "../components/Reviews";
+import reviews from "../api/reviews.json";
 
 const HomePage = () => {
   return (
@@ -19,6 +20,8 @@ const HomePage = () => {
       <TaxiBookingPage />
       <Heading text="destinations" size="lg" />
       <About />
+      <Heading text="Reviews" size="lg" />
+      <ReviewList reviews={reviews} />
       <Heading text="Tours" size="lg" />
       <Features />
       <Footer />
