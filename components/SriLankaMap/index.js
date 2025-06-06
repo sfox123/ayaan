@@ -234,17 +234,23 @@ export function SriLankaMap({ onPoiClick }) {
     if (!map) return;
 
     if (map.getLayer("hovered-poi-layer")) {
-      const filter = hoveredPoiId ? ["==", ["get", "id"], hoveredPoiId] : ["==", ["get", "id"], ""];
+      const filter = hoveredPoiId
+        ? ["==", ["get", "id"], hoveredPoiId]
+        : ["==", ["get", "id"], ""];
       map.setFilter("hovered-poi-layer", filter);
     }
 
     if (map.getLayer("selected-poi-layer")) {
-      const filter = selectedPoiId ? ["==", ["get", "id"], selectedPoiId] : ["==", ["get", "id"], ""];
+      const filter = selectedPoiId
+        ? ["==", ["get", "id"], selectedPoiId]
+        : ["==", ["get", "id"], ""];
       map.setFilter("selected-poi-layer", filter);
     }
 
     if (map.getLayer("selected-poi-halo")) {
-      const filter = selectedPoiId ? ["==", ["get", "id"], selectedPoiId] : ["==", ["get", "id"], ""];
+      const filter = selectedPoiId
+        ? ["==", ["get", "id"], selectedPoiId]
+        : ["==", ["get", "id"], ""];
       map.setFilter("selected-poi-halo", filter);
     }
   }, [hoveredPoiId, selectedPoiId]);
