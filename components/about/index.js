@@ -14,7 +14,7 @@ const SriLankaMap = dynamic(
   { ssr: false }
 );
 
-export function About() {
+function About() {
   // Or export default function About() if it's a Next.js page
   const [selectedPoi, setSelectedPoi] = useState(null);
 
