@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import { About } from "../components/About";
+import About from "../components/about";
 import Features from "../components/Features";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
