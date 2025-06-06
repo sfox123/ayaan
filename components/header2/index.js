@@ -77,12 +77,10 @@ const Header = (props) => {
                                             <ul>
                                                 <li><Link onClick={ClickHandler} href="/blog">Blog</Link></li>
                                                 <li><Link onClick={ClickHandler} href="/blog-left-sidebar">Blog Left sidebar</Link></li>
-                                                <li><Link onClick={ClickHandler} href="/blog-fullwidth">Blog full width</Link></li>
                                                 <li><i className="fa fa-angle-right"></i><Link onClick={ClickHandler} href="/blog-single/You’re-In-Dubai" title="">Blog Details</Link>
                                                     <ul>
                                                         <li><Link onClick={ClickHandler} href="/blog-single/You’re-In-Dubai" title="">Blog single</Link></li>
                                                         <li><Link onClick={ClickHandler} href="/blog-single-left-sidebar/You’re-In-Dubai" title="">Blog single Left sidebar</Link></li>
-                                                        <li><Link onClick={ClickHandler} href="/blog-single-fullwidth/You’re-In-Dubai" title="">Blog single full width</Link></li>
                                                     </ul>
                                                 </li>
                                             </ul>
