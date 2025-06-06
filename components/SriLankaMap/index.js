@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import poisDataImport from "../../api/pois.json"; // your POI list
 import lkGeoJSON from "../../public/lk.json"; // Sri Lanka GeoJSON
@@ -11,6 +11,8 @@ mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN_HERE"; // 🚨 REPLACE THIS!
 export function SriLankaMap({ onPoiClick }) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
+  const [selectedPoiId, setSelectedPoiId] = useState(null);
+  const [hoveredPoiId, setHoveredPoiId] = useState(null);
 
   const poisGeoJSON = {
     type: "FeatureCollection",
@@ -145,6 +147,50 @@ export function SriLankaMap({ onPoiClick }) {
               },
             });
           }
+
+          if (!map.getLayer("hovered-poi-layer")) {
+            map.addLayer({
+              id: "hovered-poi-layer",
+              type: "symbol",
+              source: "pois",
+              layout: {
+                "icon-image": ["get", "id"],
+                "icon-size": 0.45,
+                "icon-allow-overlap": true,
+                "icon-ignore-placement": true,
+              },
+              filter: ["==", ["get", "id"], ""],
+            });
+          }
+
+          if (!map.getLayer("selected-poi-halo")) {
+            map.addLayer({
+              id: "selected-poi-halo",
+              type: "circle",
+              source: "pois",
+              paint: {
+                "circle-radius": 12,
+                "circle-color": "#FFD54F",
+                "circle-opacity": 0.5,
+              },
+              filter: ["==", ["get", "id"], ""],
+            });
+          }
+
+          if (!map.getLayer("selected-poi-layer")) {
+            map.addLayer({
+              id: "selected-poi-layer",
+              type: "symbol",
+              source: "pois",
+              layout: {
+                "icon-image": ["get", "id"],
+                "icon-size": 0.6,
+                "icon-allow-overlap": true,
+                "icon-ignore-placement": true,
+              },
+              filter: ["==", ["get", "id"], ""],
+            });
+          }
         })
         .catch((error) =>
           console.error("Error loading POI icon images:", error)
@@ -155,15 +201,21 @@ export function SriLankaMap({ onPoiClick }) {
           const clickedFeature = e.features[0];
           if (clickedFeature.properties) {
             onPoiClick?.(clickedFeature.properties);
+            setSelectedPoiId(clickedFeature.properties.id);
           }
         }
       });
 
-      map.on("mouseenter", "pois-layer", () => {
-        map.getCanvas().style.cursor = "pointer";
+      map.on("mousemove", "pois-layer", (e) => {
+        if (e.features && e.features.length > 0) {
+          const hovered = e.features[0].properties.id;
+          setHoveredPoiId(hovered);
+          map.getCanvas().style.cursor = "pointer";
+        }
       });
       map.on("mouseleave", "pois-layer", () => {
         map.getCanvas().style.cursor = "";
+        setHoveredPoiId(null);
       });
     });
 
@@ -175,6 +227,27 @@ export function SriLankaMap({ onPoiClick }) {
       }
     };
   }, []); // Empty dependency array ensures map initializes once
+
+  // Update hover and selected highlight layers whenever IDs change
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    if (map.getLayer("hovered-poi-layer")) {
+      const filter = hoveredPoiId ? ["==", ["get", "id"], hoveredPoiId] : ["==", ["get", "id"], ""];
+      map.setFilter("hovered-poi-layer", filter);
+    }
+
+    if (map.getLayer("selected-poi-layer")) {
+      const filter = selectedPoiId ? ["==", ["get", "id"], selectedPoiId] : ["==", ["get", "id"], ""];
+      map.setFilter("selected-poi-layer", filter);
+    }
+
+    if (map.getLayer("selected-poi-halo")) {
+      const filter = selectedPoiId ? ["==", ["get", "id"], selectedPoiId] : ["==", ["get", "id"], ""];
+      map.setFilter("selected-poi-halo", filter);
+    }
+  }, [hoveredPoiId, selectedPoiId]);
 
   return <div className="map__map-container" ref={mapContainerRef} />;
 }
