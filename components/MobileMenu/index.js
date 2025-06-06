@@ -60,13 +60,11 @@ const menus = [
 export default class MobileMenu extends Component {
   state = {
     isMenuShow: false,
-    openIds: [], // holds IDs of open items; can be numbers or strings (e.g., city title or "cityTitle-optionGroup")
+    openIds: [], // holds IDs (or titles/groupKeys) of open items
   };
 
   menuHandler = () => {
-    this.setState({
-      isMenuShow: !this.state.isMenuShow,
-    });
+    this.setState({ isMenuShow: !this.state.isMenuShow });
   };
 
   toggleOpen = (id) => {
@@ -82,18 +80,24 @@ export default class MobileMenu extends Component {
 
   ClickHandler = () => {
     window.scrollTo(10, 0);
-    // Optionally, close the menu on navigation
     this.setState({ isMenuShow: false });
   };
 
-  // Render regular menu items recursively
+  /**
+   * Renders a list of menu items.
+   * If an item is "Taxi", it calls this.props.handleVisible().
+   * If an item has a submenu, it toggles Collapse.
+   * If an item is "City Tours", it renders the dynamic city tours submenu.
+   */
   renderMenu = (items) => {
     const { openIds } = this.state;
+    const { handleVisible } = this.props; // pull in the function passed from parent
+
     return (
       <ul>
         {items.map((item) => {
+          // 1) City Tours parent branch
           if (item.title === "City Tours") {
-            // Render dynamic City Tours submenu
             return (
               <li key={item.id}>
                 <p onClick={() => this.toggleOpen(item.id)}>
@@ -107,7 +111,9 @@ export default class MobileMenu extends Component {
                 </Collapse>
               </li>
             );
-          } else if (item.submenu) {
+          }
+          // 2) Any item with a static submenu (like Destinations, Tours)
+          else if (item.submenu) {
             return (
               <li key={item.id}>
                 <p onClick={() => this.toggleOpen(item.id)}>
@@ -121,7 +127,23 @@ export default class MobileMenu extends Component {
                 </Collapse>
               </li>
             );
-          } else {
+          }
+          // 3) The Taxi item: call the parent's handleVisible prop
+          else if (item.title === "Taxi") {
+            return (
+              <li key={item.id}>
+                <Link
+                  style={{ backgroundColor: "orange" }}
+                  href={item.link}
+                  onClick={handleVisible}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            );
+          }
+          // 4) All other leaf‐node items: just a normal Link + ClickHandler to scroll & close menu
+          else {
             return (
               <li key={item.id}>
                 <Link onClick={this.ClickHandler} href={item.link}>
@@ -135,7 +157,11 @@ export default class MobileMenu extends Component {
     );
   };
 
-  // Render City Tours dynamically using cities from the API
+  /**
+   * Renders the dynamic "City Tours" submenu based on the `cities` API import.
+   * Each city title toggles its own Collapse. Then each option group toggles nested Collapse,
+   * and finally filters the city.options array by either "city" or "day" before rendering Links.
+   */
   renderCityTours = () => {
     const { openIds } = this.state;
     return (
@@ -145,7 +171,7 @@ export default class MobileMenu extends Component {
           return (
             <li key={city.title}>
               <p onClick={() => this.toggleOpen(city.title)}>
-                {city.title} +
+                {city.title}{" "}
                 <i className="fa fa-angle-right" aria-hidden="true"></i>
               </p>
               <Collapse isOpen={isCityOpen}>
@@ -153,19 +179,20 @@ export default class MobileMenu extends Component {
                   <CardBody>
                     <ul>
                       {city.optionName.map((optionGroup) => {
-                        // Determine filter type based on the optionGroup value
+                        // Determine filterType based on presence of "city" in the optionGroup string
                         const filterType = optionGroup
                           .toLowerCase()
                           .includes("city")
                           ? "city"
                           : "day";
-                        // Create a unique key for the group toggle (e.g., "Kandy City-Tour")
+                        // Use a composite key for toggling this group
                         const groupKey = `${city.title}-${optionGroup}`;
                         const isGroupOpen = openIds.includes(groupKey);
+
                         return (
                           <li key={optionGroup}>
                             <p onClick={() => this.toggleOpen(groupKey)}>
-                              {optionGroup} +
+                              {optionGroup}{" "}
                               <i
                                 className="fa fa-angle-right"
                                 aria-hidden="true"

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Navbar from "../components/Navbar";
-import About from "../components/about";
+import { About } from "../components/About";
 import Features from "../components/Features";
 import Footer from "../components/footer";
 import Scrollbar from "../components/scrollbar";
@@ -20,10 +20,10 @@ const HomePage = () => {
       <TaxiBookingPage />
       <Heading text="destinations" size="lg" />
       <About />
-      <Heading text="Reviews" size="lg" />
-      <ReviewList reviews={reviews} />
       <Heading text="Tours" size="lg" />
       <Features />
+      <Heading text="Reviews" size="lg" />
+      <ReviewList reviews={reviews} />
       <Footer />
       <Scrollbar />
     </Fragment>

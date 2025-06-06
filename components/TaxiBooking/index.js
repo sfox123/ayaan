@@ -10,10 +10,37 @@ import { motion, AnimatePresence } from "framer-motion";
 // No Lottie import needed anymore
 
 const vehicleOptions = [
-  { name: "Mini Car", value: "mini-car", image: "/images/taxi/3.png" },
-  { name: "Mini Van", value: "mini-van", image: "/images/taxi/4.png" },
-  { name: "Van", value: "van", image: "/images/taxi/1.png" },
-  { name: "Mini Bus", value: "mini-bus", image: "/images/taxi/5.png" },
+  {
+    name: "Mini Car",
+    value: "mini-car",
+    image: "/images/taxi/3.png",
+    packs: 2,
+  },
+  {
+    name: "Sedan Car",
+    value: "sedan-car",
+    image: "/images/taxi/3.png",
+    packs: 3,
+  },
+  {
+    name: "Mini Van",
+    value: "mini-van",
+    image: "/images/taxi/4.png",
+    packs: 3,
+  },
+  { name: "Van", value: "van", image: "/images/taxi/1.png", packs: 6 },
+  {
+    name: "High Roof Van",
+    value: "high-roof-van",
+    image: "/images/taxi/5.png",
+    packs: 10,
+  },
+  {
+    name: "Mini Bus",
+    value: "mini-bus",
+    image: "/images/taxi/5.png",
+    packs: 21,
+  },
 ];
 
 const TaxiBooking = (props) => {

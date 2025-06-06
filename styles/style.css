@@ -10032,21 +10032,16 @@ wpo-blog sidebar
   }
 }
 
-/* Taxi Booking Component Styles (Prefixed) */
+/* Taxi Booking Component Styles (Prefixed with taxi__) */
 
 /* The main container for the form, acting as the 'popup' content */
 .taxi__booking-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Removed min-height: 100vh; to allow it to size to content */
   padding: 20px;
   background-color: #f0f2f5; /* Background for the area behind the form */
   box-sizing: border-box;
-  /* If this is truly a floating popup, you might also want: */
-  /* position: fixed; */
-  /* top: 0; left: 0; right: 0; bottom: 0; */
-  /* background-color: rgba(0, 0, 0, 0.5); /* Overlay effect */
 }
 
 /* Form Container Styling */
@@ -10058,15 +10053,12 @@ wpo-blog sidebar
   width: 100%;
   max-width: 600px; /* Max width for the form */
   position: relative;
-  /* Removed margin: auto; here as parent flex handles centering */
   box-sizing: border-box;
-
-  /* --- IMPORTANT CHANGES FOR SCROLLING --- */
   max-height: 95vh; /* Allow it to take almost full viewport height */
-  /* Adjust this value (e.g., 90vh, 85vh) based on desired spacing */
   overflow-y: auto; /* Enable vertical scrolling if content overflows */
   -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
 }
+
 .taxi__booking-form h2 {
   text-align: center;
   margin-bottom: 25px;
@@ -10116,6 +10108,7 @@ wpo-blog sidebar
 }
 
 .taxi__form-group input {
+  /* This rule applies to all inputs within .taxi__form-group */
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -10137,6 +10130,7 @@ wpo-blog sidebar
 }
 
 .taxi__autocomplete-container input {
+  /* Input specifically within autocomplete */
   padding-right: 40px;
 }
 
@@ -10207,6 +10201,7 @@ wpo-blog sidebar
 
 /* Vehicle Selection Buttons Styling */
 .taxi__vehicle-selection-group {
+  /* This is a .taxi__form-group with .taxi__full-width-group */
   margin-bottom: 20px;
 }
 
@@ -10262,7 +10257,7 @@ wpo-blog sidebar
   text-align: center;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for taxi__ prefixed styles */
 @media (max-width: 768px) {
   .taxi__form-row {
     flex-direction: column; /* Stack form groups on smaller screens */
@@ -10287,6 +10282,28 @@ wpo-blog sidebar
   }
 }
 
+.taxi-book__vehicle-packs-info {
+  display: flex; /* Align icon and number horizontally */
+  align-items: center; /* Vertically center icon and number */
+  gap: 5px; /* Space between icon and number */
+  margin-top: 6px; /* Space above the packs info, below the vehicle name */
+  color: #555e68; /* A slightly muted color for the packs info */
+}
+
+.taxi-book__packs-icon {
+  font-size: 0.8em; /* Adjust icon size as needed */
+}
+
+.taxi-book__packs-number {
+  font-size: 0.85em; /* Adjust number size */
+  font-weight: 500;
+}
+
+/* Minor adjustment to the vehicle name span if needed, to ensure consistent spacing */
+.taxi-book__vehicle-option-button > span {
+  /* This targets the vehicle name */
+  margin-bottom: 2px; /* Add a little space if the gap from flex isn't enough */
+}
 /* Base styles for the About Us component */
 .about__container {
   font-family: "Inter", sans-serif;
@@ -11222,4 +11239,115 @@ wpo-blog sidebar
     /* ensure hover text also gets large max-height */
     max-height: 1000px;
   }
+}
+.custom-poi-marker:hover {
+  transform: scale(1.1); /* Simple hover effect for POI icons */
+  /* Add other hover effects as desired */
+}
+/* === Provided Styles === */
+.map__about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.map__about-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.map__about-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.map__map-wrapper {
+  width: 100%;
+  height: 600px; /* Or 70vh/80vh */
+  margin-bottom: 1.5rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.map__map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.map__about-footer {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+  text-align: center;
+}
+
+/* === For Mapbox Popups (can be customized further) === */
+.mapboxgl-popup-content {
+  font-family: sans-serif;
+  padding: 10px 10px 10px; /* Adjust padding */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.mapboxgl-popup-content h3 {
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.mapboxgl-popup-content p {
+  font-size: 0.9em;
+  margin-bottom: 0;
+}
+
+/* Optional: Style for the POI details panel in About.js */
+.map__poi-details-panel {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.map__poi-details-panel h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.brush-highlight {
+  /* Remove default link styling */
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+
+  /* Use flex to easily center the text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Text styling */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  /* Spacing */
+  padding: 12px 12px;
+
+  /* The Brush Stroke Background (URL-encoded SVG) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 60'%3E%3Cpath fill='orangered' d='M0,10 C25,-5 125,-5 150,15 L150,50 C125,65 25,65 0,45 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* This stretches the brush stroke to fit the element */
+
+  /* Optional: Add a subtle effect on hover */
+  transition: transform 0.2s ease-out;
+}
+
+.brush-highlight:hover {
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
 }

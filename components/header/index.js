@@ -162,11 +162,12 @@ const Header = (props) => {
                     {/* Taxi */}
                     <li>
                       <Link
+                        className="brush-highlight"
                         onClick={() => {
                           handleVisible();
                         }}
-                        href=""
-                        title=""
+                        href="#" // It's good practice to have a value for href
+                        title="Add Taxi Option"
                       >
                         Taxi +
                       </Link>
@@ -256,7 +257,7 @@ const Header = (props) => {
                 </div>
               </div>
               <div className="col-md-2 col-sm-2 col-2">
-                <MobileMenu />
+                <MobileMenu handleVisible={handleVisible} />
               </div>
             </div>
             <div className="clearfix"></div>

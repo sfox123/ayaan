@@ -1,15 +1,51 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTimes,
+  faLocationDot,
+  faUsers, // <-- Add this import
+} from "@fortawesome/free-solid-svg-icons"; // <-- Adjusted import
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import { motion, AnimatePresence } from "framer-motion";
 
 const vehicleOptions = [
-  { name: "Mini Car", value: "mini-car", image: "/images/taxi/3.png" },
-  { name: "Mini Van", value: "mini-van", image: "/images/taxi/4.png" },
-  { name: "Van", value: "van", image: "/images/taxi/1.png" },
-  { name: "Mini Bus", value: "mini-bus", image: "/images/taxi/5.png" },
+  {
+    name: "Mini Car",
+    value: "mini-car",
+    image: "/images/taxi/3.png",
+    packs: 2,
+  },
+  {
+    name: "Sedan Car",
+    value: "sedan-car",
+    image: "/images/taxi/2.png",
+    packs: 3,
+  },
+  {
+    name: "Mini Van",
+    value: "mini-van",
+    image: "/images/taxi/4.png",
+    packs: 3,
+  },
+  {
+    name: "Flat Roof Van",
+    value: "flat-roof-van",
+    image: "/images/taxi/4.png",
+    packs: 6,
+  },
+  {
+    name: "High Roof Van",
+    value: "high-roof-van",
+    image: "/images/taxi/5.png",
+    packs: 10,
+  },
+  {
+    name: "Mini Bus",
+    value: "mini-bus",
+    image: "/images/taxi/5.png",
+    packs: 21,
+  },
 ];
 
 const TaxiBookingPage = (props) => {
@@ -159,13 +195,7 @@ const TaxiBookingPage = (props) => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
-      {/* The main container for the form, acting as the 'popup' content */}
-      <div
-        id="taxi-book__container"
-        className="taxi-book__container"
-        // style={{ zIndex: 1000 }} // Keep z-index if it's a direct child of body for popup
-      >
-        {/* Form itself */}
+      <div id="taxi-book__container" className="taxi-book__container">
         <form
           key={formKey}
           onSubmit={handleSubmit}
@@ -173,38 +203,9 @@ const TaxiBookingPage = (props) => {
           noValidate
         >
           <h2>Book Your Ride</h2>
+          {/* ... (messages) ... */}
 
-          {/* Success and Error Messages */}
-          <AnimatePresence>
-            {successMessage && (
-              <motion.div
-                className="taxi-book__success-message"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                role="status"
-                aria-live="polite"
-              >
-                {successMessage}
-              </motion.div>
-            )}
-            {errorMessage && (
-              <motion.div
-                className="taxi-book__error-message"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                role="alert"
-                aria-live="assertive"
-              >
-                {errorMessage}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Form Rows */}
+          {/* ... (passengerName, email, contactNumber form groups) ... */}
           <div className="taxi-book__form-row">
             <div className="taxi-book__form-group">
               <label htmlFor="taxi-book__passengerName">Passenger Name</label>
@@ -258,8 +259,6 @@ const TaxiBookingPage = (props) => {
                 </span>
               )}
             </div>
-            {/* This form group now acts as a full-width container for vehicle buttons */}
-            {/* To make it span a new visual row and be full width, it's best placed outside a taxi-book__form-row or the row itself only contains this one group. */}
           </div>
 
           <div className="taxi-book__form-group taxi-book__vehicle-selection-group taxi-book__full-width-group">
@@ -279,11 +278,21 @@ const TaxiBookingPage = (props) => {
                   <Image
                     src={vehicle.image}
                     alt={vehicle.name}
-                    width={80} // Adjust as needed
-                    height={50} // Adjust as needed
-                    style={{ objectFit: "contain" }} // Updated from objectFit prop
+                    width={80}
+                    height={50}
+                    style={{ objectFit: "contain" }}
                   />
                   <span>{vehicle.name}</span>
+                  {/* New packs info section */}
+                  <div className="taxi-book__vehicle-packs-info">
+                    <FontAwesomeIcon
+                      icon={faUsers}
+                      className="taxi-book__packs-icon"
+                    />
+                    <span className="taxi-book__packs-number">
+                      {vehicle.packs}
+                    </span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -294,12 +303,12 @@ const TaxiBookingPage = (props) => {
             )}
           </div>
 
+          {/* ... (from, to, and submit button) ... */}
           <div className="taxi-book__form-row">
             <div className="taxi-book__form-group">
               <label htmlFor="taxi-book__from">From</label>
               <Autocomplete
                 onLoad={(autocomplete) => {
-                  // console.log("Autocomplete From loaded:", autocomplete);
                   setAutocompleteFrom(autocomplete);
                 }}
                 onPlaceChanged={handlePlaceSelectFrom}
@@ -307,13 +316,11 @@ const TaxiBookingPage = (props) => {
                 <div className="taxi-book__autocomplete-container">
                   <input
                     type="text"
-                    id="taxi-book__from" // Ensure this ID is unique if form is used multiple times on one page
+                    id="taxi-book__from"
                     name="from"
                     placeholder="Pickup location"
-                    // value={formData.from} // Controlled by Autocomplete once a place is selected or by direct typing
-                    defaultValue={formData.from} // Use defaultValue for non-strictly controlled or when reset by key
+                    defaultValue={formData.from}
                     onChange={(e) => {
-                      // Allow typing and update form data
                       setFormData({ ...formData, from: e.target.value });
                       if (formErrors.from && e.target.value.trim()) {
                         setFormErrors((prev) => ({ ...prev, from: undefined }));
@@ -338,7 +345,6 @@ const TaxiBookingPage = (props) => {
               <label htmlFor="taxi-book__to">To</label>
               <Autocomplete
                 onLoad={(autocomplete) => {
-                  // console.log("Autocomplete To loaded:", autocomplete);
                   setAutocompleteTo(autocomplete);
                 }}
                 onPlaceChanged={handlePlaceSelectTo}
@@ -346,10 +352,9 @@ const TaxiBookingPage = (props) => {
                 <div className="taxi-book__autocomplete-container">
                   <input
                     type="text"
-                    id="taxi-book__to" // Ensure this ID is unique
+                    id="taxi-book__to"
                     name="to"
                     placeholder="Drop-off location"
-                    // value={formData.to}
                     defaultValue={formData.to}
                     onChange={(e) => {
                       setFormData({ ...formData, to: e.target.value });
@@ -372,7 +377,6 @@ const TaxiBookingPage = (props) => {
               )}
             </div>
           </div>
-          {/* Submit */}
           <button
             type="submit"
             className="taxi-book__submit-button"

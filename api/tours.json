@@ -146,6 +146,132 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Heritage & Horizon: 5 Days of Culture and Coastline",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy",
+          "activities": [
+            { "text": "Arrival & Transfer to Kandy", "optional": false },
+            { "text": "Temple of the Sacred Tooth Relic", "optional": false },
+            { "text": "Cultural Show & Gem Museum", "optional": false },
+            { "text": "Kandy View Point", "optional": false }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy to Sigiriya",
+          "activities": [
+            { "text": "Drive to Sigiriya", "optional": false },
+            { "text": "Matale Spice Garden", "optional": false },
+            { "text": "Dambulla Cave Temple", "optional": false },
+            { "text": "Climb Sigiriya Rock Fortress", "optional": false },
+            { "text": "Traditional Village Tour", "optional": false }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Sigiriya to Polonnaruwa",
+          "activities": [
+            { "text": "Drive to Polonnaruwa", "optional": false },
+            {
+              "text": "Explore the Ancient City of Polonnaruwa",
+              "optional": false
+            },
+            {
+              "text": "Visit Gal Vihara & Lankathilaka Image House",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Polonnaruwa to Trincomalee",
+          "activities": [
+            { "text": "Drive to Trincomalee", "optional": false },
+            {
+              "text": "Koneswaram Temple & Fort Frederick",
+              "optional": false
+            },
+            { "text": "Nilaveli or Uppuveli Beach", "optional": false },
+            { "text": "Optional Snorkeling or Diving", "optional": true }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Trincomalee to Colombo & Departure",
+          "activities": [
+            { "text": "Drive to Colombo", "optional": false },
+            { "text": "Colombo City Tour", "optional": false },
+            { "text": "Shopping & Departure", "optional": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cultural Treasures & Thrills: 5 Days of Immersive Adventure",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy",
+          "activities": [
+            { "text": "Arrival & Transfer to Kandy", "optional": false },
+            { "text": "Pinnawala Elephant Orphanage", "optional": false },
+            {
+              "text": "Visit a Spice Garden & Temple of the Sacred Tooth Relic",
+              "optional": false
+            },
+            { "text": "Kandy View Point & Cultural Show", "optional": false }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy to Nuwara Eliya",
+          "activities": [
+            { "text": "Drive to Nuwara Eliya", "optional": false },
+            {
+              "text": "Ramboda Waterfall & Hanuman Temple",
+              "optional": false
+            },
+            { "text": "Tea Factory Tour & Gregory Lake", "optional": false }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Nuwara Eliya to Ella",
+          "activities": [
+            { "text": "Scenic Train Ride to Ella", "optional": false },
+            { "text": "Nine Arches Bridge", "optional": false },
+            {
+              "text": "Little Adam's Peak & Flying Ravana Zipline",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Ella to Arugambay",
+          "activities": [
+            { "text": "Drive to Arugambay", "optional": false },
+            { "text": "Relax at Arugambay Beach", "optional": false },
+            {
+              "text": "Surfing, Kite Surfing & Beach Exploration",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Arugambay to Colombo & Departure",
+          "activities": [
+            { "text": "Drive to Colombo", "optional": false },
+            { "text": "Colombo City Tour & Shopping", "optional": false },
+            { "text": "Transfer to Airport for Departure", "optional": false }
+          ]
+        }
+      ]
     }
   ],
   "7-day": [
@@ -308,6 +434,272 @@
           "activities": [
             { "text": "Drive to Colombo/airport", "optional": false },
             { "text": "Transfer to airport for departure", "optional": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7-Day Tour Option 3",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy",
+          "activities": [
+            {
+              "text": "Arrival at Bandaranaike International Airport (CMB) & Transfer to Kandy",
+              "optional": false
+            },
+            {
+              "text": "Visit the Temple of the Sacred Tooth Relic",
+              "optional": false
+            },
+            {
+              "text": "Enjoy a Cultural Show (Traditional Kandyan Dance)",
+              "optional": false
+            },
+            { "text": "Explore the Gem Museum", "optional": false },
+            {
+              "text": "Visit the Kandy View Point for panoramic views of the city",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy to Sigiriya via Matale",
+          "activities": [
+            { "text": "Drive to Sigiriya", "optional": false },
+            {
+              "text": "Stop at Matale Spice Garden to learn about Sri Lanka’s spices",
+              "optional": false
+            },
+            {
+              "text": "Visit the Dambulla Cave Temple (Golden Temple of Dambulla)",
+              "optional": false
+            },
+            {
+              "text": "Explore the Sigiriya Rock Fortress (UNESCO World Heritage Site)",
+              "optional": false
+            },
+            {
+              "text": "Enjoy a Traditional Village Tour with bullock cart ride and local lunch",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Sigiriya to Polonnaruwa",
+          "activities": [
+            { "text": "Drive to Polonnaruwa", "optional": false },
+            {
+              "text": "Explore the Ancient City of Polonnaruwa (Royal Palace, Gal Vihara, etc.)",
+              "optional": false
+            },
+            {
+              "text": "Visit the Manampitiya Bridge (Oldest Steel Bridge in Sri Lanka)",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Polonnaruwa to Anuradhapura",
+          "activities": [
+            { "text": "Drive to Anuradhapura", "optional": false },
+            {
+              "text": "Visit the Sacred City of Anuradhapura (Sri Maha Bodhi, stupas, etc.)",
+              "optional": false
+            },
+            {
+              "text": "Explore the Mihintale Monastery (Cradle of Buddhism in Sri Lanka)",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Anuradhapura to Trincomalee",
+          "activities": [
+            { "text": "Drive to Trincomalee", "optional": false },
+            {
+              "text": "Visit the Koneswaram Temple (Lover’s Leap and Swami Rock)",
+              "optional": false
+            },
+            { "text": "Explore Fort Frederick", "optional": false },
+            {
+              "text": "Relax at Nilaveli or Uppuveli Beach",
+              "optional": false
+            },
+            {
+              "text": "Snorkeling or Diving at Pigeon Island",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Trincomalee & Surroundings",
+          "activities": [
+            {
+              "text": "Whale and Dolphin Watching Tour (Seasonal)",
+              "optional": true
+            },
+            {
+              "text": "Visit Hot Water Springs of Kanniya",
+              "optional": false
+            },
+            { "text": "Relax on Nilaveli Beach", "optional": false },
+            {
+              "text": "Explore Velgam Vehera (Ancient Buddhist Temple)",
+              "optional": false
+            },
+            {
+              "text": "Boat ride to Pigeon Island National Park",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Trincomalee to Colombo & Departure",
+          "activities": [
+            {
+              "text": "Drive directly to Bandaranaike International Airport (CMB) for departure",
+              "optional": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "7-Day Tour Option 4",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy",
+          "activities": [
+            {
+              "text": "Arrival at Bandaranaike International Airport (CMB) & Transfer to Kandy",
+              "optional": false
+            },
+            {
+              "text": "En route: Visit the Pinnawala Elephant Orphanage",
+              "optional": false
+            },
+            {
+              "text": "Stop at a Spice Garden in Mawanella",
+              "optional": false
+            },
+            {
+              "text": "Visit the Temple of the Sacred Tooth Relic",
+              "optional": false
+            },
+            {
+              "text": "Enjoy a Cultural Show (Traditional Kandyan Dance)",
+              "optional": false
+            },
+            {
+              "text": "Visit the Kandy View Point for panoramic views",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy to Nuwara Eliya",
+          "activities": [
+            { "text": "Drive to Nuwara Eliya", "optional": false },
+            { "text": "Visit the Ramboda Waterfall", "optional": false },
+            {
+              "text": "Visit the Hanuman Temple in Ramboda",
+              "optional": false
+            },
+            {
+              "text": "Visit a Tea Factory and taste fresh tea",
+              "optional": false
+            },
+            {
+              "text": "Explore the picturesque Gregory Lake",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Nuwara Eliya to Ella",
+          "activities": [
+            {
+              "text": "Famous scenic train ride from Nuwara Eliya to Ella",
+              "optional": false
+            },
+            {
+              "text": "Visit Ella Rock for stunning views",
+              "optional": false
+            },
+            { "text": "Walk to Nine Arches Bridge", "optional": false },
+            {
+              "text": "Experience the Flying Ravana zip line",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Ella to Arugambay",
+          "activities": [
+            { "text": "Drive to Arugambay", "optional": false },
+            { "text": "Relax at Arugambay Beach", "optional": false },
+            {
+              "text": "Enjoy water sports like surfing or kite surfing",
+              "optional": false
+            },
+            {
+              "text": "Visit Pottuvil Point for stunning beach views",
+              "optional": false
+            },
+            { "text": "Explore the Arugambay Lagoon", "optional": false }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Arugambay to Polonnaruwa",
+          "activities": [
+            { "text": "Drive to Polonnaruwa", "optional": false },
+            {
+              "text": "Explore the Ancient City of Polonnaruwa (Royal Palace, Gal Vihara, etc.)",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Polonnaruwa to Sigiriya",
+          "activities": [
+            { "text": "Drive to Sigiriya", "optional": false },
+            {
+              "text": "Visit the Sigiriya Rock Fortress (UNESCO World Heritage Site)",
+              "optional": false
+            },
+            {
+              "text": "Explore Pidurangala Rock (optional hike for panoramic views)",
+              "optional": true
+            },
+            {
+              "text": "Enjoy a traditional village tour with a bullock cart ride and local lunch",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Sigiriya to Colombo & Departure",
+          "activities": [
+            {
+              "text": "Drive to Bandaranaike International Airport (CMB)",
+              "optional": false
+            },
+            { "text": "Departure from Colombo", "optional": false }
           ]
         }
       ]
@@ -482,6 +874,309 @@
           "title": "Colombo Departure",
           "activities": [
             { "text": "Airport transfer & departure", "optional": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "9-Day Tour Option 3",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy via Pinnawala & Temple of Tooth",
+          "activities": [
+            {
+              "text": "Arrival at Bandaranaike International Airport (CMB) & Transfer to Kandy",
+              "optional": false
+            },
+            {
+              "text": "Visit Pinnawala Elephant Orphanage",
+              "optional": false
+            },
+            {
+              "text": "Visit Bahirawakanda Temple for panoramic views",
+              "optional": false
+            },
+            {
+              "text": "Visit the Temple of the Sacred Tooth Relic (UNESCO World Heritage Site)",
+              "optional": false
+            },
+            {
+              "text": "Enjoy a Cultural Show (Traditional Kandyan Dance)",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy Full Day Exploration",
+          "activities": [
+            { "text": "Visit the Gem Museum", "optional": false },
+            {
+              "text": "Explore the Royal Botanical Gardens in Peradeniya",
+              "optional": false
+            },
+            {
+              "text": "Visit a Handmade Woodcarving Shop",
+              "optional": false
+            },
+            {
+              "text": "Enjoy panoramic views from Kandy View Point",
+              "optional": false
+            },
+            { "text": "Relax by Kandy Lake", "optional": false }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Kandy to Sigiriya via Matale",
+          "activities": [
+            { "text": "Drive to Sigiriya", "optional": false },
+            {
+              "text": "Stop at Matale Spice Garden for a spice tour",
+              "optional": false
+            },
+            {
+              "text": "Visit the Dambulla Cave Temple (Golden Temple of Dambulla)",
+              "optional": false
+            },
+            {
+              "text": "Explore the Sigiriya Rock Fortress (UNESCO World Heritage Site)",
+              "optional": false
+            },
+            {
+              "text": "Enjoy a Traditional Village Tour with a bullock cart ride and local lunch",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Sigiriya to Polonnaruwa",
+          "activities": [
+            { "text": "Drive to Polonnaruwa", "optional": false },
+            {
+              "text": "Explore the Ancient City of Polonnaruwa (Royal Palace, Gal Vihara, etc.)",
+              "optional": false
+            },
+            { "text": "Visit the Manampitiya Bridge", "optional": false }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Polonnaruwa to Anuradhapura",
+          "activities": [
+            { "text": "Drive to Anuradhapura", "optional": false },
+            {
+              "text": "Visit the Sacred City of Anuradhapura (Sri Maha Bodhi, stupas, etc.)",
+              "optional": false
+            },
+            { "text": "Explore the Mihintale Monastery", "optional": false }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Anuradhapura to Trincomalee",
+          "activities": [
+            { "text": "Drive to Trincomalee", "optional": false },
+            {
+              "text": "Visit the Koneswaram Temple (Lover’s Leap and Swami Rock)",
+              "optional": false
+            },
+            { "text": "Explore Fort Frederick", "optional": false },
+            {
+              "text": "Relax at Nilaveli or Uppuveli Beach",
+              "optional": false
+            },
+            {
+              "text": "Snorkeling or Diving at Pigeon Island",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Trincomalee & Surroundings",
+          "activities": [
+            {
+              "text": "Whale and Dolphin Watching Tour (Seasonal)",
+              "optional": true
+            },
+            {
+              "text": "Visit Hot Water Springs of Kanniya",
+              "optional": false
+            },
+            { "text": "Relax on Nilaveli Beach", "optional": false },
+            {
+              "text": "Explore Velgam Vehera (Ancient Buddhist Temple)",
+              "optional": false
+            },
+            {
+              "text": "Boat ride to Pigeon Island National Park",
+              "optional": true
+            }
+          ]
+        },
+        {
+          "day": 8,
+          "title": "Trincomalee to Colombo",
+          "activities": [
+            { "text": "Drive to Colombo", "optional": false },
+            {
+              "text": "Explore Colombo City Tour (Gangaramaya Temple, Independence Square, etc.)",
+              "optional": false
+            },
+            { "text": "Shopping at One Galle Face Mall", "optional": true }
+          ]
+        },
+        {
+          "day": 9,
+          "title": "Colombo to Airport Departure",
+          "activities": [
+            {
+              "text": "Drive to Bandaranaike International Airport for Departure",
+              "optional": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "9-Day Tour Option 4",
+      "days": [
+        {
+          "day": 1,
+          "title": "Arrival in Kandy",
+          "activities": [
+            {
+              "text": "Arrival at Bandaranaike International Airport (CMB) & Transfer to Kandy",
+              "optional": false
+            },
+            {
+              "text": "Visit Pinnawala Elephant Orphanage",
+              "optional": false
+            },
+            { "text": "Visit Spice Garden in Mawanella", "optional": false },
+            {
+              "text": "Watch the Cultural Show featuring traditional Kandyan dance",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Kandy City Tour",
+          "activities": [
+            {
+              "text": "Visit Temple of the Sacred Tooth Relic",
+              "optional": false
+            },
+            { "text": "Visit the Gem Museum", "optional": false },
+            { "text": "Visit a Wood Carving Center", "optional": false },
+            {
+              "text": "Explore Royal Botanical Garden, Peradeniya",
+              "optional": false
+            },
+            {
+              "text": "Visit Bahirawakanda Temple for panoramic views",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Kandy to Nuwara Eliya",
+          "activities": [
+            { "text": "Drive to Nuwara Eliya", "optional": false },
+            { "text": "Visit Ramboda Waterfall", "optional": false },
+            { "text": "Visit Hanuman Temple, Ramboda", "optional": false },
+            { "text": "Visit a Tea Factory & Plantation", "optional": false },
+            {
+              "text": "Enjoy a boat ride or walk around Gregory Lake",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Nuwara Eliya to Ella (Scenic Train Ride)",
+          "activities": [
+            {
+              "text": "Enjoy one of the world's most scenic train journeys from Nanu Oya to Ella",
+              "optional": false
+            },
+            { "text": "Visit Nine Arches Bridge", "optional": false },
+            { "text": "Short hike to Ella Rock", "optional": true },
+            { "text": "Flying Ravana Zip Line", "optional": true }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Ella to Arugambay",
+          "activities": [
+            { "text": "Drive to Arugambay", "optional": false },
+            { "text": "Relax at Arugambay Beach", "optional": false },
+            { "text": "Visit Pottuvil Point", "optional": false },
+            { "text": "Arugambay Lagoon Safari", "optional": true }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Arugambay to Polonnaruwa",
+          "activities": [
+            { "text": "Drive to Polonnaruwa", "optional": false },
+            {
+              "text": "Explore the Ancient City of Polonnaruwa (Royal Palace, Gal Vihara, etc.)",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Polonnaruwa to Sigiriya",
+          "activities": [
+            { "text": "Drive to Sigiriya", "optional": false },
+            {
+              "text": "Climb the iconic Sigiriya Rock Fortress",
+              "optional": false
+            },
+            { "text": "Visit Pidurangala Rock", "optional": true },
+            {
+              "text": "Experience a Traditional Village Tour",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 8,
+          "title": "Sigiriya to Colombo (City Tour)",
+          "activities": [
+            { "text": "Drive to Colombo", "optional": false },
+            {
+              "text": "Visit Gangaramaya Temple & Seema Malakaya",
+              "optional": false
+            },
+            { "text": "Visit Colombo National Museum", "optional": false },
+            { "text": "Visit Independence Memorial Hall", "optional": false },
+            { "text": "Explore Pettah Market", "optional": false },
+            {
+              "text": "Enjoy the sunset at Galle Face Green",
+              "optional": false
+            }
+          ]
+        },
+        {
+          "day": 9,
+          "title": "Departure from Colombo",
+          "activities": [
+            {
+              "text": "Shopping at One Galle Face Mall or Paradise Road",
+              "optional": false
+            },
+            {
+              "text": "Transfer to Bandaranaike International Airport (CMB) for Departure",
+              "optional": false
+            }
           ]
         }
       ]
