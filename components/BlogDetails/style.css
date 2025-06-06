@@ -637,12 +637,6 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .wpo-blog-single-fullwidth .wpo-blog-content {
-      padding: 0;
-  }
-}
-
 .entry-media img {
   width: 100%;
 }
