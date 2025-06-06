@@ -15,7 +15,6 @@ const HomePage = () => {
   return (
     <Fragment>
       <Navbar />
-      {/* <Hero heroClass={"hero-style-1"} /> */}
       <Slider />
       <TaxiBookingPage />
       <Heading text="destinations" size="lg" />

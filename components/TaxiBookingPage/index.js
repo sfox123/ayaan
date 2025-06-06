@@ -7,7 +7,6 @@ import {
   faUsers, // <-- Add this import
 } from "@fortawesome/free-solid-svg-icons"; // <-- Adjusted import
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
-import { motion, AnimatePresence } from "framer-motion";
 
 const vehicleOptions = [
   {

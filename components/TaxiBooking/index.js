@@ -2,7 +2,11 @@ import React, { useState } from "react";
 
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTimes,
+  faLocationDot,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { LoadScript, Autocomplete } from "@react-google-maps/api";
 import { motion, AnimatePresence } from "framer-motion";
@@ -297,14 +301,14 @@ const TaxiBooking = (props) => {
             {/* This form group now acts as a full-width container for vehicle buttons */}
             <div className="taxi__form-group taxi__vehicle-selection-group taxi__full-width-group">
               <label>Select Vehicle Type</label>
-              <div className="taxi__vehicle-options-container">
+              <div className="taxi-book__vehicle-options-container">
                 {vehicleOptions.map((vehicle) => (
                   <button
                     type="button"
                     key={vehicle.value}
-                    className={`taxi__vehicle-option-button ${
+                    className={`taxi-book__vehicle-option-button ${
                       formData.vehicleType === vehicle.value
-                        ? "taxi__selected"
+                        ? "taxi-book__selected"
                         : ""
                     }`}
                     onClick={() => handleVehicleSelection(vehicle.value)}
@@ -314,9 +318,19 @@ const TaxiBooking = (props) => {
                       alt={vehicle.name}
                       width={80}
                       height={50}
-                      objectFit="contain"
+                      style={{ objectFit: "contain" }}
                     />
                     <span>{vehicle.name}</span>
+                    {/* New packs info section */}
+                    <div className="taxi-book__vehicle-packs-info">
+                      <FontAwesomeIcon
+                        icon={faUsers}
+                        className="taxi-book__packs-icon"
+                      />
+                      <span className="taxi-book__packs-number">
+                        {vehicle.packs}
+                      </span>
+                    </div>
                   </button>
                 ))}
               </div>
