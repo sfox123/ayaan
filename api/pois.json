@@ -18,10 +18,7 @@
     "coordinates": [80.6411, 7.2937],
     "iconUrl": "/images/icons/kandy-icon.png",
     "description": "The Temple of the Sacred Tooth Relic, located in Kandy, is one of the most revered Buddhist sites in Sri Lanka. It houses a relic believed to be a tooth of the Buddha and is a UNESCO World Heritage Site.",
-    "images": [
-      "/images/pois/kandy_temple_1.jpg",
-      "/images/pois/kandy_temple_2.jpg"
-    ],
+    "images": ["/images/pois/kandy_1.jpg", "/images/pois/kandy_2.jpg"],
     "imageAlt": "Temple of the Sacred Tooth Relic in Kandy",
     "exploreLink": "/explore/kandy",
     "districtName": "Kandy"
@@ -285,7 +282,10 @@
     "coordinates": [80.698, 5.963],
     "iconUrl": "/images/icons/beach.png",
     "description": "Hiriketiya, or Hiri Beach, is a small horseshoe bay popular with surfers and travelers seeking a laid-back vibe. The beach is great for swimming, surfing, and enjoying local cafes.",
-    "images": ["/images/pois/hiriketiya_1.jpg", "/images/pois/hiriketiya_2.jpg"],
+    "images": [
+      "/images/pois/hiriketiya_1.jpg",
+      "/images/pois/hiriketiya_2.jpg"
+    ],
     "imageAlt": "Hiriketiya Beach",
     "exploreLink": "/explore/hiriketiya",
     "districtName": "Matara"
@@ -321,7 +321,10 @@
     "coordinates": [80.032, 6.336],
     "iconUrl": "/images/icons/beach.png",
     "description": "The Kosgoda Turtle Hatchery works to protect and rehabilitate sea turtles. Visitors can learn about conservation efforts and see different turtle species up close.",
-    "images": ["/images/pois/kosgoda_turtle_1.jpg", "/images/pois/kosgoda_turtle_2.jpg"],
+    "images": [
+      "/images/pois/kosgoda_turtle_1.jpg",
+      "/images/pois/kosgoda_turtle_2.jpg"
+    ],
     "imageAlt": "Kosgoda Turtle Hatchery",
     "exploreLink": "/explore/kosgoda",
     "districtName": "Galle"
@@ -333,7 +336,10 @@
     "coordinates": [80.036, 6.283],
     "iconUrl": "/images/icons/beach.png",
     "description": "A boat trip on the Madu River takes you through lush mangroves and tiny islands near Balapitiya. It's a popular eco-tourism activity with opportunities for birdwatching and visits to cinnamon estates.",
-    "images": ["/images/pois/madu_river_safari_1.jpg", "/images/pois/madu_river_safari_2.jpg"],
+    "images": [
+      "/images/pois/madu_river_safari_1.jpg",
+      "/images/pois/madu_river_safari_2.jpg"
+    ],
     "imageAlt": "Madu River Safari",
     "exploreLink": "/explore/madu-river-safari",
     "districtName": "Galle"
@@ -345,7 +351,10 @@
     "coordinates": [80.595, 7.271],
     "iconUrl": "/images/icons/beach.png",
     "description": "The Royal Botanical Gardens in Peradeniya showcase a vast collection of plants, orchids, and towering trees. It is a serene escape close to Kandy and a must-visit for nature lovers.",
-    "images": ["/images/pois/peradeniya_garden_1.jpg", "/images/pois/peradeniya_garden_2.jpg"],
+    "images": [
+      "/images/pois/peradeniya_garden_1.jpg",
+      "/images/pois/peradeniya_garden_2.jpg"
+    ],
     "imageAlt": "Peradeniya Botanical Garden",
     "exploreLink": "/explore/peradeniya-botanical-garden",
     "districtName": "Kandy"
