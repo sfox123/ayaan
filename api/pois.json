@@ -81,10 +81,7 @@
     "coordinates": [80.02, 9.665],
     "iconUrl": "/images/icons/jaffna.png",
     "description": "Nallur Kandaswamy Kovil is a significant Hindu temple in Jaffna, known for its stunning architecture and vibrant festivals. It is a center of Tamil culture and spirituality.",
-    "images": [
-      "/images/pois/nallur_kovil_1.jpg",
-      "/images/pois/nallur_kovil_2.jpg"
-    ],
+    "images": ["/images/pois/jaffna_1.png", "/images/pois/jaffna_2.png"],
     "imageAlt": "Nallur Kandaswamy Kovil in Jaffna",
     "exploreLink": "/explore/jaffna",
     "districtName": "Jaffna"
@@ -96,7 +93,7 @@
     "coordinates": [81.233, 8.583],
     "iconUrl": "/images/icons/nilaveli.png",
     "description": "Nilaveli Beach is a stunning stretch of white sand and clear blue waters located near Trincomalee. It is perfect for swimming, snorkeling, and relaxing by the sea.",
-    "images": ["/images/pois/nilaveli_1.jpg", "/images/pois/nilaveli_2.jpg"],
+    "images": ["/images/pois/trinco_1.png", "/images/pois/trinco_2.png"],
     "imageAlt": "Nilaveli Beach in Trincomalee",
     "exploreLink": "/explore/trincomalee",
     "districtName": "Trincomalee"
@@ -232,8 +229,8 @@
     "iconUrl": "/images/icons/polonnaruwa.png",
     "description": "Polonnaruwa is an ancient city and UNESCO World Heritage Site, known for its well-preserved ruins of the medieval Sri Lankan capital. It features impressive temples, statues, and the Royal Palace complex.",
     "images": [
-      "/images/pois/polonnaruwa_1.jpg",
-      "/images/pois/polonnaruwa_2.jpg"
+      "/images/pois/polonnaruwa_1.png",
+      "/images/pois/polonnaruwa_2.png"
     ],
     "imageAlt": "Polonnaruwa Ancient City",
     "exploreLink": "/explore/polonnaruwa",
