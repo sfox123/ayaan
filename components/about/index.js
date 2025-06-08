@@ -1,12 +1,11 @@
 import React, { useState, useCallback } from "react";
-import Link from "next/link"; // Keep if you use the exploreLink
+import Link from "next/link";
 import dynamic from "next/dynamic";
-// import { motion, useInView } from "framer-motion"; // Keep if you use for panel animations
 
-// Placeholder Heading component - replace with your actual import if different
+// Placeholder Heading component – replace with your actual import if needed
 const Heading = ({ text, size = "md" }) => {
   const Tag = size === "lg" ? "h1" : size === "md" ? "h2" : "h3";
-  return <Tag style={{ marginTop: 0, marginBottom: "10px" }}>{text}</Tag>; // Basic styling
+  return <Tag style={{ marginTop: 0, marginBottom: "10px" }}>{text}</Tag>;
 };
 
 const SriLankaMap = dynamic(
@@ -15,7 +14,6 @@ const SriLankaMap = dynamic(
 );
 
 function About() {
-  // Or export default function About() if it's a Next.js page
   const [selectedPoi, setSelectedPoi] = useState(null);
 
   const handlePoiClick = useCallback((poi) => {
@@ -27,6 +25,27 @@ function About() {
       detailsPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   }, []);
+
+  // Utility: parse images into an array if necessary
+  const getImagesArray = (images) => {
+    if (Array.isArray(images)) {
+      return images;
+    } else if (typeof images === "string") {
+      try {
+        const parsed = JSON.parse(images);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (error) {
+        console.error("Error parsing images:", error);
+        return [];
+      }
+    }
+    return [];
+  };
+
+  // Get images array from selectedPoi
+  const imagesArray = selectedPoi?.images
+    ? getImagesArray(selectedPoi.images)
+    : [];
 
   return (
     <div className="map__about-container">
@@ -44,30 +63,34 @@ function About() {
         <div id="poi-details-panel" className="map__poi-details-panel">
           <Heading text={selectedPoi.name} size="md" />
           {selectedPoi.description && <p>{selectedPoi.description}</p>}
-          {/* {selectedPoi.images && selectedPoi.images[0] && (
-            <img
-              src={selectedPoi.images[0]}
-              alt={selectedPoi.imageAlt || selectedPoi.name}
+          {imagesArray.length > 0 && (
+            <div
               style={{
-                maxWidth: "100%",
-                height: "auto",
-                borderRadius: "4px",
+                display: "flex",
+                gap: "10px",
                 marginTop: "10px",
                 marginBottom: "10px",
               }}
-            />
-          )} */}
+            >
+              {imagesArray.slice(0, 2).map((imgSrc, index) => (
+                <img
+                  key={index}
+                  src={imgSrc}
+                  alt={selectedPoi.imageAlt || selectedPoi.name}
+                  style={{
+                    width: "50%",
+                    height: "auto",
+                    borderRadius: "4px",
+                    objectFit: "cover",
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
       )}
-
-      {/* <p className="map__about-footer">
-        <strong>How it works:</strong> Icons represent points of interest. Click
-        an icon to see details below. Sigiriya’s icon is initially highlighted
-        on the map.
-      </p> */}
     </div>
   );
 }
 
-// If this is a Next.js page (e.g., in pages/about.js), it typically needs a default export:
 export default About;

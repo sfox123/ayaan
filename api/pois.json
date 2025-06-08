@@ -18,7 +18,7 @@
     "coordinates": [80.6411, 7.2937],
     "iconUrl": "/images/icons/kandy-icon.png",
     "description": "The Temple of the Sacred Tooth Relic, located in Kandy, is one of the most revered Buddhist sites in Sri Lanka. It houses a relic believed to be a tooth of the Buddha and is a UNESCO World Heritage Site.",
-    "images": ["/images/pois/kandy_1.jpg", "/images/pois/kandy_2.jpg"],
+    "images": ["/images/pois/kandy_1.png", "/images/pois/kandy_2.png"],
     "imageAlt": "Temple of the Sacred Tooth Relic in Kandy",
     "exploreLink": "/explore/kandy",
     "districtName": "Kandy"
