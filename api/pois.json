@@ -69,7 +69,7 @@
     "coordinates": [80.116, 8.366],
     "iconUrl": "/images/icons/willpattu.png",
     "description": "Wilpatu National Park is one of the oldest and largest national parks in Sri Lanka, known for its unique 'villus' (natural lakes) and diverse wildlife, including leopards, elephants, and a variety of bird species.",
-    "images": ["/images/pois/wilpattu_1.jpg", "/images/pois/wilpattu_2.jpg"],
+    "images": ["/images/pois/wilpattu_1.png", "/images/pois/wilpattu_2.png"],
     "imageAlt": "Leopard in Wilpattu National Park",
     "exploreLink": "/explore/wilpattu",
     "districtName": "Puttalam"
@@ -105,7 +105,7 @@
     "coordinates": [79.783, 8.033],
     "iconUrl": "/images/icons/kalpitiya.png",
     "description": "Kalpitiya Beach is known for its pristine beauty, water sports, and dolphin watching. It is a popular destination for kitesurfing and offers a tranquil escape with its lagoons and sandy beaches.",
-    "images": ["/images/pois/kalpitiya_1.jpg", "/images/pois/kalpitiya_2.jpg"],
+    "images": ["/images/pois/kalpitiya_1.png", "/images/pois/kalpitiya_2.png"],
     "imageAlt": "Kalpitiya Beach",
     "exploreLink": "/explore/kalpitiya",
     "districtName": "Puttalam"
@@ -144,10 +144,7 @@
     "coordinates": [79.958, 7.127],
     "iconUrl": "/images/icons/colombo.png",
     "description": "Colombo is the bustling capital city of Sri Lanka, known for its vibrant culture, colonial architecture, and modern skyline. The Colombo Lotus Tower is a prominent landmark offering panoramic views of the city.",
-    "images": [
-      "/images/pois/colombo_lotus_1.jpg",
-      "/images/pois/colombo_lotus_2.jpg"
-    ],
+    "images": ["/images/pois/colombo_1.png", "/images/pois/colombo_2.png"],
     "imageAlt": "Colombo Lotus Tower",
     "exploreLink": "/explore/colombo",
     "districtName": "Colombo"
@@ -243,7 +240,7 @@
     "coordinates": [79.999, 6.416],
     "iconUrl": "/images/icons/beach.png",
     "description": "Bentota is a popular beach destination known for its golden sandy beaches, water sports, and luxury resorts. It offers a perfect blend of relaxation and adventure with activities like jet skiing, windsurfing, and boat rides on the Bentota River.",
-    "images": ["/images/pois/bentota_1.jpg", "/images/pois/bentota_2.jpg"],
+    "images": ["/images/pois/bentota_1.png", "/images/pois/bentota_2.png"],
     "imageAlt": "Bentota Beach",
     "exploreLink": "/explore/bentota",
     "districtName": "Galle"
@@ -324,21 +321,6 @@
     ],
     "imageAlt": "Kosgoda Turtle Hatchery",
     "exploreLink": "/explore/kosgoda",
-    "districtName": "Galle"
-  },
-  {
-    "id": "madu-river-safari",
-    "name": "Madu River Safari",
-    "mapLabel": "Madu Ganga",
-    "coordinates": [80.036, 6.283],
-    "iconUrl": "/images/icons/beach.png",
-    "description": "A boat trip on the Madu River takes you through lush mangroves and tiny islands near Balapitiya. It's a popular eco-tourism activity with opportunities for birdwatching and visits to cinnamon estates.",
-    "images": [
-      "/images/pois/madu_river_safari_1.jpg",
-      "/images/pois/madu_river_safari_2.jpg"
-    ],
-    "imageAlt": "Madu River Safari",
-    "exploreLink": "/explore/madu-river-safari",
     "districtName": "Galle"
   },
   {
