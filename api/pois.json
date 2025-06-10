@@ -117,7 +117,7 @@
     "coordinates": [80.211, 6.102],
     "iconUrl": "/images/icons/beach.png",
     "description": "Hikkaduwa Beach is a vibrant coastal destination known for its coral reefs, water sports, and lively nightlife. It offers opportunities for snorkeling, diving, and enjoying the local seafood.",
-    "images": ["/images/pois/hikkaduwa_1.jpg", "/images/pois/hikkaduwa_2.jpg"],
+    "images": ["/images/pois/hikka.png", "/images/pois/hikka_2.png"],
     "imageAlt": "Hikkaduwa Beach",
     "exploreLink": "/explore/hikkaduwa",
     "districtName": "Galle"
@@ -169,8 +169,8 @@
     "iconUrl": "/images/icons/anuradhapura.png",
     "description": "Anuradhapura is an ancient city and UNESCO World Heritage Site, known for its well-preserved ruins of ancient Sri Lankan civilization. It features impressive stupas, temples, and the sacred Sri Maha Bodhi tree.",
     "images": [
-      "/images/pois/anuradhapura_1.jpg",
-      "/images/pois/anuradhapura_2.jpg"
+      "/images/pois/anuradhapura_1.png",
+      "/images/pois/anuradhapura_2.png"
     ],
     "imageAlt": "Anuradhapura Ancient City",
     "exploreLink": "/explore/anuradhapura",
@@ -195,10 +195,10 @@
     "id": "mirissa",
     "name": "Mirissa",
     "mapLabel": "Mirissa",
-    "coordinates": [80.95, 6.1],
+    "coordinates": [81.05, 6.1],
     "iconUrl": "/images/icons/beach.png",
     "description": "Mirissa is a beautiful coastal town known for its stunning beaches, whale watching, and vibrant nightlife. It is a popular destination for tourists seeking relaxation and marine adventures.",
-    "images": ["/images/pois/mirissa_1.jpg", "/images/pois/mirissa_2.jpg"],
+    "images": ["/images/pois/mirisa.png", "/images/pois/mirisa_1.png"],
     "imageAlt": "Mirissa Beach",
     "exploreLink": "/explore/mirissa",
     "districtName": "Matara"
@@ -249,10 +249,10 @@
     "id": "unawatuna-beach",
     "name": "Unawatuna Beach",
     "mapLabel": "Unawatuna",
-    "coordinates": [80.258, 6.013],
+    "coordinates": [80.311, 6.013],
     "iconUrl": "/images/icons/beach.png",
     "description": "Unawatuna is a picturesque crescent-shaped beach famed for its golden sand, clear waters, and lively beachfront cafes. It is ideal for swimming, snorkeling, and relaxing by the Indian Ocean.",
-    "images": ["/images/pois/unawatuna_1.jpg", "/images/pois/unawatuna_2.jpg"],
+    "images": ["/images/pois/una_1.png", "/images/pois/una.png"],
     "imageAlt": "Unawatuna Beach",
     "exploreLink": "/explore/unawatuna",
     "districtName": "Galle"
@@ -261,10 +261,10 @@
     "id": "tangalle-beach",
     "name": "Tangalle Beach",
     "mapLabel": "Tangalle",
-    "coordinates": [80.787, 6.023],
+    "coordinates": [80.887, 6.023],
     "iconUrl": "/images/icons/beach.png",
     "description": "Tangalle offers long stretches of unspoiled coastline and a tranquil atmosphere. Visitors enjoy quiet beaches, nearby turtle conservation sites, and scenic sunsets.",
-    "images": ["/images/pois/tangalle_1.jpg", "/images/pois/tangalle_2.jpg"],
+    "images": ["/images/pois/tangalle_1.png", "/images/pois/tangalle_2.png"],
     "imageAlt": "Tangalle Beach",
     "exploreLink": "/explore/tangalle",
     "districtName": "Hambantota"
@@ -276,10 +276,7 @@
     "coordinates": [80.698, 5.963],
     "iconUrl": "/images/icons/beach.png",
     "description": "Hiriketiya, or Hiri Beach, is a small horseshoe bay popular with surfers and travelers seeking a laid-back vibe. The beach is great for swimming, surfing, and enjoying local cafes.",
-    "images": [
-      "/images/pois/hiriketiya_1.jpg",
-      "/images/pois/hiriketiya_2.jpg"
-    ],
+    "images": ["/images/pois/hiri_1.png", "/images/pois/hiri_2.png"],
     "imageAlt": "Hiriketiya Beach",
     "exploreLink": "/explore/hiriketiya",
     "districtName": "Matara"
@@ -291,7 +288,7 @@
     "coordinates": [81.288, 6.183],
     "iconUrl": "/images/icons/beach.png",
     "description": "Kirinda is known for its scenic shoreline and the historic temple perched on a rock overlooking the sea. It serves as a gateway to Yala National Park and offers sweeping ocean views.",
-    "images": ["/images/pois/kirinda_1.jpg", "/images/pois/kirinda_2.jpg"],
+    "images": ["/images/pois/kirinda_1.png", "/images/pois/kirinda_2.png"],
     "imageAlt": "Kirinda Beach",
     "exploreLink": "/explore/kirinda",
     "districtName": "Hambantota"
@@ -300,10 +297,10 @@
     "id": "thalpe-beach",
     "name": "Thalpe Beach",
     "mapLabel": "Thalpe",
-    "coordinates": [80.285, 5.992],
+    "coordinates": [80.505, 6.0],
     "iconUrl": "/images/icons/beach.png",
     "description": "Thalpe is a peaceful beach area near Unawatuna, famous for its natural rock pools and laid-back atmosphere. It's an excellent spot for swimming and watching the sunset.",
-    "images": ["/images/pois/thalpe_1.jpg", "/images/pois/thalpe_2.jpg"],
+    "images": ["/images/pois/thalpe_1.png", "/images/pois/thalpe_2.png"],
     "imageAlt": "Thalpe Beach",
     "exploreLink": "/explore/thalpe",
     "districtName": "Galle"
@@ -312,30 +309,12 @@
     "id": "kosgoda-turtle-hatchery",
     "name": "Kosgoda Turtle Hatchery",
     "mapLabel": "Kosgoda",
-    "coordinates": [80.032, 6.336],
-    "iconUrl": "/images/icons/beach.png",
+    "coordinates": [80.032, 6.252],
+    "iconUrl": "/images/icons/turtle.png",
     "description": "The Kosgoda Turtle Hatchery works to protect and rehabilitate sea turtles. Visitors can learn about conservation efforts and see different turtle species up close.",
-    "images": [
-      "/images/pois/kosgoda_turtle_1.jpg",
-      "/images/pois/kosgoda_turtle_2.jpg"
-    ],
+    "images": ["/images/pois/kosgoda.png", "/images/pois/kosgoda_2.png"],
     "imageAlt": "Kosgoda Turtle Hatchery",
     "exploreLink": "/explore/kosgoda",
     "districtName": "Galle"
-  },
-  {
-    "id": "peradeniya-botanical-garden",
-    "name": "Royal Botanical Garden, Peradeniya",
-    "mapLabel": "Peradeniya",
-    "coordinates": [80.595, 7.271],
-    "iconUrl": "/images/icons/beach.png",
-    "description": "The Royal Botanical Gardens in Peradeniya showcase a vast collection of plants, orchids, and towering trees. It is a serene escape close to Kandy and a must-visit for nature lovers.",
-    "images": [
-      "/images/pois/peradeniya_garden_1.jpg",
-      "/images/pois/peradeniya_garden_2.jpg"
-    ],
-    "imageAlt": "Peradeniya Botanical Garden",
-    "exploreLink": "/explore/peradeniya-botanical-garden",
-    "districtName": "Kandy"
   }
 ]
