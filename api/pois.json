@@ -187,7 +187,7 @@
     "name": "Mirissa",
     "mapLabel": "Mirissa",
     "coordinates": [81.05, 6.1],
-    "iconUrl": "/images/icons/beach.png",
+    "iconUrl": "/images/icons/mirissa.png",
     "description": "Mirissa is a beautiful coastal town known for its stunning beaches, whale watching, and vibrant nightlife. It is a popular destination for tourists seeking relaxation and marine adventures.",
     "images": ["/images/pois/mirisa.png", "/images/pois/mirisa_1.png"],
     "imageAlt": "Mirissa Beach",
@@ -304,5 +304,17 @@
     "imageAlt": "Kosgoda Turtle Hatchery",
     "exploreLink": "/explore/kosgoda",
     "districtName": "Galle"
+  },
+  {
+    "id": "weligama-beach",
+    "name": "Weligama Beach",
+    "mapLabel": "Weligama",
+    "coordinates": [81.282, 5.885],
+    "iconUrl": "/images/icons/weligama.png",
+    "description": "Weligama Beach is famous for its stilt fishermen and golden sands. It is a great spot for surfing, swimming, and enjoying fresh seafood at beachside restaurants.",
+    "images": ["/images/pois/weligama_1.png", "/images/pois/weligama_2.png"],
+    "imageAlt": "Weligama Beach",
+    "exploreLink": "/explore/weligama",
+    "districtName": "Matara"
   }
 ]

@@ -36,7 +36,7 @@ const vehicleOptions = [
   {
     name: "High Roof Van",
     value: "high-roof-van",
-    image: "/images/taxi/5.png",
+    image: "/images/taxi/6.png",
     packs: 10,
   },
   {
