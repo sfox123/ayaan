@@ -126,10 +126,7 @@
     "coordinates": [80.495, 7.657],
     "iconUrl": "/images/icons/dambulla.png",
     "description": "Dambulla Cave Temple, also known as the Golden Temple of Dambulla, is a UNESCO World Heritage Site featuring a complex of caves adorned with ancient Buddhist murals and statues. It is one of the best-preserved cave temple complexes in Sri Lanka.",
-    "images": [
-      "/images/pois/dambulla_cave_1.jpg",
-      "/images/pois/dambulla_cave_2.jpg"
-    ],
+    "images": ["/images/pois/dambulla_1.png", "/images/pois/dambulla_2.png"],
     "imageAlt": "Dambulla Cave Temple",
     "exploreLink": "/explore/dambulla",
     "districtName": "Matale"
