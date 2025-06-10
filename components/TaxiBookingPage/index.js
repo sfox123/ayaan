@@ -24,7 +24,7 @@ const vehicleOptions = [
   {
     name: "Mini Van",
     value: "mini-van",
-    image: "/images/taxi/4.png",
+    image: "/images/taxi/3.png",
     packs: 3,
   },
   {

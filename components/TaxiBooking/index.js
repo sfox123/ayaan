@@ -17,19 +17,19 @@ const vehicleOptions = [
   {
     name: "Mini Car",
     value: "mini-car",
-    image: "/images/taxi/3.png",
+    image: "/images/taxi/1.png",
     packs: 2,
   },
   {
     name: "Sedan Car",
     value: "sedan-car",
-    image: "/images/taxi/3.png",
+    image: "/images/taxi/2.png",
     packs: 3,
   },
   {
     name: "Mini Van",
     value: "mini-van",
-    image: "/images/taxi/4.png",
+    image: "/images/taxi/3.png",
     packs: 3,
   },
   { name: "Van", value: "van", image: "/images/taxi/1.png", packs: 6 },
