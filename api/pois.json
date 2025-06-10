@@ -30,7 +30,7 @@
     "coordinates": [81.475, 6.467],
     "iconUrl": "/images/icons/yala-icon.png",
     "description": "Yala National Park is one of the largest and most visited national parks in Sri Lanka, renowned for its diverse wildlife, including leopards, elephants, and a variety of bird species. It offers thrilling safari experiences.",
-    "images": ["/images/pois/yala_park_1.jpg", "/images/pois/yala_park_2.jpg"],
+    "images": ["/images/pois/yala_1.png", "/images/pois/yala_2.png"],
     "imageAlt": "Leopard in Yala National Park",
     "exploreLink": "/explore/yala",
     "districtName": "Hambantota"
@@ -42,7 +42,7 @@
     "coordinates": [80.972, 6.707],
     "iconUrl": "/images/icons/udawalawa-icon.png",
     "description": "Udawalawe National Park is famous for its large population of elephants and diverse wildlife.",
-    "images": ["/images/pois/udawalawe_1.jpg", "/images/pois/udawalawe_2.jpg"],
+    "images": ["/images/pois/uda_1.png", "/images/pois/uda_2.png"],
     "imageAlt": "Elephants in Udawalawe National Park",
     "exploreLink": "/explore/udawalawe",
     "districtName": "Ratnapura"
@@ -54,10 +54,7 @@
     "coordinates": [80.485, 6.595],
     "iconUrl": "/images/icons/gems.png",
     "description": "Ratnapura, known as the 'City of Gems', is famous for its rich deposits of precious and semi-precious stones. Visitors can explore gem mines, learn about the gem trade, and purchase exquisite jewelry.",
-    "images": [
-      "/images/pois/ratnapura_gems_1.jpg",
-      "/images/pois/ratnapura_gems_2.jpg"
-    ],
+    "images": ["/images/pois/ratnapura_1.png", "/images/pois/ratnapura_2.png"],
     "imageAlt": "Ratnapura Gemstone Market",
     "exploreLink": "/explore/ratnapura",
     "districtName": "Ratnapura"
@@ -156,7 +153,7 @@
     "coordinates": [81.159, 7.036],
     "iconUrl": "/images/icons/ella.png",
     "description": "Ella is a picturesque hill station known for its stunning landscapes, tea plantations, and hiking trails. Key attractions include Ella Rock, Nine Arches Bridge, and the Ravana Falls.",
-    "images": ["/images/pois/ella_1.jpg", "/images/pois/ella_2.jpg"],
+    "images": ["/images/pois/ella_1.png", "/images/pois/ella_2.png"],
     "imageAlt": "Ella in Sri Lanka",
     "exploreLink": "/explore/ella",
     "districtName": "Badulla"
@@ -183,10 +180,7 @@
     "coordinates": [80.377, 6.974],
     "iconUrl": "/images/icons/kithulgala.png",
     "description": "Kithulgala is a popular adventure destination known for white-water rafting, trekking, and bird watching. It is set in a lush rainforest environment and offers opportunities for eco-tourism.",
-    "images": [
-      "/images/pois/kithulgala_1.jpg",
-      "/images/pois/kithulgala_2.jpg"
-    ],
+    "images": ["/images/pois/kithul_1.png", "/images/pois/kithul_2.png"],
     "imageAlt": "Kithulgala Adventure Activities",
     "exploreLink": "/explore/kithulgala",
     "districtName": "Kegalle"
@@ -210,10 +204,7 @@
     "coordinates": [81.833, 6.833],
     "iconUrl": "/images/icons/arugambay.png",
     "description": "Arugam Bay is a world-renowned surfing destination known for its consistent waves and laid-back atmosphere. It attracts surfers from around the globe and offers a range of accommodations and beachside cafes.",
-    "images": [
-      "/images/pois/arugam_bay_1.jpg",
-      "/images/pois/arugam_bay_2.jpg"
-    ],
+    "images": ["/images/pois/arugambay_1.png", "/images/pois/arugambay_2.png"],
     "imageAlt": "Arugam Bay Surfing",
     "exploreLink": "/explore/arugam-bay",
     "districtName": "Ampara"
