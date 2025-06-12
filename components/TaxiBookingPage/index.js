@@ -12,7 +12,7 @@ const vehicleOptions = [
   {
     name: "Mini Car",
     value: "mini-car",
-    image: "/images/taxi/3.png",
+    image: "/images/taxi/0.png",
     packs: 2,
   },
   {
