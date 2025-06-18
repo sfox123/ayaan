@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -10,11 +10,15 @@ const Heading = ({ text, size = "md" }) => {
 
 const SriLankaMap = dynamic(
   () => import("../SriLankaMap").then((mod) => mod.SriLankaMap),
-  { ssr: false }
+  { ssr: true }
 );
 
 function About() {
   const [selectedPoi, setSelectedPoi] = useState(null);
+
+  useEffect(() => {
+    // Reset selectedPoi when component mounts
+  }, [selectedPoi]);
 
   const handlePoiClick = useCallback((poi) => {
     console.log("About: POI Clicked in parent:", poi.name);
