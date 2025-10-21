@@ -34,23 +34,41 @@ export default function Taxi() {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState(1);
+  const [bookingDetails, setBookingDetails] = useState(null);
 
   const handleAnimationComplete = () => {
     setIsAnimationComplete(true);
   };
 
-  const handleNextStep = () => {
+  const handleNextStep = (details) => {
     setDirection(1);
-    setStep(step + 1);
+    setBookingDetails(details);
+    setStep((prev) => prev + 1);
   };
 
   const handlePrevStep = () => {
     setDirection(-1);
-    setStep(step - 1);
+    setStep((prev) => Math.max(1, prev - 1));
   };
 
-  const handleSubmit = () => {
-    alert("Taxi Booked!");
+  const handleSubmit = (vehicle) => {
+    const summary = [
+      `🚕 Taxi booked successfully!`,
+      bookingDetails?.passengerName
+        ? `Passenger: ${bookingDetails.passengerName}`
+        : null,
+      bookingDetails?.contactNumber
+        ? `Contact: ${bookingDetails.contactNumber}`
+        : null,
+      bookingDetails?.pickupLocation && bookingDetails?.dropoffLocation
+        ? `Route: ${bookingDetails.pickupLocation} → ${bookingDetails.dropoffLocation}`
+        : null,
+      vehicle?.name ? `Vehicle: ${vehicle.name}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    alert(summary || "Taxi booked successfully!");
   };
 
   return (
@@ -102,6 +120,7 @@ export default function Taxi() {
                 className={styles.formContainer}
               >
                 <VehicleSelection
+                  bookingDetails={bookingDetails}
                   onPrevious={handlePrevStep}
                   onSubmit={handleSubmit}
                 />
