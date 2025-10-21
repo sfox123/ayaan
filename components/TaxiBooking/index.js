@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import taxiAnimationData from "@/../public/lottie/taxi.json";
+import taxiAnimationData from "../../public/taxi.json";
 
-import LottieAnimation from "../Lottie";
+import LottieAnimation from "../LottieAnimation";
 import styles from "./taxi.module.css";
-import BookingDetailsForm from "./BookingDetailsForm";
-import VehicleSelection from "./VehicleSelection";
+import BookingDetailsForm from "../BookingDetailsForm";
+import VehicleSelection from "../VehicleSelection";
 
 const variants = {
   enter: (direction) => ({
