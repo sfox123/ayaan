@@ -33,7 +33,7 @@ const menus = [
   {
     id: 3,
     title: "Taxi",
-    link: "#taxi",
+    link: "/#taxi-booking",
   },
   {
     id: 4,
@@ -83,15 +83,26 @@ export default class MobileMenu extends Component {
     this.setState({ isMenuShow: false });
   };
 
+  handleTaxiLinkClick = (e, link) => {
+    e.preventDefault();
+
+    this.setState({ isMenuShow: false }, () => {
+      if (this.props.onTaxiNavigate) {
+        this.props.onTaxiNavigate();
+      } else if (typeof window !== "undefined") {
+        window.location.href = link;
+      }
+    });
+  };
+
   /**
    * Renders a list of menu items.
-   * If an item is "Taxi", it calls this.props.handleVisible().
+   * If an item is "Taxi", it scrolls/navigates to the booking section.
    * If an item has a submenu, it toggles Collapse.
    * If an item is "City Tours", it renders the dynamic city tours submenu.
    */
   renderMenu = (items) => {
     const { openIds } = this.state;
-    const { handleVisible } = this.props; // pull in the function passed from parent
 
     return (
       <ul>
@@ -128,14 +139,14 @@ export default class MobileMenu extends Component {
               </li>
             );
           }
-          // 3) The Taxi item: call the parent's handleVisible prop
+          // 3) The Taxi item: trigger smooth scroll/navigation
           else if (item.title === "Taxi") {
             return (
               <li key={item.id}>
                 <Link
                   style={{ backgroundColor: "orange" }}
                   href={item.link}
-                  onClick={handleVisible}
+                  onClick={(e) => this.handleTaxiLinkClick(e, item.link)}
                 >
                   {item.title}
                 </Link>

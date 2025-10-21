@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Logo from "/public/images/logo-2.png";
 import Link from "next/link";
 import { connect } from "react-redux";
@@ -8,14 +8,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
 import cities from "../../api/city"; // Import your cities array
+import { useRouter } from "next/router";
 
 const Header = (props) => {
-  const { handleVisible } = props;
-  const ClickHandler = (e) => {
-    window.scrollTo(10, 0);
+  const router = useRouter();
+
+  const ClickHandler = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(10, 0);
+    }
   };
 
-  const { carts } = props;
+  const handleTaxiNavigation = React.useCallback(() => {
+    if (typeof window !== "undefined" && router.pathname === "/") {
+      const section = document.getElementById("taxi-booking");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        window.history.replaceState(null, "", "/#taxi-booking");
+        return;
+      }
+    }
+
+    router.push("/#taxi-booking");
+  }, [router]);
 
   return (
     <div className="middle-header">
@@ -163,11 +178,12 @@ const Header = (props) => {
                     <li>
                       <Link
                         className="brush-highlight"
-                        onClick={() => {
-                          handleVisible();
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleTaxiNavigation();
                         }}
-                        href="#" // It's good practice to have a value for href
-                        title="Add Taxi Option"
+                        href="/#taxi-booking"
+                        title="Taxi Booking"
                       >
                         Taxi +
                       </Link>
@@ -257,7 +273,7 @@ const Header = (props) => {
                 </div>
               </div>
               <div className="col-md-2 col-sm-2 col-2">
-                <MobileMenu handleVisible={handleVisible} />
+                <MobileMenu onTaxiNavigate={handleTaxiNavigation} />
               </div>
             </div>
             <div className="clearfix"></div>

@@ -47,9 +47,7 @@ const vehicleOptions = [
   },
 ];
 
-const TaxiBookingPage = (props) => {
-  const { handleVisible } = props || {};
-
+const TaxiBookingPage = () => {
   const [formData, setFormData] = useState({
     passengerName: "",
     email: "",
@@ -194,7 +192,7 @@ const TaxiBookingPage = (props) => {
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API}
       libraries={["places"]}
     >
-      <div id="taxi-book__container" className="taxi-book__container">
+      <div id="taxi-booking" className="taxi-book__container">
         <form
           key={formKey}
           onSubmit={handleSubmit}
