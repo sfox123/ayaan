@@ -1,3 +1,4 @@
+"use client";
 // You will need to install this library: npm install lottie-react
 import React from "react";
 // Import the Lottie component and the useLottie hook
