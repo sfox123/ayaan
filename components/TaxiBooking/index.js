@@ -1,12 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import taxiAnimationData from "../../public/taxi.json";
-
-import LottieAnimation from "../LottieAnimation";
 import styles from "./taxi.module.css";
 import BookingDetailsForm from "../BookingDetailsForm";
 import VehicleSelection from "../VehicleSelection";
+
+const LottieAnimation = dynamic(() => import("../LottieAnimation"), {
+  ssr: false,
+});
 
 const variants = {
   enter: (direction) => ({
