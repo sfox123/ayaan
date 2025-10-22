@@ -28,21 +28,15 @@ export default function LottieAnimation({
   // 2. Use the useLottie hook to get control over the animation
   const { View, animationItem } = useLottie(options, style);
 
-  // 3. Attach the onComplete listener using useEffect, only once, and when
-  // the animationItem is available.
+  // 3. Attach the onComplete listener once when the animationItem becomes available.
+  //    Avoid removing it manually on unmount to prevent races with lottie-react's
+  //    internal destroy(), which can null internal callback maps.
+  const attachedRef = React.useRef(false);
   React.useEffect(() => {
-    if (animationItem && onComplete && !loop) {
-      // The addEventListener method is available on the underlying animationItem
-      // 'complete' is the event Lottie fires when a non-looping animation finishes.
+    if (!attachedRef.current && animationItem && onComplete && !loop) {
       animationItem.addEventListener("complete", onComplete);
+      attachedRef.current = true;
     }
-
-    // Cleanup the listener when the component unmounts or dependencies change
-    return () => {
-      if (animationItem && onComplete && !loop) {
-        animationItem.removeEventListener("complete", onComplete);
-      }
-    };
   }, [animationItem, onComplete, loop]);
 
   // The 'View' returned by useLottie is the component that renders the animation
