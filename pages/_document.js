@@ -1,31 +1,16 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from "next/document";
 
-export default class MyDocument extends Document {
-  render() {
-    return (
-      <Html>
-        <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
-          <link rel="stylesheet" href="https://use.typekit.net/jgh1rza.css" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Goldman:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head>
+        <meta name="theme-color" content="#0F2E24" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }
