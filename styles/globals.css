@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-serif: "Newsreader Variable", Georgia, serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-mist font-display text-ink antialiased;
+    font-feature-settings: "ss01";
+  }
+  ::selection {
+    @apply bg-coconut text-canopy;
+  }
+  :focus-visible {
+    outline: 2px solid #f29a2e;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img {
+    user-select: none;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-page px-4 sm:px-8 lg:px-12;
+  }
+  .prose-serif {
+    @apply font-serif text-[1.18rem] leading-[1.65] text-ink-600;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-[0.98rem] font-semibold tracking-[-0.01em] transition-[background-color,color,transform] duration-300 ease-out active:scale-[0.97];
+  }
+  .btn-primary {
+    @apply btn bg-coconut text-canopy hover:bg-[#ffb04f];
+  }
+  .btn-dark {
+    @apply btn bg-canopy text-mist hover:bg-canopy-600;
+  }
+  .btn-ghost {
+    @apply btn border border-white/40 text-white hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply btn border border-ink/20 text-ink hover:border-ink/40 hover:bg-ink/5;
+  }
+  .field {
+    @apply w-full rounded-2xl border border-ink/15 bg-white/70 px-4 py-3.5 text-[1rem] text-ink placeholder:text-ink-400 transition-colors focus:border-canopy focus:bg-white focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-600;
+  }
+  .kicker {
+    @apply text-[0.95rem] font-medium text-ink-400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
