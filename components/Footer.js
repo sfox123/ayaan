@@ -24,7 +24,7 @@ export default function Footer() {
       <div className="wrap pt-24">
         <div className="grid gap-12 border-b border-mist/10 pb-16 lg:grid-cols-[1.3fr_2fr]">
           <div className="max-w-sm">
-            <Logo />
+            <Logo variant="stacked" />
             <p className="mt-6 font-serif text-[1.15rem] leading-relaxed text-mist/75">
               Private tours, safari camping and airport transfers across Sri Lanka, run from Kandy since 2022.
             </p>

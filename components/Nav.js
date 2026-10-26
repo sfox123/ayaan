@@ -54,8 +54,10 @@ export default function Nav({ tone = "light" }) {
         } ${solid && !open ? "bg-mist/85 shadow-[0_1px_0_rgba(20,35,28,0.08)] backdrop-blur-xl" : ""}`}
       >
         <div className="wrap flex h-[72px] items-center justify-between gap-6">
-          <Link href="/" aria-label="Ayaan Tours home" className="relative z-10">
-            <Logo />
+          <Link href="/" aria-label="Ayaan Tours home" className="relative z-10 grid">
+            {/* both versions stacked so the switch from white to navy cross-fades */}
+            <Logo variant="dark" alt="" priority className={`[grid-area:1/1] transition-opacity duration-500 ${light || open ? "opacity-0" : "opacity-100"}`} />
+            <Logo variant="light" alt="" priority className={`[grid-area:1/1] transition-opacity duration-500 ${light || open ? "opacity-100" : "opacity-0"}`} />
           </Link>
 
           <nav aria-label="Main" className="hidden xl:block">
