@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
             transition={{ duration: 0.65, ease, delay: 0.1 }}
           >
             <motion.span initial={{ opacity: 1 }} animate={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-              <Logo />
+              <Logo variant="light" priority />
             </motion.span>
           </motion.div>
           <Component {...pageProps} />
