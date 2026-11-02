@@ -6,11 +6,11 @@ import { whatsapp } from "../../lib/site";
 import { WhatsAppIcon } from "../Icons";
 
 const SLIDES = [
-  { src: "/images/pois/sigiriya_1.png", label: "Sigiriya" },
-  { src: "/images/pois/ella_1.png", label: "Nine Arches Bridge, Ella" },
-  { src: "/images/pois/yala_2.png", label: "Yala National Park" },
-  { src: "/images/pois/mirisa_1.png", label: "Mirissa" },
-  { src: "/images/pois/kandy_2.png", label: "Temple of the Tooth, Kandy" },
+  { src: "/images/pois/sigiriya_1.jpg", label: "Sigiriya" },
+  { src: "/images/pois/ella_1.jpg", label: "Nine Arches Bridge, Ella" },
+  { src: "/images/pois/yala_2.jpg", label: "Yala National Park" },
+  { src: "/images/pois/mirisa_1.jpg", label: "Mirissa" },
+  { src: "/images/pois/kandy_2.jpg", label: "Temple of the Tooth, Kandy" },
 ];
 
 const ease = [0.16, 1, 0.3, 1];
@@ -67,6 +67,8 @@ export default function HomeHero() {
                 <Image src={SLIDES[i].src} alt="" fill priority={i === 0} sizes="100vw" className="object-cover" />
               </motion.div>
             </AnimatePresence>
+            {/* fetch the next slide early so it is ready before the crossfade */}
+            <Image key={SLIDES[(i + 1) % SLIDES.length].src} src={SLIDES[(i + 1) % SLIDES.length].src} alt="" fill sizes="100vw" loading="eager" className="invisible object-cover" aria-hidden="true" />
           </motion.div>
           <motion.div style={{ opacity: veil }} className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,46,36,0.78)_0%,rgba(15,46,36,0.35)_55%,rgba(15,46,36,0.1)_100%)]" />
           <div className="absolute bottom-5 right-6 flex items-center gap-3 text-sm font-medium text-white/90">

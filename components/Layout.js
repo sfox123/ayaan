@@ -10,7 +10,7 @@ import { WhatsAppIcon } from "./Icons";
 const DEFAULT_DESC =
   "Private Sri Lanka tours with a local driver-guide from Kandy: multi-day trips, day tours, safari camping in Yala, Kumana and Wilpattu, and airport transfers.";
 
-export default function Layout({ title, description = DEFAULT_DESC, image = "/images/pois/sigiriya_1.png", navTone = "light", children }) {
+export default function Layout({ title, description = DEFAULT_DESC, image = "/images/pois/sigiriya_1.jpg", navTone = "light", children }) {
   const router = useRouter();
   const full = title ? `${title} | Ayaan Tours Sri Lanka` : "Ayaan Tours | Private tours across Sri Lanka";
   const { scrollY } = useScroll();

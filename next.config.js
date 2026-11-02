@@ -2,7 +2,8 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    formats: ["image/avif", "image/webp"],
+    // WebP only: AVIF encoding of the large source PNGs takes 10-30s per image, so slides rotated before they loaded
+    formats: ["image/webp"],
     remotePatterns: [{ protocol: "https", hostname: "drive.google.com" }],
   },
   async redirects() {

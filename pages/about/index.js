@@ -9,11 +9,11 @@ import about from "../../data/aboutUs.json";
 export default function About() {
   const [founder, ...rest] = about.whyChooseUs.features;
   return (
-    <Layout title="About us" description="Ayaan Tours is a Kandy-based tour company founded in 2022 by Asique Mohammed, offering private tours with an eye on responsible travel." image="/images/pois/kandy_2.png">
-      <PageHero image="/images/pois/dambulla_1.png" alt="White facade of the Dambulla cave temple" kicker="About us" title={["From Kandy,", "since 2022"]} intro="A small, local company that would rather show you the real island than rush you round the famous one." />
+    <Layout title="About us" description="Ayaan Tours is a Kandy-based tour company founded in 2022 by Asique Mohammed, offering private tours with an eye on responsible travel." image="/images/pois/kandy_2.jpg">
+      <PageHero image="/images/pois/dambulla_1.jpg" alt="White facade of the Dambulla cave temple" kicker="About us" title={["From Kandy,", "since 2022"]} intro="A small, local company that would rather show you the real island than rush you round the famous one." />
 
       <section className="wrap grid gap-12 py-24 sm:py-32 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
-        <ParallaxImage src="/images/pois/uda_1.png" alt="Elephants at sunset in Sri Lanka's dry zone" sizes="(min-width:1024px) 40vw, 100vw" className="aspect-[4/5] rounded-[1.6rem]" />
+        <ParallaxImage src="/images/pois/uda_1.jpg" alt="Elephants at sunset in Sri Lanka's dry zone" sizes="(min-width:1024px) 40vw, 100vw" className="aspect-[4/5] rounded-[1.6rem]" />
         <div>
           <RevealTitle lines={["Who we are"]} className="text-big font-bold" />
           <p className="prose-serif mt-6">{about.introduction}</p>
@@ -50,7 +50,7 @@ export default function About() {
       <div className="bg-mist-200/50">
         <Reviews />
       </div>
-      <ClosingCta image="/images/pois/ella_1.png" />
+      <ClosingCta image="/images/pois/ella_1.jpg" />
     </Layout>
   );
 }

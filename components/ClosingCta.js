@@ -5,7 +5,7 @@ import { whatsapp, SITE } from "../lib/site";
 import { WhatsAppIcon } from "./Icons";
 import { RevealTitle } from "./Reveal";
 
-export default function ClosingCta({ image = "/images/pois/kalpitiya_1.png", lines = ["Tell us when you land.", "We'll plan the rest."] }) {
+export default function ClosingCta({ image = "/images/pois/kalpitiya_1.jpg", lines = ["Tell us when you land.", "We'll plan the rest."] }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);

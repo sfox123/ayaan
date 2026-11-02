@@ -6,7 +6,7 @@
     "coordinates": [80.760029, 7.95691],
     "iconUrl": "/images/icons/sigiriya-icon.png",
     "description": "Sigiriya, also known as Lion Rock, is an ancient rock fortress and one of Sri Lanka's most iconic landmarks. It features stunning frescoes, water gardens, and the remains of a royal citadel atop a massive rock.",
-    "images": ["/images/pois/sigiriya_1.png", "/images/pois/sigiriya_2.png"],
+    "images": ["/images/pois/sigiriya_1.jpg", "/images/pois/sigiriya_2.jpg"],
     "imageAlt": "View of Sigiriya Rock",
     "exploreLink": "/explore/sigiriya",
     "districtName": "Matale"
@@ -18,7 +18,7 @@
     "coordinates": [80.6411, 7.2937],
     "iconUrl": "/images/icons/kandy-icon.png",
     "description": "The Temple of the Sacred Tooth Relic, located in Kandy, is one of the most revered Buddhist sites in Sri Lanka. It houses a relic believed to be a tooth of the Buddha and is a UNESCO World Heritage Site.",
-    "images": ["/images/pois/kandy_1.png", "/images/pois/kandy_2.png"],
+    "images": ["/images/pois/kandy_1.jpg", "/images/pois/kandy_2.jpg"],
     "imageAlt": "Temple of the Sacred Tooth Relic in Kandy",
     "exploreLink": "/explore/kandy",
     "districtName": "Kandy"
@@ -30,7 +30,7 @@
     "coordinates": [81.475, 6.467],
     "iconUrl": "/images/icons/yala-icon.png",
     "description": "Yala National Park is one of the largest and most visited national parks in Sri Lanka, renowned for its diverse wildlife, including leopards, elephants, and a variety of bird species. It offers thrilling safari experiences.",
-    "images": ["/images/pois/yala_1.png", "/images/pois/yala_2.png"],
+    "images": ["/images/pois/yala_1.jpg", "/images/pois/yala_2.jpg"],
     "imageAlt": "Leopard in Yala National Park",
     "exploreLink": "/explore/yala",
     "districtName": "Hambantota"
@@ -42,7 +42,7 @@
     "coordinates": [80.972, 6.707],
     "iconUrl": "/images/icons/udawalawa-icon.png",
     "description": "Udawalawe National Park is famous for its large population of elephants and diverse wildlife.",
-    "images": ["/images/pois/uda_1.png", "/images/pois/uda_2.png"],
+    "images": ["/images/pois/uda_1.jpg", "/images/pois/uda_2.jpg"],
     "imageAlt": "Elephants in Udawalawe National Park",
     "exploreLink": "/explore/udawalawe",
     "districtName": "Ratnapura"
@@ -54,7 +54,7 @@
     "coordinates": [80.485, 6.595],
     "iconUrl": "/images/icons/gems.png",
     "description": "Ratnapura, known as the 'City of Gems', is famous for its rich deposits of precious and semi-precious stones. Visitors can explore gem mines, learn about the gem trade, and purchase exquisite jewelry.",
-    "images": ["/images/pois/ratnapura_1.png", "/images/pois/ratnapura_2.png"],
+    "images": ["/images/pois/ratnapura_1.jpg", "/images/pois/ratnapura_2.jpg"],
     "imageAlt": "Ratnapura Gemstone Market",
     "exploreLink": "/explore/ratnapura",
     "districtName": "Ratnapura"
@@ -66,7 +66,7 @@
     "coordinates": [80.116, 8.366],
     "iconUrl": "/images/icons/willpattu.png",
     "description": "Wilpatu National Park is one of the oldest and largest national parks in Sri Lanka, known for its unique 'villus' (natural lakes) and diverse wildlife, including leopards, elephants, and a variety of bird species.",
-    "images": ["/images/pois/wilpattu_1.png", "/images/pois/wilpattu_2.png"],
+    "images": ["/images/pois/wilpattu_1.jpg", "/images/pois/wilpattu_2.jpg"],
     "imageAlt": "Leopard in Wilpattu National Park",
     "exploreLink": "/explore/wilpattu",
     "districtName": "Puttalam"
@@ -78,7 +78,7 @@
     "coordinates": [80.02, 9.665],
     "iconUrl": "/images/icons/jaffna.png",
     "description": "Nallur Kandaswamy Kovil is a significant Hindu temple in Jaffna, known for its stunning architecture and vibrant festivals. It is a center of Tamil culture and spirituality.",
-    "images": ["/images/pois/jaffna_1.png", "/images/pois/jaffna_2.png"],
+    "images": ["/images/pois/jaffna_1.jpg", "/images/pois/jaffna_2.jpg"],
     "imageAlt": "Nallur Kandaswamy Kovil in Jaffna",
     "exploreLink": "/explore/jaffna",
     "districtName": "Jaffna"
@@ -90,7 +90,7 @@
     "coordinates": [81.233, 8.583],
     "iconUrl": "/images/icons/nilaveli.png",
     "description": "Nilaveli Beach is a stunning stretch of white sand and clear blue waters located near Trincomalee. It is perfect for swimming, snorkeling, and relaxing by the sea.",
-    "images": ["/images/pois/trinco_1.png", "/images/pois/trinco_2.png"],
+    "images": ["/images/pois/trinco_1.jpg", "/images/pois/trinco_2.jpg"],
     "imageAlt": "Nilaveli Beach in Trincomalee",
     "exploreLink": "/explore/trincomalee",
     "districtName": "Trincomalee"
@@ -102,7 +102,7 @@
     "coordinates": [79.783, 8.033],
     "iconUrl": "/images/icons/kalpitiya.png",
     "description": "Kalpitiya Beach is known for its pristine beauty, water sports, and dolphin watching. It is a popular destination for kitesurfing and offers a tranquil escape with its lagoons and sandy beaches.",
-    "images": ["/images/pois/kalpitiya_1.png", "/images/pois/kalpitiya_2.png"],
+    "images": ["/images/pois/kalpitiya_1.jpg", "/images/pois/kalpitiya_2.jpg"],
     "imageAlt": "Kalpitiya Beach",
     "exploreLink": "/explore/kalpitiya",
     "districtName": "Puttalam"
@@ -114,7 +114,7 @@
     "coordinates": [80.211, 6.102],
     "iconUrl": "/images/icons/beach.png",
     "description": "Hikkaduwa Beach is a vibrant coastal destination known for its coral reefs, water sports, and lively nightlife. It offers opportunities for snorkeling, diving, and enjoying the local seafood.",
-    "images": ["/images/pois/hikka.png", "/images/pois/hikka_2.png"],
+    "images": ["/images/pois/hikka.jpg", "/images/pois/hikka_2.jpg"],
     "imageAlt": "Hikkaduwa Beach",
     "exploreLink": "/explore/hikkaduwa",
     "districtName": "Galle"
@@ -126,7 +126,7 @@
     "coordinates": [80.495, 7.657],
     "iconUrl": "/images/icons/dambulla.png",
     "description": "Dambulla Cave Temple, also known as the Golden Temple of Dambulla, is a UNESCO World Heritage Site featuring a complex of caves adorned with ancient Buddhist murals and statues. It is one of the best-preserved cave temple complexes in Sri Lanka.",
-    "images": ["/images/pois/dambulla_1.png", "/images/pois/dambulla_2.png"],
+    "images": ["/images/pois/dambulla_1.jpg", "/images/pois/dambulla_2.jpg"],
     "imageAlt": "Dambulla Cave Temple",
     "exploreLink": "/explore/dambulla",
     "districtName": "Matale"
@@ -138,7 +138,7 @@
     "coordinates": [79.958, 7.127],
     "iconUrl": "/images/icons/colombo.png",
     "description": "Colombo is the bustling capital city of Sri Lanka, known for its vibrant culture, colonial architecture, and modern skyline. The Colombo Lotus Tower is a prominent landmark offering panoramic views of the city.",
-    "images": ["/images/pois/colombo_1.png", "/images/pois/colombo_2.png"],
+    "images": ["/images/pois/colombo_1.jpg", "/images/pois/colombo_2.jpg"],
     "imageAlt": "Colombo Lotus Tower",
     "exploreLink": "/explore/colombo",
     "districtName": "Colombo"
@@ -150,7 +150,7 @@
     "coordinates": [81.159, 7.036],
     "iconUrl": "/images/icons/ella.png",
     "description": "Ella is a picturesque hill station known for its stunning landscapes, tea plantations, and hiking trails. Key attractions include Ella Rock, Nine Arches Bridge, and the Ravana Falls.",
-    "images": ["/images/pois/ella_1.png", "/images/pois/ella_2.png"],
+    "images": ["/images/pois/ella_1.jpg", "/images/pois/ella_2.jpg"],
     "imageAlt": "Ella in Sri Lanka",
     "exploreLink": "/explore/ella",
     "districtName": "Badulla"
@@ -163,8 +163,8 @@
     "iconUrl": "/images/icons/anuradhapura.png",
     "description": "Anuradhapura is an ancient city and UNESCO World Heritage Site, known for its well-preserved ruins of ancient Sri Lankan civilization. It features impressive stupas, temples, and the sacred Sri Maha Bodhi tree.",
     "images": [
-      "/images/pois/anuradhapura_1.png",
-      "/images/pois/anuradhapura_2.png"
+      "/images/pois/anuradhapura_1.jpg",
+      "/images/pois/anuradhapura_2.jpg"
     ],
     "imageAlt": "Anuradhapura Ancient City",
     "exploreLink": "/explore/anuradhapura",
@@ -177,7 +177,7 @@
     "coordinates": [80.377, 6.974],
     "iconUrl": "/images/icons/kithulgala.png",
     "description": "Kithulgala is a popular adventure destination known for white-water rafting, trekking, and bird watching. It is set in a lush rainforest environment and offers opportunities for eco-tourism.",
-    "images": ["/images/pois/kithul_1.png", "/images/pois/kithul_2.png"],
+    "images": ["/images/pois/kithul_1.jpg", "/images/pois/kithul_2.jpg"],
     "imageAlt": "Kithulgala Adventure Activities",
     "exploreLink": "/explore/kithulgala",
     "districtName": "Kegalle"
@@ -189,7 +189,7 @@
     "coordinates": [81.05, 6.1],
     "iconUrl": "/images/icons/mirissa.png",
     "description": "Mirissa is a beautiful coastal town known for its stunning beaches, whale watching, and vibrant nightlife. It is a popular destination for tourists seeking relaxation and marine adventures.",
-    "images": ["/images/pois/mirisa.png", "/images/pois/mirisa_1.png"],
+    "images": ["/images/pois/mirisa.jpg", "/images/pois/mirisa_1.jpg"],
     "imageAlt": "Mirissa Beach",
     "exploreLink": "/explore/mirissa",
     "districtName": "Matara"
@@ -201,7 +201,7 @@
     "coordinates": [81.833, 6.833],
     "iconUrl": "/images/icons/arugambay.png",
     "description": "Arugam Bay is a world-renowned surfing destination known for its consistent waves and laid-back atmosphere. It attracts surfers from around the globe and offers a range of accommodations and beachside cafes.",
-    "images": ["/images/pois/arugambay_1.png", "/images/pois/arugambay_2.png"],
+    "images": ["/images/pois/arugambay_1.jpg", "/images/pois/arugambay_2.jpg"],
     "imageAlt": "Arugam Bay Surfing",
     "exploreLink": "/explore/arugam-bay",
     "districtName": "Ampara"
@@ -214,8 +214,8 @@
     "iconUrl": "/images/icons/polonnaruwa.png",
     "description": "Polonnaruwa is an ancient city and UNESCO World Heritage Site, known for its well-preserved ruins of the medieval Sri Lankan capital. It features impressive temples, statues, and the Royal Palace complex.",
     "images": [
-      "/images/pois/polonnaruwa_1.png",
-      "/images/pois/polonnaruwa_2.png"
+      "/images/pois/polonnaruwa_1.jpg",
+      "/images/pois/polonnaruwa_2.jpg"
     ],
     "imageAlt": "Polonnaruwa Ancient City",
     "exploreLink": "/explore/polonnaruwa",
@@ -228,7 +228,7 @@
     "coordinates": [79.999, 6.416],
     "iconUrl": "/images/icons/beach.png",
     "description": "Bentota is a popular beach destination known for its golden sandy beaches, water sports, and luxury resorts. It offers a perfect blend of relaxation and adventure with activities like jet skiing, windsurfing, and boat rides on the Bentota River.",
-    "images": ["/images/pois/bentota_1.png", "/images/pois/bentota_2.png"],
+    "images": ["/images/pois/bentota_1.jpg", "/images/pois/bentota_2.jpg"],
     "imageAlt": "Bentota Beach",
     "exploreLink": "/explore/bentota",
     "districtName": "Galle"
@@ -240,7 +240,7 @@
     "coordinates": [80.311, 6.013],
     "iconUrl": "/images/icons/beach.png",
     "description": "Unawatuna is a picturesque crescent-shaped beach famed for its golden sand, clear waters, and lively beachfront cafes. It is ideal for swimming, snorkeling, and relaxing by the Indian Ocean.",
-    "images": ["/images/pois/una_1.png", "/images/pois/una.png"],
+    "images": ["/images/pois/una_1.jpg", "/images/pois/una.jpg"],
     "imageAlt": "Unawatuna Beach",
     "exploreLink": "/explore/unawatuna",
     "districtName": "Galle"
@@ -252,7 +252,7 @@
     "coordinates": [80.887, 6.023],
     "iconUrl": "/images/icons/beach.png",
     "description": "Tangalle offers long stretches of unspoiled coastline and a tranquil atmosphere. Visitors enjoy quiet beaches, nearby turtle conservation sites, and scenic sunsets.",
-    "images": ["/images/pois/tangalle_1.png", "/images/pois/tangalle_2.png"],
+    "images": ["/images/pois/tangalle_1.jpg", "/images/pois/tangalle_2.jpg"],
     "imageAlt": "Tangalle Beach",
     "exploreLink": "/explore/tangalle",
     "districtName": "Hambantota"
@@ -264,7 +264,7 @@
     "coordinates": [80.698, 5.963],
     "iconUrl": "/images/icons/beach.png",
     "description": "Hiriketiya, or Hiri Beach, is a small horseshoe bay popular with surfers and travelers seeking a laid-back vibe. The beach is great for swimming, surfing, and enjoying local cafes.",
-    "images": ["/images/pois/hiri_1.png", "/images/pois/hiri_2.png"],
+    "images": ["/images/pois/hiri_1.jpg", "/images/pois/hiri_2.jpg"],
     "imageAlt": "Hiriketiya Beach",
     "exploreLink": "/explore/hiriketiya",
     "districtName": "Matara"
@@ -276,7 +276,7 @@
     "coordinates": [81.288, 6.183],
     "iconUrl": "/images/icons/beach.png",
     "description": "Kirinda is known for its scenic shoreline and the historic temple perched on a rock overlooking the sea. It serves as a gateway to Yala National Park and offers sweeping ocean views.",
-    "images": ["/images/pois/kirinda_1.png", "/images/pois/kirinda_2.png"],
+    "images": ["/images/pois/kirinda_1.jpg", "/images/pois/kirinda_2.jpg"],
     "imageAlt": "Kirinda Beach",
     "exploreLink": "/explore/kirinda",
     "districtName": "Hambantota"
@@ -288,7 +288,7 @@
     "coordinates": [80.505, 6.0],
     "iconUrl": "/images/icons/beach.png",
     "description": "Thalpe is a peaceful beach area near Unawatuna, famous for its natural rock pools and laid-back atmosphere. It's an excellent spot for swimming and watching the sunset.",
-    "images": ["/images/pois/thalpe_1.png", "/images/pois/thalpe_2.png"],
+    "images": ["/images/pois/thalpe_1.jpg", "/images/pois/thalpe_2.jpg"],
     "imageAlt": "Thalpe Beach",
     "exploreLink": "/explore/thalpe",
     "districtName": "Galle"
@@ -300,7 +300,7 @@
     "coordinates": [80.032, 6.252],
     "iconUrl": "/images/icons/turtle.png",
     "description": "The Kosgoda Turtle Hatchery works to protect and rehabilitate sea turtles. Visitors can learn about conservation efforts and see different turtle species up close.",
-    "images": ["/images/pois/kosgoda.png", "/images/pois/kosgoda_2.png"],
+    "images": ["/images/pois/kosgoda.jpg", "/images/pois/kosgoda_2.jpg"],
     "imageAlt": "Kosgoda Turtle Hatchery",
     "exploreLink": "/explore/kosgoda",
     "districtName": "Galle"
@@ -312,7 +312,7 @@
     "coordinates": [81.282, 5.885],
     "iconUrl": "/images/icons/weligama.png",
     "description": "Weligama Beach is famous for its stilt fishermen and golden sands. It is a great spot for surfing, swimming, and enjoying fresh seafood at beachside restaurants.",
-    "images": ["/images/pois/weligama_1.png", "/images/pois/weligama_2.png"],
+    "images": ["/images/pois/weligama_1.jpg", "/images/pois/weligama_2.jpg"],
     "imageAlt": "Weligama Beach",
     "exploreLink": "/explore/weligama",
     "districtName": "Matara"

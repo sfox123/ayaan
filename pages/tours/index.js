@@ -10,10 +10,10 @@ export default function Tours() {
     <Layout
       title="Private round-island tours"
       description="Private 5, 7, 9 and 14-day tours of Sri Lanka with your own driver-guide. Every route can be changed day by day."
-      image="/images/pois/ella_2.png"
+      image="/images/pois/ella_2.jpg"
     >
       <PageHero
-        image="/images/pois/ella_2.png"
+        image="/images/pois/ella_2.jpg"
         alt="Sunrise over the ridge at Ella"
         kicker="Round-island tours"
         title={["Fourteen routes,", "one island"]}
@@ -41,7 +41,7 @@ export default function Tours() {
         </div>
       </section>
 
-      <ClosingCta image="/images/pois/trinco_2.png" />
+      <ClosingCta image="/images/pois/trinco_2.jpg" />
     </Layout>
   );
 }

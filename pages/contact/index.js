@@ -13,8 +13,8 @@ const Row = ({ label, children }) => (
 
 export default function Contact() {
   return (
-    <Layout title="Contact" description="WhatsApp, call or email Ayaan Tours in Kandy, Sri Lanka." image="/images/pois/kandy_1.png">
-      <PageHero image="/images/pois/hiri_1.png" alt="Aerial view of Hiriketiya bay" kicker="Contact" title={["Say hello"]} intro="WhatsApp is the fastest way to reach us. Email works too." />
+    <Layout title="Contact" description="WhatsApp, call or email Ayaan Tours in Kandy, Sri Lanka." image="/images/pois/kandy_1.jpg">
+      <PageHero image="/images/pois/hiri_1.jpg" alt="Aerial view of Hiriketiya bay" kicker="Contact" title={["Say hello"]} intro="WhatsApp is the fastest way to reach us. Email works too." />
 
       <section className="wrap grid gap-16 py-24 sm:py-32 lg:grid-cols-[1fr_1.3fr] lg:gap-24">
         <div>

@@ -12,10 +12,10 @@ export default function Camping() {
     <Layout
       title="Safari camping in Yala, Kumana and Wilpattu"
       description="Two or three nights in a tented camp beside Yala, Kumana or Wilpattu national park, with game drives, meals and transport from anywhere in Sri Lanka."
-      image="/images/pois/yala_1.png"
+      image="/images/pois/yala_1.jpg"
     >
       <PageHero
-        image="/images/pois/yala_1.png"
+        image="/images/pois/yala_1.jpg"
         alt="Safari jeep and elephant on a dirt track in Yala"
         kicker="Safari camping"
         title={["Nights by the fire,", "mornings with leopards"]}

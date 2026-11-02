@@ -71,8 +71,8 @@ export default function Gallery() {
   const current = open !== null ? photos[open] : null;
 
   return (
-    <Layout title="Gallery" description="Photos from around Sri Lanka: Sigiriya, Ella, Yala, Kandy, the south coast and more." image="/images/pois/kalpitiya_1.png">
-      <PageHero image="/images/pois/kalpitiya_1.png" alt="Outrigger sailing boat on the beach at Kalpitiya" kicker="Gallery" title={["The island,", "in pictures"]} />
+    <Layout title="Gallery" description="Photos from around Sri Lanka: Sigiriya, Ella, Yala, Kandy, the south coast and more." image="/images/pois/kalpitiya_1.jpg">
+      <PageHero image="/images/pois/kalpitiya_1.jpg" alt="Outrigger sailing boat on the beach at Kalpitiya" kicker="Gallery" title={["The island,", "in pictures"]} />
 
       <section className="wrap py-20 sm:py-28">
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">

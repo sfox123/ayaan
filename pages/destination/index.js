@@ -7,9 +7,9 @@ import { destinations } from "../../lib/content";
 
 export default function Destinations() {
   return (
-    <Layout title="Destinations" description="Kandy, Sigiriya, Ella, Galle and more: the places we take guests every week, and what to see in each." image="/images/pois/anuradhapura_1.png">
+    <Layout title="Destinations" description="Kandy, Sigiriya, Ella, Galle and more: the places we take guests every week, and what to see in each." image="/images/pois/anuradhapura_1.jpg">
       <PageHero
-        image="/images/pois/anuradhapura_1.png"
+        image="/images/pois/anuradhapura_1.jpg"
         alt="Jetavanaramaya dagoba in Anuradhapura"
         kicker="Destinations"
         title={["Ancient cities, tea hills", "and a long warm coast"]}
@@ -36,7 +36,7 @@ export default function Destinations() {
         </div>
       </section>
 
-      <ClosingCta image="/images/pois/thalpe_2.png" lines={["Can't choose?", "Tell us what you like."]} />
+      <ClosingCta image="/images/pois/thalpe_2.jpg" lines={["Can't choose?", "Tell us what you like."]} />
     </Layout>
   );
 }

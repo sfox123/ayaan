@@ -5,9 +5,9 @@ import { cities } from "../../lib/content";
 
 export default function CityTours() {
   return (
-    <Layout title="Day trips and city tours" description="City tours and full-day trips from Kandy, Colombo, Galle, Sigiriya and more, with a private driver." image="/images/pois/kandy_1.png">
+    <Layout title="Day trips and city tours" description="City tours and full-day trips from Kandy, Colombo, Galle, Sigiriya and more, with a private driver." image="/images/pois/kandy_1.jpg">
       <PageHero
-        image="/images/pois/kandy_1.png"
+        image="/images/pois/kandy_1.jpg"
         alt="Queen's Hotel on a Kandy street"
         kicker="Day trips"
         title={["One day,", "done properly"]}
